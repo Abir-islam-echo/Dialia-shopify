@@ -434,7 +434,7 @@ html {
 }
 
 body {
-  overflow: hidden !important;
+  overflow: hidden;
   font-size: 14px;
   line-height: 24px;
   -webkit-font-smoothing: antialiased;
