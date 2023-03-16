@@ -9,20 +9,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <!-- Header hook for plugins -->
     {{ content_for_header }}
-    <link rel="apple-touch-icon" href="assets/images/favicon.png">
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ "favicon.png" | asset_url }}">
+    <link rel="shortcut icon" href="{{ "favicon.ico" | asset_url }}">
 
     <!-- Google Font (font-family: 'Open Sans', sans-serif;) -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
     <!-- Google Font (font-family: 'Poppins', sans-serif;) -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{ "bootstrap.min.css" | asset_url | stylesheet_tag }}" >
-    <link rel="stylesheet" href="{{ "plugins.css" | asset_url | stylesheet_tag }}" >
-    <link rel="stylesheet" href="{{ "style.css" | asset_url | stylesheet_tag }}" >
-    <link rel="stylesheet" href="{{ "custom.css" | asset_url | stylesheet_tag }}" >
+    <link rel="stylesheet" href="{{ "bootstrap.min.css" | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ "plugins.css" | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ "style.css" | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ "custom.css" | asset_url }}" media="print" onload="this.media='all'">
   </head>
   <body>
-<!--     {% section 'announcement-bar' %} -->
+    <!-- {% section 'announcement-bar' %} -->
     {% section 'header' %}
     <main role="main">{{ content_for_layout }}</main>
   </body>
