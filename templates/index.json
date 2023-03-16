@@ -1,12 +1,12 @@
 {
   "sections": {
-    "content_for_header": {
+    "header": {
       "type": "header",
       "settings": {
       }
     }
   },
   "order": [
-    "content_for_header"
+    "header"
   ]
 }
