@@ -1,12 +1,12 @@
 {
   "sections": {
-    "main": {
+    "content_for_header": {
       "type": "header",
       "settings": {
       }
     }
   },
   "order": [
-    "main"
+    "content_for_header"
   ]
 }
