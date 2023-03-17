@@ -10,7 +10,7 @@
             <nav class="tm-navigation">
                 <ul>
                 {% for link in linklists.main-menu.links -%}
-                    <li {% if link.links.size > 0 and link.links.size < 8 %} {{ megamenu }}  {% endif %}>
+                    <li {% if link.links.size > 0 and link.links.size < 8 %} class={{ megamenu }} {% endif %}>
                         {{ link.title | link_to: link.url }} 
                         {% if link.links.size > 0 %}
                           <ul>
