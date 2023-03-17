@@ -9,10 +9,16 @@
       "type": "hero-slider",
       "settings": {
       }
+    },
+    "feature-section": {
+      "type": "feature-section",
+      "settings": {
+      }
     }
   },
   "order": [
     "dynamic-column",
-    "hero-slider"
+    "hero-slider",
+    "feature-section"
   ]
 }
