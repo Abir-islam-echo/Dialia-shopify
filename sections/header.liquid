@@ -10,8 +10,7 @@
                 <ul>
                 {% for link in linklists.main-menu.links -%}
                     <li class="tm-navigation-dropdown">
-                        {{ link.title | link_to: link.url }}
-                        
+                        {{ link.title | link_to: link.url }}    
                     </li>
                 {%- endfor %}
                 </ul>
