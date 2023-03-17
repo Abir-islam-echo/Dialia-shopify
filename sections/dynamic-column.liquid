@@ -1,12 +1,527 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<div class="multicolumn-section-{{ section.id }}">
+  <div class="container-{{ section.id }}">
+    <div class="content-wrapper-{{ section.id }}">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'text-column' %}
+            <div class="column-for-text-{{ block.id }} column-{{ block.id }}">
+              <div class="column-text-{{ block.id }}">
+                <span class="text-column-heading-{{ block.id }}">
+                  {{
+                    block.settings['heading-text']
+                    | replace: '<p', "<span class='new-line'"
+                    | replace: '</p', '</span'
+                  }}
+                </span>
+                {{ block.settings.text | replace: '<p', "<span class='new-line'" | replace: '</p', '</span' }}
+              </div>
+            </div>
+          {% when 'image-column' %}
+            <div class="image-content-wrapper-{{ block.id }} column-{{ block.id }}">
+              <div class="column-for-image-{{ block.id }}">
+                <div class="column-image-{{ block.id }}">
+                  <img src="{{ block.settings.image | img_url: "master" }}" alt="Image">
+                </div>
+              </div>
+              <div class="image-caption-{{ block.id }}">
+                {{
+                  block.settings['caption-text']
+                  | replace: '<p', "<span class='new-line'"
+                  | replace: '</p', '</span'
+                }}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+  .container-{{ section.id }}{
+    max-width: {{ section.settings.section-width }};
+    margin: {{ section.settings.top-margin }}px auto {{ section.settings.bottom-margin }}px auto;
+    padding: {{ section.settings.section-padding }}px;
+    text-align: {{ section.settings.content-position }};
+    background-color: {{ section.settings.background_color }};
+  }
+
+
+
+  .content-wrapper-{{ section.id }}{
+    display: flex;
+    flex-wrap: wrap;
+    gap: {{ section.settings.column-gap }}px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top;
+
+  }
+  @media only screen and (max-width:600px){
+    .container-{{ section.id }}{
+      padding:0 10px 0 10px;
+    }
+    .content-wrapper-{{ section.id }}{
+      flex-direction: column;
+    }
+  }
+
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when "text-column" or "image-column" %}
+      .column-{{ block.id }}{
+        flex: 1;
+        min-width: 40%;
+        max-width: {{ block.settings.column-width }};
+      }
+
+
+
+      .column-for-text-{{ block.id }}, .column-for-image-{{ block.id }}{
+        padding: {{ block.settings.column_y_padding }}px {{ block.settings.column_x_padding }}px {{ block.settings.column_y_padding }}px {{ block.settings.column_x_padding }}px;
+        background-color: {{ block.settings.background_color }};
+        height: {{ section.settings.column-height }};
+      }
+
+      .column-image-{{ block.id }}{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+      .column-text-{{ block.id }}, .image-caption-{{ block.id }}{
+        font-size: {{ block.settings.font_size }}px;
+        color: {{ block.settings.text_color }};
+        font-family: {{ block.settings.font_family }};
+        line-height: {{ block.settings.line_height }}px;
+        letter-spacing: 0;
+      }
+      .text-column-heading-{{ block.id }}{
+        font-size: {{ block.settings.heading_font_size }}px;
+        color: {{ block.settings.heading_text_color }};
+        font-family: {{ block.settings.heading_font_family }};
+        line-height: {{ block.settings.heading_line_height }}px;
+        letter-spacing: 0;
+      }
+      {% if block.settings.heading-checkbox == false %}
+        .text-column-heading-{{ block.id }}{
+          display:none;
+        }
+      {% endif %}
+      .image-caption-{{ block.id }} a{
+        color: {{ block.settings.text_color }};
+      }
+      {% if block.settings.caption-visible == false %}
+        .image-caption-{{ block.id }}{
+          display: none;
+        }
+      {% endif %}
+      .new-line {
+        display: block;
+        min-height: {{ block.settings.line_height }}px;
+      }
+      @media only screen and (max-width:600px){
+        .column-{{ block.id }}{
+          max-width:100%;
+          flex:auto;
+        }
+        .column-for-text-{{ block.id }}{
+          padding: 25px;
+          height: fit-content;
+        }
+        .column-for-image-{{ block.id }}{
+          height: fit-content;
+        }
+
+      }
+
+    {% endcase %}
+  {% endfor %}
+</style>
+
+{% schema %}
+{
+  "name": "Multi column contents",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "section-width",
+      "label": "width",
+      "type": "select",
+      "options": [
+        {
+          "value": "100%",
+          "label": "Large (full width)"
+        },
+        {
+          "value": "967px",
+          "label": "Medium"
+        },
+        {
+          "value": "600px",
+          "label": "Small"
+        }
+      ],
+      "default": "600px"
+    },
+    {
+      "id": "content-position",
+      "label": "content position",
+      "type": "select",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "section-padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 200,
+      "unit": "px",
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "column-gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F2F2F2"
+    },
+    {
+      "id": "column-height",
+      "label": "Column height",
+      "type": "select",
+      "options": [
+        {
+          "value": "375px",
+          "label": "Small"
+        },
+        {
+          "value": "605px",
+          "label": "Medium"
+        },
+        {
+          "value": "730px",
+          "label": "Large"
+        },
+        {
+          "value": "832px",
+          "label": "Extra Large"
+        },
+        {
+          "value": "fit-content",
+          "label": "Fit Content"
+        }
+      ],
+      "default": "375px"
+    },
+    {
+      "type": "range",
+      "id": "top-margin",
+      "label": "Top margin",
+      "min": 0,
+      "max": 200,
+      "unit": "px",
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "bottom-margin",
+      "label": "Bottom margin",
+      "min": 0,
+      "max": 200,
+      "unit": "px",
+      "step": 2,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Text",
+      "type": "text-column",
+      "settings": [
+        {
+          "type": "range",
+          "id": "column_y_padding",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Padding (top & bottom)",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "column_x_padding",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Padding (left & right)",
+          "default": 0
+        },
+        {
+          "id": "column-width",
+          "label": "Column Width",
+          "type": "select",
+          "options": [
+            {
+              "value": "100%",
+              "label": "Full"
+            },
+            {
+              "value": "50%",
+              "label": "Half"
+            },
+            {
+              "value": "60%",
+              "label": "Two/Third"
+            },
+            {
+              "value": "40%",
+              "label": "One/Third"
+            }
+          ],
+          "default": "50%"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading-checkbox",
+          "default": false,
+          "label": "Enable Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "heading-text",
+          "default": "<p><b>Heading</b></p>",
+          "label": "Heading"
+        },
+        {
+          "type": "font",
+          "id": "heading_font_family",
+          "label": "Heading Font"
+        },
+        {
+          "type": "color",
+          "id": "heading_text_color",
+          "label": "Heading Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "heading_font_size",
+          "min": 12,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "Heading size",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "heading_line_height",
+          "min": 8,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Heading Line Height",
+          "default": 16
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Description</p>",
+          "label": "Description"
+        },
+        {
+          "type": "font",
+          "id": "font_family",
+          "label": "Font Family"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color",
+          "default": "#F2F2F2"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 12,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "min": 8,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Line Height",
+          "default": 16
+        }
+      ]
+    },
+    {
+      "name": "Image",
+      "type": "image-column",
+      "settings": [
+        {
+          "type": "range",
+          "id": "column_y_padding",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Padding (top & bottom)",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "column_x_padding",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Padding (left & right)",
+          "default": 0
+        },
+        {
+          "id": "column-width",
+          "label": "Column Width",
+          "type": "select",
+          "options": [
+            {
+              "value": "100%",
+              "label": "Full"
+            },
+            {
+              "value": "50%",
+              "label": "Half"
+            },
+            {
+              "value": "60%",
+              "label": "Two/Third"
+            },
+            {
+              "value": "40%",
+              "label": "One/Third"
+            }
+          ],
+          "default": "50%"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color",
+          "default": "#F2F2F2"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption-visible",
+          "label": "Caption",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "caption-text",
+          "default": "<p>Caption</p>",
+          "label": "Caption Text"
+        },
+        {
+          "type": "font",
+          "id": "font_family",
+          "label": "Font Family"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 12,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "min": 8,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Line Height",
+          "default": 16
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-column-contents",
+      "blocks": [
+        {
+          "type": "text-column"
+        },
+        {
+          "type": "image-column"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
