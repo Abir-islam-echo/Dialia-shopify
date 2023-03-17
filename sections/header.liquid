@@ -1,4 +1,5 @@
-<div class="header-bottomarea navbar-{{ section.id }}">
+{% assign megamenu = "tm-navigation-dropdown" %}
+ <div class="header-bottomarea navbar-{{ section.id }}">
     <div class="container">
         <div class="header-bottominner">
             <div class="header-logo">
@@ -9,7 +10,7 @@
             <nav class="tm-navigation">
                 <ul>
                 {% for link in linklists.main-menu.links -%}
-                    <li {% if link.links.size > 0 and link.links.size < 8 %} class="tm-navigation-dropdown" {% elsif link.links.links.size >= 8  %} class="tm-navigation-megamenu overflow-element"  {% endif %}>
+                    <li {% if link.links.size > 0 and link.links.size < 8 %} {{ megamenu }}  {% endif %}>
                         {{ link.title | link_to: link.url }} 
                         {% if link.links.size > 0 %}
                           <ul>
