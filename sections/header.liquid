@@ -8,6 +8,16 @@
             </div>
             <nav class="tm-navigation">
                 <ul>
+                {% for link in linklists.main-menu.links -%}
+                    <li class="tm-navigation-dropdown">
+                        {{ link.title | link_to: link.url }}
+                        <ul>
+                            {% for child_link in link.links %}
+                                <li>{{ child_link.title | link_to: child_link.url }}</li>
+                            {%endfor %}
+                        </ul>
+                    </li>
+                {%- endfor %}
                     <li class="tm-navigation-dropdown"><a href="index.html">Home</a>
                         <ul>
                             <li><a href="index.html">Home Default Version</a></li>
@@ -114,3 +124,16 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+{% schema %}
+    {
+        "name": "Navbar",
+        "tag": "section"
+    }
+{% endschema %}
