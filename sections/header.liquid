@@ -8,7 +8,7 @@
             </div>
             <nav class="tm-navigation">
                 <ul>
-                {% for link in linklists.main-menu.links -%}
+                {% for link in linklists.menu.links -%}
                     <li class="tm-navigation-dropdown">
                         {{ link.title | link_to: link.url }}    
                     </li>
