@@ -1,10 +1,5 @@
 {
   "sections": {
-    "dynamic-column": {
-      "type": "dynamic-column",
-      "settings": {
-      }
-    },
     "hero-slider": {
       "type": "hero-slider",
       "settings": {
@@ -14,11 +9,65 @@
       "type": "feature-section",
       "settings": {
       }
+    },
+    "1cd93114-c191-4096-ad10-fd92d667586b": {
+      "type": "dynamic-column",
+      "blocks": {
+        "template--18264668307732__1cd93114-c191-4096-ad10-fd92d667586b-16790684777cd86a6d-0": {
+          "type": "text-column",
+          "settings": {
+            "column_y_padding": 0,
+            "column_x_padding": 0,
+            "column-width": "50%",
+            "heading-checkbox": false,
+            "heading-text": "<p><b>Heading<\/b><\/p>",
+            "heading_font_family": "",
+            "heading_text_color": "#000000",
+            "heading_font_size": 16,
+            "heading_line_height": 16,
+            "text": "<p>Description<\/p>",
+            "font_family": "",
+            "background_color": "#F2F2F2",
+            "text_color": "#000000",
+            "font_size": 16,
+            "line_height": 16
+          }
+        },
+        "template--18264668307732__1cd93114-c191-4096-ad10-fd92d667586b-16790684777cd86a6d-1": {
+          "type": "image-column",
+          "settings": {
+            "column_y_padding": 0,
+            "column_x_padding": 0,
+            "column-width": "50%",
+            "background_color": "#F2F2F2",
+            "caption-visible": true,
+            "caption-text": "<p>Caption<\/p>",
+            "font_family": "",
+            "text_color": "#000000",
+            "font_size": 16,
+            "line_height": 16
+          }
+        }
+      },
+      "block_order": [
+        "template--18264668307732__1cd93114-c191-4096-ad10-fd92d667586b-16790684777cd86a6d-0",
+        "template--18264668307732__1cd93114-c191-4096-ad10-fd92d667586b-16790684777cd86a6d-1"
+      ],
+      "settings": {
+        "section-width": "600px",
+        "content-position": "center",
+        "section-padding": 0,
+        "column-gap": 0,
+        "background_color": "#F2F2F2",
+        "column-height": "375px",
+        "top-margin": 0,
+        "bottom-margin": 0
+      }
     }
   },
   "order": [
-    "dynamic-column",
     "hero-slider",
-    "feature-section"
+    "feature-section",
+    "1cd93114-c191-4096-ad10-fd92d667586b"
   ]
 }
