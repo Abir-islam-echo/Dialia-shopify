@@ -4,9 +4,15 @@
       "type": "dynamic-column",
       "settings": {
       }
+    },
+    "hero-slider": {
+      "type": "hero-slider",
+      "settings": {
+      }
     }
   },
   "order": [
-    "dynamic-column"
+    "dynamic-column",
+    "hero-slider"
   ]
 }
