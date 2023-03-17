@@ -14,7 +14,7 @@
                         {% if link.links.size > 0 %}
                           <ul>
                             {% for child_link in link.links %}
-                              <li>{{ child_link.title | link_to: child_link.url }} </li>
+                              <li>{{ child_link.title | link_to: child_link.url }}
                                 {% if child_link.links.size > 0 %}
                                   <ul>
                                     {% for grandchild_link in child_link.links %}
@@ -22,6 +22,7 @@
                                     {% endfor %}
                                   </ul>
                                 {% endif %}
+                               </li>
                             {% endfor %}
                           </ul>
                         {% endif %}
