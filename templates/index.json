@@ -1,12 +1,12 @@
 {
   "sections": {
-    "Announcement_bar": {
-      "type": "Announcement_bar",
+    "dynamic-column": {
+      "type": "dynamic-column",
       "settings": {
       }
     }
   },
   "order": [
-    "Announcement_bar"
+    "dynamic-column"
   ]
 }
