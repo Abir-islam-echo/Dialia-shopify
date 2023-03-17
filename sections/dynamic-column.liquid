@@ -1,5 +1,9 @@
 <div class="multicolumn-section-{{ section.id }}">
   <div class="container-{{ section.id }}">
+    <!-- Main menu -->
+{% for link in linklists.main-menu.links -%}
+  {{ link.title | link_to: link.url }}
+{%- endfor %}
     <div class="content-wrapper-{{ section.id }}">
       {% for block in section.blocks %}
         {% case block.type %}
