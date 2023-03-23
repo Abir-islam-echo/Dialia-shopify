@@ -85,9 +85,9 @@
 {% endschema %}
 
 {%- style -%}
-    {% for block in section.blocks %}}
+    {%- for block in section.blocks -%}
         {% case block.type %}
-        {% when "text" %}
+          {% when 'text' %}
             .{{ block.id }}-email,.{{ block.id }}-phone{
             color:{{ block.settings.text-color }} !important;
             font-size:{{ block.settings.font-size }}px;
