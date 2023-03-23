@@ -85,6 +85,9 @@
 {% endschema %}
 
 {%- style -%}
+  *{
+    margin:0 !important;
+  }
     {%- for block in section.blocks -%}
         {% case block.type %}
           {% when 'text' %}
