@@ -1,34 +1,136 @@
 <!-- Header Top Area -->
 <div class="header-toparea Announcement-{{ section.id }}">
-    <div class="container">
-        <div class="row align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      {%- for block in section.blocks -%}
+        {% case block.type %}
+          {% when 'text' %}
             <div class="col-md-7 col-sm-6 col-12">
-                <div class="header-topinfo">
-                    <ul>
-                        <li>Email us : <a href="mailto://contact@example.com">contact@example.com</a></li>
-                        <li>Call us : <a href="tel://+1-800-915-6270">1-800-915-6270</a></li>
-                    </ul>
-                </div>
+              <div class="header-topinfo">
+                <ul>
+                  <li>
+                    Email us :
+                    <a class="email-{{ block.id }}" href="{{- block.settings['topbar-email-text'] -}}">
+                      {{- block.settings['topbar-email-text'] -}}
+                    </a>
+                  </li>
+                  <li>
+                    Call us :
+                    <a class="phone{{ block.id }}" href="{{- block.settings['topbar-phone-text'] -}}">
+                      {{- block.settings['topbar-phone-text'] -}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
+          {% when 'button' %}
             <div class="col-md-5 col-sm-6 col-12">
-                <div class="header-topbutton">
-                    <a href="#" class="tm-button tm-button-white">Book an Appointment</a>
-                </div>
+              <div class="header-topbutton">
+                <a href="#" class="tm-button tm-button-white {{ block.id }}-button">
+                  {{- block.settings['button-text'] -}}
+                </a>
+              </div>
             </div>
-        </div>
+        {% endcase %}
+      {%- endfor -%}
     </div>
+  </div>
 </div>
 
+{%- style -%}
+  {%- for block in section.blocks -%}
+      {% case block.type %}
+        {% when 'text' %}
+          .email-{{ block.id }},.phone{{ block.id }}{
+              color:{{ block.settings.text-color }} !important;
+              font-size:{{ block.settings.font-size }}px;
+              font-family:{{ block.settings.topbar-font }};
+          }
+          .email-{{ block.id }} p,.phone{{ block.id }} p{
+              display: contents !important;
+          }
+        {% when 'button' %}
+          .{{ block.id }}-button{
+                font-size:{{ block.settings.button-font-size }}px !important;
+                font-family:{{ block.settings.button-font }} !important;
+            }
+
+      {% endcase %}
+  {% endfor %}
+{%- endstyle -%}
 
 {% schema %}
-  {
-    "name": "Announcement bar",
-    "settings": []
-  }
+{
+  "name": "Announcement bar",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "topbar-email-text",
+          "label": "email",
+          "default": "<p>contact@example.com</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "topbar-phone-text",
+          "label": "Phone",
+          "default": "<p>1-800-915-6270</p>"
+        },
+        {
+          "type": "font",
+          "id": "topbar-font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "button",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "button-text",
+          "label": "email",
+          "default": "<p>Book an Appointment</p>"
+        },
+        {
+          "type": "font",
+          "id": "button-font",
+          "label": "Font style"
+        },
+        {
+          "type": "range",
+          "id": "button-font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
