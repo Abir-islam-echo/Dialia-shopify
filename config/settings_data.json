@@ -1,1 +1,43 @@
-{"current":{}}
+{
+  "current": {
+    "sections": {
+      "Announcement_bar": {
+        "type": "Announcement_bar",
+        "blocks": {
+          "8eb64753-38eb-4028-862c-0228efd0b650": {
+            "type": "text",
+            "settings": {
+              "topbar-email-text": "<p>contact@example.com<\/p>",
+              "topbar-phone-text": "<p>1-800-915-6270<\/p>",
+              "topbar-font": "Trebuchet MS, sans-serif",
+              "text-color": "#fff",
+              "font-size": 14
+            }
+          },
+          "da166219-b975-4362-a18e-8db8e2c3e9e8": {
+            "type": "button",
+            "settings": {
+              "button-text": "<p>Book an Appointment<\/p>",
+              "button-font": "Trebuchet MS, sans-serif",
+              "button-font-size": 16
+            }
+          }
+        },
+        "block_order": [
+          "8eb64753-38eb-4028-862c-0228efd0b650",
+          "da166219-b975-4362-a18e-8db8e2c3e9e8"
+        ],
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}
