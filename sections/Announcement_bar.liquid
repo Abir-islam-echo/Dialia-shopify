@@ -57,13 +57,18 @@
 {% endschema %}
 
 
-{% style %}
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
   .{{ section.id }}-email,{{ section.id }}-phone{
       color:{{ section.settings.text-color }};
       font-size:{{ section.settings.font-size }};
       font-family:{{ section.settings.topbar-font }};
   }
-{% endstyle %}
+<style>
 
 {% javascript %}
 {% endjavascript %}
