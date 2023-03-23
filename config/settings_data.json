@@ -3,10 +3,22 @@
     "sections": {
       "Announcement_bar": {
         "type": "Announcement_bar",
+        "blocks": {
+          "8eb64753-38eb-4028-862c-0228efd0b650": {
+            "type": "text",
+            "settings": {
+              "topbar-email-text": "<p>contact@example.com<\/p>",
+              "topbar-phone-text": "<p>1-800-915-6270<\/p>",
+              "topbar-font": "Helvetica, Arial, sans-serif",
+              "text-color": "#dc3333",
+              "font-size": 14
+            }
+          }
+        },
+        "block_order": [
+          "8eb64753-38eb-4028-862c-0228efd0b650"
+        ],
         "settings": {
-          "topbar-email-text": "<p>contact@example.com<\/p>",
-          "text-color": "#ffffff",
-          "font-size": 14
         }
       },
       "header": {
