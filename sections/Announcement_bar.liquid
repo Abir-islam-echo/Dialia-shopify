@@ -10,13 +10,13 @@
                 <ul>
                   <li>
                     Email us :
-                    <a class="{{ block.id }}-email" href="mailto://contact@example.com">
+                    <a class="{{ block.id }}-email" href="{{- block.settings['topbar-email-text'] -}}">
                       {{- block.settings['topbar-email-text'] -}}
                     </a>
                   </li>
                   <li>
                     Call us :
-                    <a class="{{ block.id }}-phone" href="tel://+1-800-915-6270">
+                    <a class="{{ block.id }}-phone" href="{{- block.settings['topbar-phone-text'] -}}">
                       {{- block.settings['topbar-phone-text'] -}}
                     </a>
                   </li>
@@ -37,7 +37,30 @@
   </div>
 </div>
 
-{%- style -%}
+
+<style>
+    {%- for block in section.blocks -%}
+        {% case block.type %}
+          {% when 'text' %}
+            .{{ block.id }}-email,.{{ block.id }}-phone{
+                color:{{ block.settings.text-color }} !important;
+                font-size:{{ block.settings.font-size }}px;
+                font-family:{{ block.settings.topbar-font }};
+            }
+            .{{ block.id }}-email p,.{{ block.id }}-phone p{
+                display: contents !important;
+            }
+          {% when 'button' %}
+            .{{ block.id }}-button{
+                  font-size:{{ block.settings.button-font-size }}px !important;
+                  font-family:{{ block.settings.button-font }} !important;
+              }
+  
+        {% endcase %}
+    {% endfor %}
+</style>
+
+{% comment %} {%- style -%}
   {%- for block in section.blocks -%}
       {% case block.type %}
         {% when 'text' %}
@@ -57,7 +80,7 @@
 
       {% endcase %}
   {% endfor %}
-{%- endstyle -%}
+{%- endstyle -%} {% endcomment %}
 
 {% schema %}
 {
