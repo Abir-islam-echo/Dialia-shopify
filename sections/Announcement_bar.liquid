@@ -78,12 +78,17 @@
 {% endschema %}
 
 {%- style -%}
-  .{{ block.id }}-email,.{{ block.id }}-phone{
-      color:{{ section.settings.text-color }} !important;
-      font-size:{{ section.settings.font-size }}px;
-      font-family:{{ section.settings.topbar-font }};
-  }
-  .{{ block.id }}-email p,.{{ block.id }}-phone p{
-      display: contents !important;
-  }
+    {% for block in section.blocks %}}
+        {% case block.type %}
+        {% when "text" %}
+            .{{ block.id }}-email,.{{ block.id }}-phone{
+            color:{{ section.settings.text-color }} !important;
+            font-size:{{ section.settings.font-size }}px;
+            font-family:{{ section.settings.topbar-font }};
+            }
+            .{{ block.id }}-email p,.{{ block.id }}-phone p{
+                display: contents !important;
+            }
+        {% endcase %}
+    {% endfor %}
 {%- endstyle -%}
