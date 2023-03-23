@@ -23,10 +23,10 @@
                 </ul>
               </div>
             </div>
-          {% when 'text' %}
+          {% when 'button' %}
             <div class="col-md-5 col-sm-6 col-12">
               <div class="header-topbutton">
-                <a href="#" class="tm-button tm-button-white">Book an Appointment</a>
+                <a class="{{ block.id }}-button" href="#" class="tm-button tm-button-white">Book an Appointment</a>
               </div>
             </div>
         {% endcase %}
@@ -44,6 +44,45 @@
     {
       "type": "text",
       "name": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "topbar-email-text",
+          "label": "email",
+          "default": "<p>contact@example.com</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "topbar-phone-text",
+          "label": "Phone",
+          "default": "<p>1-800-915-6270</p>"
+        },
+        {
+          "type": "font",
+          "id": "topbar-font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "button",
       "settings": [
         {
           "type": "richtext",
@@ -99,6 +138,8 @@
             .{{ block.id }}-email p,.{{ block.id }}-phone p{
                 display: contents !important;
             }
+          {% when 'button' %}
+          
         {% endcase %}
     {% endfor %}
 {%- endstyle -%}
