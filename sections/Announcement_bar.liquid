@@ -126,8 +126,8 @@
             }
           {% when 'button' %}
             .{{ block.id }}-button{
-              font-size:{{ block.settings.button-font-size }}px;
-              font-family:{{ block.settings.button-font }};
+                  font-size:{{ block.settings.button-font-size }}px !important;
+                  font-family:{{ block.settings.button-font }} !important;
               }
 
         {% endcase %}
