@@ -5,8 +5,8 @@
             <div class="col-md-7 col-sm-6 col-12">
                 <div class="header-topinfo">
                     <ul>
-                        <li>Email us : <a href="mailto://contact@example.com">{{ section.settings.topbar-email-text }}</a></li>
-                        <li>Call us : <a href="tel://+1-800-915-6270">1-800-915-6270</a></li>
+                        <li>Email us : <a class="{{ section.id }}-email" href="mailto://contact@example.com">{{ section.settings.topbar-email-text }}</a></li>
+                        <li>Call us : <a class="{{ section.id }}-phone" href="tel://+1-800-915-6270">1-800-915-6270</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,6 +58,9 @@
 
 
 {% stylesheet %}
+  .{{ section.id }}-email,{{ section.id }}-phone{
+      color:{{ section.settings.text-color }};
+  }
 {% endstylesheet %}
 
 {% javascript %}
