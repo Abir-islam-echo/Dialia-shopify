@@ -65,11 +65,9 @@
 {% endschema %}
 
 <script>
-  document.querySelectorAll('.tm-navigation-dropdown').forEach(e=>{
-    if(e.innerText=='Pages'){
-            console.log(e.innerText)
-        e.className= 'tm-navigation-megamenu overflow-element'
+  document.querySelectorAll('.tm-navigation-dropdown').forEach(target=>{
+    if(target.innerText=='Pages'){
+        target.className= 'tm-navigation-megamenu overflow-element'
     }
-
 })
 </script>
