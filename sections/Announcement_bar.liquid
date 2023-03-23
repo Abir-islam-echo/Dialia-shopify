@@ -88,7 +88,7 @@
     {% for block in section.blocks %}}
         {% case block.type %}
         {% when "text" %}
-            .{{ block.id }}-email p,.{{ block.id }}-phone p{
+            .{{ block.id }}-email,.{{ block.id }}-phone{
             color:{{ block.settings.text-color }} !important;
             font-size:{{ block.settings.font-size }}px;
             font-family:{{ block.settings.topbar-font }};
