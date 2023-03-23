@@ -10,7 +10,7 @@
                 <ul>
                   <li>
                     Email us :
-                    <a class="-email" href="{{- block.settings['topbar-email-text'] -}}">
+                    <a class="{{ block.id }}-email" href="{{- block.settings['topbar-email-text'] -}}">
                       {{- block.settings['topbar-email-text'] -}}
                     </a>
                   </li>
@@ -39,10 +39,7 @@
 
 
 <style>
-    {%- for block in section.blocks -%}
-        {% case block.type %}
-          {% when 'text' %}
-            .-email,
+              .{{ block.id }}-email,
           .{{ block.id }}-phone{
                 color:{{ block.settings.text-color }} !important;
                 font-size:{{ block.settings.font-size }}px;
@@ -51,6 +48,10 @@
             .{{ block.id }}-email p,.{{ block.id }}-phone p{
                 display: contents !important;
             }
+    {%- for block in section.blocks -%}
+        {% case block.type %}
+          {% when 'text' %}
+
           {% when 'button' %}
             .{{ block.id }}-button{
                   font-size:{{ block.settings.button-font-size }}px !important;
