@@ -10,7 +10,7 @@
                 <ul>
                   <li>
                     Email us :
-                    <a class="{{ block.id }}-email" href="{{- block.settings['topbar-email-text'] -}}">
+                    <a class="-email" href="{{- block.settings['topbar-email-text'] -}}">
                       {{- block.settings['topbar-email-text'] -}}
                     </a>
                   </li>
@@ -42,7 +42,8 @@
     {%- for block in section.blocks -%}
         {% case block.type %}
           {% when 'text' %}
-            .{{ block.id }}-email,.{{ block.id }}-phone{
+            .-email,
+          .{{ block.id }}-phone{
                 color:{{ block.settings.text-color }} !important;
                 font-size:{{ block.settings.font-size }}px;
                 font-family:{{ block.settings.topbar-font }};
