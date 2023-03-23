@@ -26,7 +26,9 @@
           {% when 'button' %}
             <div class="col-md-5 col-sm-6 col-12">
               <div class="header-topbutton">
-                <a href="#" class="tm-button tm-button-white {{ block.id }}-button">{{ block.settings.button-text }}</a>
+                <a href="#" class="tm-button tm-button-white {{ block.id }}-button">
+                  {{- block.settings['button-text'] -}}
+                </a>
               </div>
             </div>
         {% endcase %}
@@ -34,6 +36,28 @@
     </div>
   </div>
 </div>
+
+{%- style -%}
+  {%- for block in section.blocks -%}
+      {% case block.type %}
+        {% when 'text' %}
+          .{{ block.id }}-email,.{{ block.id }}-phone{
+              color:{{ block.settings.text-color }} !important;
+              font-size:{{ block.settings.font-size }}px;
+              font-family:{{ block.settings.topbar-font }};
+          }
+          .{{ block.id }}-email p,.{{ block.id }}-phone p{
+              display: contents !important;
+          }
+        {% when 'button' %}
+          .{{ block.id }}-button{
+                font-size:{{ block.settings.button-font-size }}px !important;
+                font-family:{{ block.settings.button-font }} !important;
+            }
+
+      {% endcase %}
+  {% endfor %}
+{%- endstyle -%}
 
 {% schema %}
 {
@@ -110,26 +134,3 @@
   ]
 }
 {% endschema %}
-
-{%- style -%}
-
-    {%- for block in section.blocks -%}
-        {% case block.type %}
-          {% when 'text' %}
-            .{{ block.id }}-email,.{{ block.id }}-phone{
-            color:{{ block.settings.text-color }} !important;
-            font-size:{{ block.settings.font-size }}px;
-            font-family:{{ block.settings.topbar-font }};
-            }
-            .{{ block.id }}-email p,.{{ block.id }}-phone p{
-                display: contents !important;
-            }
-          {% when 'button' %}
-            .{{ block.id }}-button{
-                  font-size:{{ block.settings.button-font-size }}px !important;
-                  font-family:{{ block.settings.button-font }} !important;
-              }
-
-        {% endcase %}
-    {% endfor %}
-{%- endstyle -%}
