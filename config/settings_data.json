@@ -5,7 +5,7 @@
         "type": "Announcement_bar",
         "settings": {
           "topbar-email-text": "<p>contact@example.com<\/p>",
-          "text-color": "#cb5959",
+          "text-color": "#8e2626",
           "font-size": 47
         }
       },
