@@ -1,29 +1,3 @@
-<style>
-      .abc
-  {
-    background-color: red !important;
-  }
-    {%- for block in section.blocks -%}
-        {% case block.type %}
-          {% when 'text' %}
-              .email-{{ block.id }}{
-                color:{{ block.settings.text-color }} !important;
-                font-size:{{ block.settings.font-size }}px;
-                font-family:{{ block.settings.topbar-font }};
-            }
-            .{{ block.id }}-email p,.{{ block.id }}-phone p{
-                display: contents !important;
-            }
-          {% when 'button' %}
-            .{{ block.id }}-button{
-                  font-size:{{ block.settings.button-font-size }}px !important;
-                  font-family:{{ block.settings.button-font }} !important;
-              }
-  
-        {% endcase %}
-    {% endfor %}
-</style>
-
 <!-- Header Top Area -->
 <div class="header-toparea Announcement-{{ section.id }}">
   <div class="container">
@@ -42,7 +16,7 @@
                   </li>
                   <li>
                     Call us :
-                    <a class="{{ block.id }}-phone" href="{{- block.settings['topbar-phone-text'] -}}">
+                    <a class="phone{{ block.id }}" href="{{- block.settings['topbar-phone-text'] -}}">
                       {{- block.settings['topbar-phone-text'] -}}
                     </a>
                   </li>
@@ -63,17 +37,16 @@
   </div>
 </div>
 
-
-{% comment %} {%- style -%}
+{%- style -%}
   {%- for block in section.blocks -%}
       {% case block.type %}
         {% when 'text' %}
-          .{{ block.id }}-email,.{{ block.id }}-phone{
+          .email-{{ block.id }},.phone{{ block.id }}{
               color:{{ block.settings.text-color }} !important;
               font-size:{{ block.settings.font-size }}px;
               font-family:{{ block.settings.topbar-font }};
           }
-          .{{ block.id }}-email p,.{{ block.id }}-phone p{
+          .email-{{ block.id }} p,.phone{{ block.id }} p{
               display: contents !important;
           }
         {% when 'button' %}
@@ -84,7 +57,7 @@
 
       {% endcase %}
   {% endfor %}
-{%- endstyle -%} {% endcomment %}
+{%- endstyle -%}
 
 {% schema %}
 {
