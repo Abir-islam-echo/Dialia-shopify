@@ -10,7 +10,7 @@
               "topbar-email-text": "<p>contact@example.com<\/p>",
               "topbar-phone-text": "<p>1-800-915-6270<\/p>",
               "topbar-font": "Trebuchet MS, sans-serif",
-              "text-color": "#996666",
+              "text-color": "#fff",
               "font-size": 14
             }
           },
@@ -18,7 +18,7 @@
             "type": "button",
             "settings": {
               "button-text": "<p>Book sn Appointment<\/p>",
-              "button-font": "'Times New Roman', Times, serif",
+              "button-font": "Trebuchet MS, sans-serif",
               "button-font-size": 14
             }
           }
