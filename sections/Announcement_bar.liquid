@@ -6,7 +6,7 @@
     {%- for block in section.blocks -%}
         {% case block.type %}
           {% when 'text' %}
-              .{{ block.id }}-email{
+              .email-{{ block.id }}{
                 color:{{ block.settings.text-color }} !important;
                 font-size:{{ block.settings.font-size }}px;
                 font-family:{{ block.settings.topbar-font }};
@@ -36,7 +36,7 @@
                 <ul>
                   <li>
                     Email us :
-                    <a class="{{ block.id }}-email abc" href="{{- block.settings['topbar-email-text'] -}}">
+                    <a class="email-{{ block.id }}" href="{{- block.settings['topbar-email-text'] -}}">
                       {{- block.settings['topbar-email-text'] -}}
                     </a>
                   </li>
