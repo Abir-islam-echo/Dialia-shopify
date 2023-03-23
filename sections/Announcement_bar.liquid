@@ -21,11 +21,41 @@
 
 
 {% schema %}
-  {
-    "name": "Announcement bar",
-    "settings": []
-  }
+{
+  "name": "Announcement bar",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "topbar-email-text",
+      "label": "email",
+      "default": "<p>contact@example.com</p>"
+    },
+    {
+      "type": "font",
+      "id": "topbar-font",
+      "label": "Font style"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "font-size",
+      "min": 12,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    }
+  ]
+}
 {% endschema %}
+
 
 {% stylesheet %}
 {% endstylesheet %}
