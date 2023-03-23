@@ -1,1 +1,22 @@
-{"current":{}}
+{
+  "current": {
+    "sections": {
+      "Announcement_bar": {
+        "type": "Announcement_bar",
+        "settings": {
+          "topbar-email-text": "<p>contact@example.com<\/p>",
+          "text-color": "#cb5959",
+          "font-size": 47
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}
