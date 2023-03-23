@@ -17,9 +17,9 @@
           "da166219-b975-4362-a18e-8db8e2c3e9e8": {
             "type": "button",
             "settings": {
-              "button-text": "<p>Book sn Appointment<\/p>",
+              "button-text": "<p>Book an Appointment<\/p>",
               "button-font": "Trebuchet MS, sans-serif",
-              "button-font-size": 14
+              "button-font-size": 16
             }
           }
         },
