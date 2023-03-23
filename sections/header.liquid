@@ -57,12 +57,19 @@
 
 
 
-
-
-
 {% schema %}
     {
         "name": "Navbar",
         "tag": "section"
     }
 {% endschema %}
+
+<script>
+  document.querySelectorAll('.tm-navigation-dropdown').forEach(e=>{
+    if(e.innerText=='Pages'){
+            console.log(e.innerText)
+        e.className= 'tm-navigation-megamenu overflow-element'
+    }
+
+})
+</script>
