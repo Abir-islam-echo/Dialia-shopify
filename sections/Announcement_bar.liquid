@@ -1,3 +1,29 @@
+<style>
+      .abc
+  {
+    background-color: red !important;
+  }
+    {%- for block in section.blocks -%}
+        {% case block.type %}
+          {% when 'text' %}
+              .{{ block.id }}-email{
+                color:{{ block.settings.text-color }} !important;
+                font-size:{{ block.settings.font-size }}px;
+                font-family:{{ block.settings.topbar-font }};
+            }
+            .{{ block.id }}-email p,.{{ block.id }}-phone p{
+                display: contents !important;
+            }
+          {% when 'button' %}
+            .{{ block.id }}-button{
+                  font-size:{{ block.settings.button-font-size }}px !important;
+                  font-family:{{ block.settings.button-font }} !important;
+              }
+  
+        {% endcase %}
+    {% endfor %}
+</style>
+
 <!-- Header Top Area -->
 <div class="header-toparea Announcement-{{ section.id }}">
   <div class="container">
@@ -37,32 +63,6 @@
   </div>
 </div>
 
-
-<style>
-      .abc
-  {
-    background-color: red !important;
-  }
-    {%- for block in section.blocks -%}
-        {% case block.type %}
-          {% when 'text' %}
-              .{{ block.id }}-email{
-                color:{{ block.settings.text-color }} !important;
-                font-size:{{ block.settings.font-size }}px;
-                font-family:{{ block.settings.topbar-font }};
-            }
-            .{{ block.id }}-email p,.{{ block.id }}-phone p{
-                display: contents !important;
-            }
-          {% when 'button' %}
-            .{{ block.id }}-button{
-                  font-size:{{ block.settings.button-font-size }}px !important;
-                  font-family:{{ block.settings.button-font }} !important;
-              }
-  
-        {% endcase %}
-    {% endfor %}
-</style>
 
 {% comment %} {%- style -%}
   {%- for block in section.blocks -%}
