@@ -10,7 +10,7 @@
             <nav class="tm-navigation">
                 <ul>
                 {% for link in linklists.main-menu.links -%}
-                    <li {% if link.links.size > 0 %} class="{{ megamenu }}" {% endif %}>
+                    <li {% if link.links.size > 0 %} class="tm-navigation-dropdown" {% endif %}>
                         {{ link.title | link_to: link.url }} 
                         {% if link.links.size > 0 %}
                           <ul>
@@ -18,7 +18,6 @@
                               <li {% if child_link.links.size > 0 %} class="has-child" {% endif %}>{{ child_link.title | link_to: child_link.url }}
                                 {% if child_link.links.size > 0 %}
                                   {% if child_link.links.size >= 8 %}
-                                    {% assign megamenu = "tm-navigation-megamenu overflow-element" %}
                                   {% endif %}
                                   <ul>
                                     {% for grandchild_link in child_link.links %}
