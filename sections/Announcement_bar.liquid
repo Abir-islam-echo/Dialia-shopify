@@ -1,36 +1,39 @@
 <!-- Header Top Area -->
 <div class="header-toparea Announcement-{{ section.id }}">
-    <div class="container">
-        <div class="row align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      {%- for block in section.blocks -%}
+        {% case block.type %}
+          {% when 'text' %}
             <div class="col-md-7 col-sm-6 col-12">
-                <div class="header-topinfo">
-                    <ul>
-                        <li>Email us : <a class="{{ section.id }}-email" href="mailto://contact@example.com">{{ section.settings.topbar-email-text }}</a></li>
-                        <li>Call us : <a class="{{ section.id }}-phone" href="tel://+1-800-915-6270">1-800-915-6270</a></li>
-                    </ul>
-                </div>
+              <div class="header-topinfo">
+                <ul>
+                  <li>
+                    Email us :
+                    <a class="{{ block.id }}-email" href="mailto://contact@example.com">
+                      {{- block.settings['topbar-email-text'] -}}
+                    </a>
+                  </li>
+                  <li>
+                    Call us :
+                    <a class="{{ block.id }}-phone" href="tel://+1-800-915-6270">
+                      {{- block.settings['topbar-phone-text'] -}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
+          {% when 'text' %}
             <div class="col-md-5 col-sm-6 col-12">
-                <div class="header-topbutton">
-                    <a href="#" class="tm-button tm-button-white">Book an Appointment</a>
-                </div>
+              <div class="header-topbutton">
+                <a href="#" class="tm-button tm-button-white">Book an Appointment</a>
+              </div>
             </div>
-        </div>
+        {% endcase %}
+      {%- endfor -%}
     </div>
+  </div>
 </div>
-
-{%- style -%}
-  
-  .{{ section.id }}-email,{{ section.id }}-phone{
-      color:{{ section.settings.text-color }} !important;
-      font-size:{{ section.settings.font-size }}px;
-      font-family:{{ section.settings.topbar-font }};
-  }
-  .{{ section.id }}-email p,{{ section.id }}-phone p{
-      display: contents !important;
-  }
-{%- endstyle -%}
-
 
 {% schema %}
 {
@@ -42,6 +45,12 @@
       "id": "topbar-email-text",
       "label": "email",
       "default": "<p>contact@example.com</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "topbar-phone-text",
+      "label": "Phone",
+      "default": "<p>1-800-915-6270</p>"
     },
     {
       "type": "font",
@@ -64,12 +73,52 @@
       "label": "Font size",
       "default": 14
     }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "topbar-email-text",
+          "label": "email",
+          "default": "<p>contact@example.com</p>"
+        },
+        {
+          "type": "font",
+          "id": "topbar-font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        }
+      ]
+    }
   ]
 }
 {% endschema %}
 
-
-
-
-{% javascript %}
-{% endjavascript %}
+{%- style -%}
+  .{{ block.id }}-email,{{ block.id }}-phone{
+      color:{{ section.settings.text-color }} !important;
+      font-size:{{ section.settings.font-size }}px;
+      font-family:{{ section.settings.topbar-font }};
+  }
+  .{{ block.id }}-email p,{{ block.id }}-phone p{
+      display: contents !important;
+  }
+{%- endstyle -%}
