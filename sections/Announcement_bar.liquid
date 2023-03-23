@@ -10,7 +10,7 @@
                 <ul>
                   <li>
                     Email us :
-                    <a class="{{ block.id }}-email" href="{{- block.settings['topbar-email-text'] -}}">
+                    <a class="{{ block.id }}-email abc" href="{{- block.settings['topbar-email-text'] -}}">
                       {{- block.settings['topbar-email-text'] -}}
                     </a>
                   </li>
@@ -39,7 +39,10 @@
 
 
 <style>
-
+      .abc
+  {
+    background-color: red !important;
+  }
     {%- for block in section.blocks -%}
         {% case block.type %}
           {% when 'text' %}
