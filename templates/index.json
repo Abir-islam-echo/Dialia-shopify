@@ -38,28 +38,14 @@
             "button-text": "<p>About Us<\/p>",
             "button-font": "Helvetica, Arial, sans-serif",
             "button-font-size": 16,
-            "slide-image": "shopify:\/\/shop_images\/bg-image-1.jpg"
-          }
-        },
-        "da18708a-96f7-4a67-a43f-ba02a75d3e14": {
-          "type": "slider",
-          "settings": {
-            "heading": "<p>Pain makes People change<\/p>",
-            "subheading": "<p>Massage has a positive effect on every medical condition we have looked at massage is to work and act on the body with pressure.<\/p>",
-            "font": "Helvetica, Arial, sans-serif",
-            "text-color": "#000000",
-            "font-size": 14,
-            "button-text": "<p>About Usjh<\/p>",
-            "button-font": "Helvetica, Arial, sans-serif",
-            "button-font-size": 16
+            "slide-image": "shopify:\/\/shop_images\/heroslider-image-3.jpg"
           }
         }
       },
       "block_order": [
         "87267e66-085a-459b-9618-3fa79312567d",
         "78b22677-c5e7-4f9d-ae03-b6bdf9a3842c",
-        "dec79942-ea90-4e82-aa39-c0ecf2755bbb",
-        "da18708a-96f7-4a67-a43f-ba02a75d3e14"
+        "dec79942-ea90-4e82-aa39-c0ecf2755bbb"
       ],
       "settings": {
         "overlay-image": "shopify:\/\/shop_images\/bg-image-1.jpg"
