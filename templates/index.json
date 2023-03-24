@@ -61,7 +61,8 @@
             "description": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.<\/p>",
             "font": "",
             "text-color": "#000000",
-            "font-size": 14
+            "font-size": 14,
+            "icon-picker": "shopify:\/\/shop_images\/bg-shape-3.png"
           }
         }
       },
