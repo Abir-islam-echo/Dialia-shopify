@@ -1,59 +1,88 @@
-<div class="tm-section features-area bg-white tm-padding-section">
+<div class="tm-section features-area bg-white tm-padding-section section-{{ section.id }}">
   <div class="container">
     <div class="row justify-content-center mt-30-reverse">
       <!-- Single Feature -->
-      <div class="col-lg-4 col-md-6 col-12 mt-30">
-        <div class="tm-feature text-center wow fadeInUp">
-          <span class="tm-feature-icon">
-            <i class="flaticon-spa"></i>
-          </span>
-          <span class="tm-feature-backicon">
-            <i class="flaticon-spa"></i>
-          </span>
-          <h5>Massage Therapy</h5>
-          <p>
-            Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue,
-            tendons, ligaments and joints.
-          </p>
+      {% for block in section.blocks %}
+        <div class="col-lg-4 col-md-6 col-12 mt-30 block-{{ block.id }}">
+          <div class="tm-feature text-center wow fadeInUp">
+            <span class="tm-feature-icon">
+              <img src="{{ block.settings['icon-picker'] | image_url }}">
+            </span>
+            <span class="tm-feature-backicon">
+              <img src="{{ block.settings['icon-picker'] | image_url }}">
+            </span>
+            <h5>{{- block.settings.heading | remove: '<p>' | remove: '</p>' -}}</h5>
+            <p>
+              {{- block.settings.description | remove: '<p>' | remove: '</p>' -}}
+            </p>
+          </div>
         </div>
-      </div>
-      <!-- // Single Feature -->
-
-      <!-- Single Feature -->
-      <div class="col-lg-4 col-md-6 col-12 mt-30">
-        <div class="tm-feature text-center wow fadeInUp">
-          <span class="tm-feature-icon">
-            <i class="flaticon-physical"></i>
-          </span>
-          <span class="tm-feature-backicon">
-            <i class="flaticon-physical"></i>
-          </span>
-          <h5>Physio Therapy</h5>
-          <p>
-            Physiotherapists spend years studying how the body works, how injuries impact performance & how to recover
-            and repair injured tissues.
-          </p>
-        </div>
-      </div>
-      <!-- // Single Feature -->
-
-      <!-- Single Feature -->
-      <div class="col-lg-4 col-md-6 col-12 mt-30">
-        <div class="tm-feature text-center wow fadeInUp">
-          <span class="tm-feature-icon">
-            <i class="flaticon-acupuncture"></i>
-          </span>
-          <span class="tm-feature-backicon">
-            <i class="flaticon-acupuncture"></i>
-          </span>
-          <h5>Acupuncture</h5>
-          <p>
-            Acupuncture is a form of alternative medicine in which thin needles are inserted into the body. It is a key
-            component of medicine.
-          </p>
-        </div>
-      </div>
+      {% endfor %}
       <!-- // Single Feature -->
     </div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Feature section",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "single-feature",
+      "name": "feature",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Massage Therapy</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.</p>"
+        },
+        {
+          "type": "font",
+          "id": "font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        },
+        {
+          "type": "image_picker",
+          "label": "Icon / Image",
+          "id": "icon-picker"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature section",
+      "blocks": [
+        {
+          "type": "single-feature"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
