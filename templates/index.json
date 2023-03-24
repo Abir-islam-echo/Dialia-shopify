@@ -2,6 +2,21 @@
   "sections": {
     "hero-slider": {
       "type": "hero-slider",
+      "blocks": {
+        "87267e66-085a-459b-9618-3fa79312567d": {
+          "type": "slider",
+          "settings": {
+            "topbar-email-text": "<p>contact@example.com<\/p>",
+            "topbar-phone-text": "<p>1-800-915-6270<\/p>",
+            "topbar-font": "Helvetica, Arial, sans-serif",
+            "text-color": "#000000",
+            "font-size": 14
+          }
+        }
+      },
+      "block_order": [
+        "87267e66-085a-459b-9618-3fa79312567d"
+      ],
       "settings": {
       }
     },
@@ -27,7 +42,7 @@
             "heading_line_height": 16,
             "text": "<p>Description<\/p>",
             "font_family": "",
-            "background_color": "#F2F2F2",
+            "background_color": "#f2f2f2",
             "text_color": "#000000",
             "font_size": 16,
             "line_height": 16
@@ -39,7 +54,7 @@
             "column_y_padding": 0,
             "column_x_padding": 0,
             "column-width": "50%",
-            "background_color": "#F2F2F2",
+            "background_color": "#f2f2f2",
             "caption-visible": true,
             "caption-text": "<p>Caption<\/p>",
             "font_family": "",
@@ -58,7 +73,7 @@
         "content-position": "center",
         "section-padding": 0,
         "column-gap": 0,
-        "background_color": "#F2F2F2",
+        "background_color": "#f2f2f2",
         "column-height": "375px",
         "top-margin": 0,
         "bottom-margin": 0
