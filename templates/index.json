@@ -95,22 +95,10 @@
       ],
       "settings": {
       }
-    },
-    "30855e5f-0e19-4ddc-9314-72423de6b811": {
-      "type": "about-us",
-      "settings": {
-        "link": "https:\/\/www.youtube.com\/watch?v=Sv511KEiIJQ",
-        "heading": "<p>Pain makes People change<\/p>",
-        "description": "<p>details here<\/p>",
-        "font": "",
-        "text-color": "#000000",
-        "font-size": 14
-      }
     }
   },
   "order": [
     "hero-slider",
-    "5056e367-d240-4c25-a795-eecd4bf64833",
-    "30855e5f-0e19-4ddc-9314-72423de6b811"
+    "5056e367-d240-4c25-a795-eecd4bf64833"
   ]
 }
