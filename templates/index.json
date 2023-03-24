@@ -6,21 +6,24 @@
         "87267e66-085a-459b-9618-3fa79312567d": {
           "type": "slider",
           "settings": {
-            "topbar-email-text": "<p>contact@example.com<\/p>",
-            "topbar-phone-text": "<p>1-800-915-6270<\/p>",
-            "topbar-font": "Helvetica, Arial, sans-serif",
+            "heading": "<p>Pain makes People change<\/p>",
+            "subheading": "<p>Massage has a positive effect on every medical condition we have looked at massage is to work and act on the body with pressure.<\/p>",
             "text-color": "#000000",
-            "font-size": 14
+            "font-size": 14,
+            "button-text": "<p>About Us<\/p>",
+            "button-font-size": 16,
+            "slide-image": "shopify:\/\/shop_images\/04-10-2022-WAX2246.jpg"
           }
         },
         "78b22677-c5e7-4f9d-ae03-b6bdf9a3842c": {
           "type": "slider",
           "settings": {
-            "topbar-email-text": "<p>contact@example.com<\/p>",
-            "topbar-phone-text": "<p>1-800-915-6270<\/p>",
-            "topbar-font": "Helvetica, Arial, sans-serif",
+            "heading": "<p>Pain makes People change<\/p>",
+            "subheading": "<p>Massage has a positive effect on every medical condition we have looked at massage is to work and act on the body with pressure.<\/p>",
             "text-color": "#000000",
-            "font-size": 14
+            "font-size": 14,
+            "button-text": "<p>About Us<\/p>",
+            "button-font-size": 16
           }
         }
       },
