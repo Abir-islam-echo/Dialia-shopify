@@ -1,6 +1,6 @@
 
 <!-- Heroslider Area -->
-<div class="heroslider-area-{{ section.id }}" data-bgimage="{{ "bg-image-1.jpg" | asset_url }}" data-black-overlay="3">
+<div class="heroslider-area heroslider-{{ section.id }}" data-bgimage="{{ "bg-image-1.jpg" | asset_url }}" data-black-overlay="3">
   <!-- Heroslider Slider -->
   <div
     class="heroslider-slider heroslider-animated tm-slider-dots tm-slider-dots-left"
@@ -8,9 +8,8 @@
   >
     <!-- Heroslider Single -->
     {% for block in section.blocks %}
-
-        
-    <div class="heroslider-singleslider d-flex align-items-center">
+ 
+    <div class="heroslider-singleslider d-flex align-items-center slide-{{ block.id }}">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7 col-md-6 col-12 order-2 order-md-1">
