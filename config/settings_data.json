@@ -7,10 +7,10 @@
           "8eb64753-38eb-4028-862c-0228efd0b650": {
             "type": "text",
             "settings": {
-              "topbar-email-text": "<p>contact@example.com<\/p>",
-              "topbar-phone-text": "<p>1-800-915-6270<\/p>",
+              "topbar-email-text": "<p>abir@echologyx.com<\/p>",
+              "topbar-phone-text": "<p>+8801823728535<\/p>",
               "topbar-font": "Trebuchet MS, sans-serif",
-              "text-color": "#fff",
+              "text-color": "#ffffff",
               "font-size": 14
             }
           },
