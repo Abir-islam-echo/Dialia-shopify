@@ -37,7 +37,8 @@
             "font-size": 14,
             "button-text": "<p>About Us<\/p>",
             "button-font": "Helvetica, Arial, sans-serif",
-            "button-font-size": 16
+            "button-font-size": 16,
+            "slide-image": "shopify:\/\/shop_images\/bg-image-1.jpg"
           }
         },
         "da18708a-96f7-4a67-a43f-ba02a75d3e14": {
