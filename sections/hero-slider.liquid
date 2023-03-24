@@ -1,7 +1,7 @@
 <!-- Heroslider Area -->
 <div
   class="heroslider-area heroslider-{{ section.id }}"
-  data-bgimage="{{ section.settings.overlay-image | image_url}}"
+  data-bgimage="{{ section.settings.overlay-image | image_url }}"
   data-black-overlay="3"
 >
   <!-- Heroslider Slider -->
@@ -16,12 +16,13 @@
           <div class="row align-items-center">
             <div class="col-lg-7 col-md-6 col-12 order-2 order-md-1">
               <div class="heroslider-content">
-                <h1>Pain makes People change</h1>
+                <h1>{{ block.settings.heading | remove: '<p>' | remove: '</p>' }}</h1>
                 <p>
-                  Massage has a positive effect on every medical condition we have looked at massage is to work and act
-                  on the body with pressure.
+                  {{ block.settings.subheading | remove: '<p>' | remove: '</p>' }}
                 </p>
-                <a href="about-us.html" class="tm-button">About Us</a>
+                <a href="about-us.html" class="tm-button">
+                  {{- block.settings['button-text'] | remove: '<p>' | remove: '</p>' -}}
+                </a>
               </div>
             </div>
             <div class="col-lg-5 col-md-6 col-sm-8 col-12 order-1 order-md-2">
@@ -30,7 +31,7 @@
                   <defs>
                       <pattern id="attachedImage1" height="100%" width="100%"
                           patternContentUnits="objectBoundingBox">
-                          <image xlink:href="{{ "heroslider-image-1.jpg" | asset_url }}"
+                          <image xlink:href="{{ block.settings.slide-image | image_url }}"
                               preserveAspectRatio="none" width="1" height="1" />
                       </pattern>
                   </defs>
@@ -67,19 +68,19 @@
       "settings": [
         {
           "type": "richtext",
-          "id": "topbar-email-text",
-          "label": "email",
-          "default": "<p>contact@example.com</p>"
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Pain makes People change</p>"
         },
         {
           "type": "richtext",
-          "id": "topbar-phone-text",
-          "label": "Phone",
-          "default": "<p>1-800-915-6270</p>"
+          "id": "subheading",
+          "label": "Sub-Heading",
+          "default": "<p>Massage has a positive effect on every medical condition we have looked at massage is to work and act on the body with pressure.</p>"
         },
         {
           "type": "font",
-          "id": "topbar-font",
+          "id": "font",
           "label": "Font style"
         },
         {
@@ -97,18 +98,12 @@
           "unit": "px",
           "label": "Font size",
           "default": 14
-        }
-      ]
-    },
-    {
-      "type": "button",
-      "name": "button",
-      "settings": [
+        },
         {
           "type": "richtext",
           "id": "button-text",
-          "label": "email",
-          "default": "<p>Book an Appointment</p>"
+          "label": "Button text",
+          "default": "<p>About Us</p>"
         },
         {
           "type": "font",
@@ -124,6 +119,11 @@
           "unit": "px",
           "label": "Font size",
           "default": 16
+        },
+        {
+          "type": "image_picker",
+          "label": "Slide Image ",
+          "id": "slide-image"
         }
       ]
     }
