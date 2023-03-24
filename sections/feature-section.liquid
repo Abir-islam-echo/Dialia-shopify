@@ -3,23 +3,76 @@
     <div class="row justify-content-center mt-30-reverse">
       <!-- Single Feature -->
       {% for block in section.blocks %}
-      <div class="col-lg-4 col-md-6 col-12 mt-30">
-        <div class="tm-feature text-center wow fadeInUp">
-          <span class="tm-feature-icon">
-            <i class="flaticon-spa"></i>
-          </span>
-          <span class="tm-feature-backicon">
-            <i class="flaticon-spa"></i>
-          </span>
-          <h5>Massage Therapy</h5>
-          <p>
-            Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue,
-            tendons, ligaments and joints.
-          </p>
+        <div class="col-lg-4 col-md-6 col-12 mt-30 block-{{ block.id }}">
+          <div class="tm-feature text-center wow fadeInUp">
+            <span class="tm-feature-icon">
+              {{ block.settings['icon-picker'] | image_url }}
+            </span>
+            <span class="tm-feature-backicon">
+              {{ block.settings['icon-picker'] | image_url }}
+            </span>
+            <h5>{{- block.settings.heading | remove: '<p>' | remove: '</p>' -}}</h5>
+            <p>
+              {{- block.settings.description | remove: '<p>' | remove: '</p>' -}}
+            </p>
+          </div>
         </div>
-      </div>
       {% endfor %}
       <!-- // Single Feature -->
     </div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Feature section",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "single-feature",
+      "name": "feature",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Massage Therapy</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.</p>"
+        },
+        {
+          "type": "font",
+          "id": "font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        },
+        {
+          "type": "image_picker",
+          "label": "Icon / Image",
+          "id": "icon-picker"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
