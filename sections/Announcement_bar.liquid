@@ -10,13 +10,19 @@
                 <ul>
                   <li>
                     Email us :
-                    <a class="email-{{ block.id }}" href="{{- block.settings['topbar-email-text'] -}}">
+                    <a
+                      class="email-{{ block.id }}"
+                      href="mailto:{{- block.settings['topbar-email-text'] | remove: "<p>" | remove: "</p>" -}}"
+                    >
                       {{- block.settings['topbar-email-text'] -}}
                     </a>
                   </li>
                   <li>
                     Call us :
-                    <a class="phone{{ block.id }}" href="{{- block.settings['topbar-phone-text'] -}}">
+                    <a
+                      class="phone{{ block.id }}"
+                      href="tel:{{- block.settings['topbar-phone-text'] | remove: "<p>" | remove: "</p>" -}}"
+                    >
                       {{- block.settings['topbar-phone-text'] -}}
                     </a>
                   </li>
