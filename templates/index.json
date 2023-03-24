@@ -95,10 +95,27 @@
       ],
       "settings": {
       }
+    },
+    "b1f1c512-0af5-4397-98e4-b222de34607c": {
+      "type": "about-us",
+      "settings": {
+        "link": "",
+        "heading": "<p>Dialia Registered Massage Therapy<\/p>",
+        "subheading": "<p>Positive Effects of<\/p>",
+        "description": "<p>The health care profession of Dialia Registered Massage Therapy is far more advanced than typical bodywork or relaxation massage.<\/p>",
+        "font": "",
+        "text-color": "#000000",
+        "font-size": 14,
+        "button-text": "<p>Read more<\/p>",
+        "button-font": "",
+        "button-font-size": 16,
+        "phone": "+8801823728535"
+      }
     }
   },
   "order": [
     "hero-slider",
-    "5056e367-d240-4c25-a795-eecd4bf64833"
+    "5056e367-d240-4c25-a795-eecd4bf64833",
+    "b1f1c512-0af5-4397-98e4-b222de34607c"
   ]
 }
