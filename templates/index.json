@@ -19,11 +19,12 @@
           "type": "slider",
           "settings": {
             "heading": "<p>Pain makes People change<\/p>",
-            "subheading": "<p>Massage has a positive effect on every medical condition we have looked at massage is to work and act on the body with pressure.<\/p>",
+            "subheading": "<p> work and act on the body with pressure.<\/p>",
             "text-color": "#000000",
             "font-size": 14,
             "button-text": "<p>About Us<\/p>",
-            "button-font-size": 16
+            "button-font-size": 16,
+            "slide-image": "shopify:\/\/shop_images\/04-10-2022-WAX2214.jpg"
           }
         }
       },
