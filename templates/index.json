@@ -12,10 +12,21 @@
             "text-color": "#000000",
             "font-size": 14
           }
+        },
+        "78b22677-c5e7-4f9d-ae03-b6bdf9a3842c": {
+          "type": "slider",
+          "settings": {
+            "topbar-email-text": "<p>contact@example.com<\/p>",
+            "topbar-phone-text": "<p>1-800-915-6270<\/p>",
+            "topbar-font": "Helvetica, Arial, sans-serif",
+            "text-color": "#000000",
+            "font-size": 14
+          }
         }
       },
       "block_order": [
-        "87267e66-085a-459b-9618-3fa79312567d"
+        "87267e66-085a-459b-9618-3fa79312567d",
+        "78b22677-c5e7-4f9d-ae03-b6bdf9a3842c"
       ],
       "settings": {
         "overlay-image": "shopify:\/\/shop_images\/bg-image-1.jpg"
