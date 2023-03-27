@@ -3967,6 +3967,7 @@ button.tm-videobutton:hover span {
   margin-bottom: 20px;
   vertical-align: middle;
   color: #0075b7;
+  width:60px;
 }
 
 .tm-feature-icon i {
@@ -3975,6 +3976,7 @@ button.tm-videobutton:hover span {
 }
 
 .tm-feature-backicon {
+  width:160px;
   position: absolute;
   left: auto;
   right: -30px;
