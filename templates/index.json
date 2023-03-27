@@ -118,31 +118,56 @@
         "dc2cc9f4-238a-46d2-ae7d-fc6628a13633": {
           "type": "service-block",
           "settings": {
+            "heading": "<p>Sports Rehabilitation<\/p>",
+            "description": "<p>Aromatherapy uses plant materials and arom atic plant oils, including essential oils. It can be offered as a complementary therapy.<\/p>",
+            "text-color": "#000000",
+            "font-size": 14,
+            "icon-picker": "shopify:\/\/shop_images\/11.png"
           }
         },
         "2c3bee66-c208-4504-9475-bfed5856015a": {
           "type": "service-block",
           "settings": {
+            "heading": "<p>Home Care Physiotherapy<\/p>",
+            "description": "<p>Physiotherapists spend years studying how the body works, how injuries impact performance & how to recover and repair injured tissues.<\/p>",
+            "text-color": "#000000",
+            "font-size": 14
           }
         },
         "90a073bd-3689-4c88-9783-359c2b89168c": {
           "type": "service-block",
           "settings": {
+            "heading": "<p>Massage Therapy<\/p>",
+            "description": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.<\/p>",
+            "text-color": "#000000",
+            "font-size": 14
           }
         },
         "c480c087-691b-4fd4-bf13-bd5e8e82d2bb": {
           "type": "service-block",
           "settings": {
+            "heading": "<p>Massage Therapy<\/p>",
+            "description": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.<\/p>",
+            "text-color": "#000000",
+            "font-size": 14
           }
         },
         "ed629cbf-9d2b-478a-adb0-ee22d7a8415c": {
           "type": "service-block",
           "settings": {
+            "heading": "<p>Massage Therapy<\/p>",
+            "description": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.<\/p>",
+            "text-color": "#000000",
+            "font-size": 14
           }
         },
         "8624f0bd-570a-441f-a007-66ed2265492f": {
           "type": "service-block",
           "settings": {
+            "heading": "<p>Massage Therapy<\/p>",
+            "description": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.<\/p>",
+            "text-color": "#000000",
+            "font-size": 14
           }
         }
       },
