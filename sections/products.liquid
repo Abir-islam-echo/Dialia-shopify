@@ -6,9 +6,8 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8 col-md-10 col-12">
                             <div class="tm-section-title text-center">
-                                <h2>Welcome to our shop</h2>
-                                <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem
-                                    an cule dicta iriure at phaedrum. </p>
+                                <h2>{{ section.settings.heading }}</h2>
+                                <p>{{ section.settings.description }}</p>
                             </div>
                         </div>
                     </div>
@@ -68,7 +67,40 @@
         "type":"collection",
         "id":"collection-id",
         "label":"collection"
-      }
+      },
+      {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Welcome to our shop</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.</p>"
+        },
+        {
+          "type": "font",
+          "id": "font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        }
       
     ],
     "presets":[
