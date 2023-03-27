@@ -3997,6 +3997,11 @@ button.tm-videobutton:hover span {
 .tm-service-backicon img{
   width:100% !important;
 }
+
+.tm-feature-backicon img,
+.tm-service-backicon img{
+  opacity:0.1;
+}
 .tm-feature-icon ,
 .tm-service-icon{
   width:60px !important;
@@ -4005,7 +4010,6 @@ button.tm-videobutton:hover span {
 .tm-feature-backicon,
 .tm-service-backicon{
   width:160px !important;
-  opacity:.5;
 }
 /* Abir */
 
