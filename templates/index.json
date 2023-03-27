@@ -190,7 +190,7 @@
     "436c6fc0-b7d6-409e-a31e-f5e639db4d32": {
       "type": "appointment",
       "settings": {
-        "background": "shopify:\/\/shop_images\/service-details.jpg",
+        "background": "shopify:\/\/shop_images\/call-to-action-bg.jpg",
         "title": "<p>New Patient Special Offer<\/p>",
         "subtitle": "<p>For your convenience, you can book your appointment<\/p>",
         "font": "",
