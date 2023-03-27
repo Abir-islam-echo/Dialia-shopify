@@ -18,8 +18,8 @@
                       {% for product in collection.products %}
                         <h1>{{ product.title }}</h1>
                         {% endfor %}
-                      {% for product in collections.all.products %}
-                          {% for collection in product.collections %}
+                      {% for collection in collections.products %}
+                          
                             <div class="col">
                             <div class="tm-product">
                                 <div class="tm-product-image">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                          {% endfor %}
+                          
                     {% endfor %}
                         <!--// Single Product -->
                     </div>
