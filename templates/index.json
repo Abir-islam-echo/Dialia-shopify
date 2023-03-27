@@ -186,12 +186,27 @@
       ],
       "settings": {
       }
+    },
+    "436c6fc0-b7d6-409e-a31e-f5e639db4d32": {
+      "type": "appointment",
+      "settings": {
+        "background": "shopify:\/\/shop_images\/service-details.jpg",
+        "title": "<p>New Patient Special Offer<\/p>",
+        "subtitle": "<p>For your convenience, you can book your appointment<\/p>",
+        "font": "",
+        "text-color": "#000000",
+        "font-size": 14,
+        "button-text": "<p>Book an Appointment<\/p>",
+        "button-font": "",
+        "button-font-size": 16
+      }
     }
   },
   "order": [
     "hero-slider",
     "5056e367-d240-4c25-a795-eecd4bf64833",
     "b1f1c512-0af5-4397-98e4-b222de34607c",
-    "e84fea37-4ac8-4104-a3e2-6f8d11397853"
+    "e84fea37-4ac8-4104-a3e2-6f8d11397853",
+    "436c6fc0-b7d6-409e-a31e-f5e639db4d32"
   ]
 }
