@@ -12,7 +12,10 @@
                             </div>
                         </div>
                     </div>
-                  <h1>size = {{ product.title }}</h1>
+                  {% for product in product.collections %}
+                    <h1>size = {{ product.title }}</h1>
+                    {% endfor %}
+                  
                     <div class="row product-slider-active tm-slider-arrow tm-slider-arrow-hovervisible">
                         <!-- Single Product -->
                         <div class="col">
