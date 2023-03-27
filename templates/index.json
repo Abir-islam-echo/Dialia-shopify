@@ -114,6 +114,46 @@
     },
     "e84fea37-4ac8-4104-a3e2-6f8d11397853": {
       "type": "service-section",
+      "blocks": {
+        "dc2cc9f4-238a-46d2-ae7d-fc6628a13633": {
+          "type": "service-block",
+          "settings": {
+          }
+        },
+        "2c3bee66-c208-4504-9475-bfed5856015a": {
+          "type": "service-block",
+          "settings": {
+          }
+        },
+        "90a073bd-3689-4c88-9783-359c2b89168c": {
+          "type": "service-block",
+          "settings": {
+          }
+        },
+        "c480c087-691b-4fd4-bf13-bd5e8e82d2bb": {
+          "type": "service-block",
+          "settings": {
+          }
+        },
+        "ed629cbf-9d2b-478a-adb0-ee22d7a8415c": {
+          "type": "service-block",
+          "settings": {
+          }
+        },
+        "8624f0bd-570a-441f-a007-66ed2265492f": {
+          "type": "service-block",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "dc2cc9f4-238a-46d2-ae7d-fc6628a13633",
+        "2c3bee66-c208-4504-9475-bfed5856015a",
+        "90a073bd-3689-4c88-9783-359c2b89168c",
+        "c480c087-691b-4fd4-bf13-bd5e8e82d2bb",
+        "ed629cbf-9d2b-478a-adb0-ee22d7a8415c",
+        "8624f0bd-570a-441f-a007-66ed2265492f"
+      ],
       "settings": {
       }
     }
