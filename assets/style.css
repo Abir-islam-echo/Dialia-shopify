@@ -3967,7 +3967,6 @@ button.tm-videobutton:hover span {
   margin-bottom: 20px;
   vertical-align: middle;
   color: #0075b7;
-  width:60px;
 }
 
 .tm-feature-icon i {
@@ -3976,7 +3975,6 @@ button.tm-videobutton:hover span {
 }
 
 .tm-feature-backicon {
-  width:160px;
   position: absolute;
   left: auto;
   right: -30px;
@@ -3991,6 +3989,24 @@ button.tm-videobutton:hover span {
   -o-transition: all 0.4s ease-out 0s;
   transition: all 0.4s ease-out 0s;
 }
+
+/* Abir */
+.tm-feature-icon img,
+.tm-feature-backicon img,
+.tm-service-icon img,
+.tm-service-backicon img{
+  width:100% !important;
+}
+.tm-feature-icon ,
+.tm-service-icon{
+  width:60px !important;
+}
+
+.tm-feature-backicon,
+.tm-service-backicon{
+  width:160px !important;
+}
+/* Abir */
 
 .tm-feature p {
   margin-bottom: 0;
