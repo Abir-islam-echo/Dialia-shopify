@@ -1,14 +1,14 @@
 <!-- Call To Action -->
 <div class="tm-section call-to-action-area tm-padding-section appointment-section-{{ section.id }}"
-    data-bgimage="assets/images/bg/call-to-action-bg.jpg" data-overlay="8">
+    data-bgimage="{{ section.settings.background | image_url }}" data-overlay="8">
     <div class="container">
         <div class="tm-cta">
             <div class="tm-cta-content">
-                <h3>New Patient Special Offer</h3>
-                <h2>For your convenience, you can book your appointment</h2>
+                <h3>{{ section.settings.title }}</h3>
+                <h2>{{ section.settings.subtitle }}</h2>
             </div>
             <div class="tm-cta-button">
-                <a href="#" class="tm-button tm-button-white">Book an Appointment</a>
+                <a href="#" class="tm-button tm-button-white">{{ section.settings.button-text }}</a>
             </div>
         </div>
     </div>
@@ -18,6 +18,11 @@
   {
     "name": "appointment section",
     "settings":[
+      {
+          "type": "image_picker",
+          "label": "Background",
+          "id": "background"
+        },
           {
           "type": "richtext",
           "id": "title",
@@ -51,15 +56,11 @@
           "label": "Font size",
           "default": 14
         },
-        {
-          "type": "image_picker",
-          "label": "Icon / Image",
-          "id": "icon-picker"
-        },
+        
       {
           "type": "richtext",
           "id": "button-text",
-          "label": "email",
+          "label": "Button Text",
           "default": "<p>Book an Appointment</p>"
         },
         {
