@@ -18,7 +18,7 @@
                       {% for product in collection.products %}
                         <h1>{{ product.title }}</h1>
                         {% endfor %}
-                      {% for product in collections[classic-items].products %}
+                      {% for product in collections[section.settings.collection-id].products %}
                           
                             <div class="col">
                             <div class="tm-product">
