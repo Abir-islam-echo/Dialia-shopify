@@ -12,15 +12,12 @@
                             </div>
                         </div>
                     </div>
-                    {% for product in collections.all.products %}
-                          {% for collection in product.collections %}
-                            <h1>size = {{ collection.title }}</h1>
-                          {% endfor %}
-                    {% endfor %}
-                   
+          
                     <div class="row product-slider-active tm-slider-arrow tm-slider-arrow-hovervisible">
                         <!-- Single Product -->
-                        <div class="col">
+                      {% for product in collections.all.products %}
+                          {% for collection in product.collections %}
+                            <div class="col">
                             <div class="tm-product">
                                 <div class="tm-product-image">
                                     <a class="tm-product-imagelink" href="product-details.html">
@@ -47,6 +44,8 @@
                                 </div>
                             </div>
                         </div>
+                          {% endfor %}
+                    {% endfor %}
                         <!--// Single Product -->
                     </div>
                 </div>
