@@ -22,15 +22,14 @@
           <div class="tm-service text-center wow fadeInUp">
             <div class="tm-service-inner">
               <span class="tm-service-icon">
-                <i class="flaticon-rehabilitation"></i>
+                 <img src="{{ block.settings['icon-picker'] | image_url }}">
               </span>
               <span class="tm-service-backicon">
-                <i class="flaticon-rehabilitation"></i>
+                 <img src="{{ block.settings['icon-picker'] | image_url }}">
               </span>
-              <h5><a href="service-details.html">Sports Rehabilitation</a></h5>
+              <h5><a href="service-details.html">{{- block.settings.heading | remove: '<p>' | remove: '</p>' -}}</a></h5>
               <p>
-                Aromatherapy uses plant materials and arom atic plant oils, including essential oils. It can be offered as
-                a complementary therapy.
+                {{- block.settings.description | remove: '<p>' | remove: '</p>' -}}
               </p>
               <a href="service-details.html" class="tm-readmore">Read more</a>
             </div>
@@ -52,8 +51,48 @@
     "settings": [],
     "blocks":[
       {
-        "type":"service-block",
-        "name":"service-block"
+        "type":"service",
+        "name":"service-block",
+        "settings":[
+          {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Massage Therapy</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Massage therapy is the manipulation of the soft tissues of the body including muscles, connective tissue, tendons, ligaments and joints.</p>"
+        },
+        {
+          "type": "font",
+          "id": "font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        },
+        {
+          "type": "image_picker",
+          "label": "Icon / Image",
+          "id": "icon-picker"
+        }
+        ]
       }
     ],
     "presets":[
@@ -61,7 +100,7 @@
         "name":"Service section",
         "blocks":[
           {
-            "type":"service-block"
+            "type":"service"
           }
         ]
       }
