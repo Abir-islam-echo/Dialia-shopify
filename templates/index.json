@@ -205,6 +205,11 @@
       "type": "pricing-section",
       "settings": {
       }
+    },
+    "e95a5b03-9c06-4456-a78a-8c54c84f851e": {
+      "type": "products",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -213,6 +218,7 @@
     "b1f1c512-0af5-4397-98e4-b222de34607c",
     "e84fea37-4ac8-4104-a3e2-6f8d11397853",
     "436c6fc0-b7d6-409e-a31e-f5e639db4d32",
-    "213c046c-be66-47d4-bdee-0e1340dd39d3"
+    "213c046c-be66-47d4-bdee-0e1340dd39d3",
+    "e95a5b03-9c06-4456-a78a-8c54c84f851e"
   ]
 }
