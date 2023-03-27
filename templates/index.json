@@ -111,11 +111,17 @@
         "button-font-size": 16,
         "phone": "+8801823728535"
       }
+    },
+    "e84fea37-4ac8-4104-a3e2-6f8d11397853": {
+      "type": "service-section",
+      "settings": {
+      }
     }
   },
   "order": [
     "hero-slider",
     "5056e367-d240-4c25-a795-eecd4bf64833",
-    "b1f1c512-0af5-4397-98e4-b222de34607c"
+    "b1f1c512-0af5-4397-98e4-b222de34607c",
+    "e84fea37-4ac8-4104-a3e2-6f8d11397853"
   ]
 }
