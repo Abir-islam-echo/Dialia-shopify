@@ -1,5 +1,5 @@
 <!-- Call To Action -->
-<div class="tm-section call-to-action-area tm-padding-section"
+<div class="tm-section call-to-action-area tm-padding-section appointment-section-{{ section.id }}"
     data-bgimage="assets/images/bg/call-to-action-bg.jpg" data-overlay="8">
     <div class="container">
         <div class="tm-cta">
@@ -27,7 +27,7 @@
         {
           "type": "richtext",
           "id": "subtitle",
-          "label": "Description",
+          "label": "Subtitle",
           "default": "<p>For your convenience, you can book your appointment</p>"
         },
         {
@@ -55,6 +55,27 @@
           "type": "image_picker",
           "label": "Icon / Image",
           "id": "icon-picker"
+        },
+      {
+          "type": "richtext",
+          "id": "button-text",
+          "label": "email",
+          "default": "<p>Book an Appointment</p>"
+        },
+        {
+          "type": "font",
+          "id": "button-font",
+          "label": "Font style"
+        },
+        {
+          "type": "range",
+          "id": "button-font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
         }
         ],
     "presets":[
