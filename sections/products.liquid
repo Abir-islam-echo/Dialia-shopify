@@ -6,8 +6,8 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8 col-md-10 col-12">
                             <div class="tm-section-title text-center">
-                                <h2>{{ section.settings.heading }}</h2>
-                                <p>{{ section.settings.description }}</p>
+                                <h2>{{ section.settings.heading | remove: '<p>' | remove: '</p>' }}</h2>
+                                <p>{{ section.settings.description | remove: '<p>' | remove: '</p>' }}</p>
                             </div>
                         </div>
                     </div>
