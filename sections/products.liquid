@@ -15,6 +15,9 @@
           
                     <div class="row product-slider-active tm-slider-arrow tm-slider-arrow-hovervisible">
                         <!-- Single Product -->
+                      {% for product in collection.products %}
+                        <h1>{{ product.title }}</h1>
+                        {% endfor %}
                       {% for product in collections.all.products %}
                           {% for collection in product.collections %}
                             <div class="col">
