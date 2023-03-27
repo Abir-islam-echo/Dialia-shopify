@@ -209,6 +209,7 @@
     "e95a5b03-9c06-4456-a78a-8c54c84f851e": {
       "type": "products",
       "settings": {
+        "collection-id": "classic-items"
       }
     }
   },
