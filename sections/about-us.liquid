@@ -11,12 +11,17 @@
     <div class="row justify-content-end">
       <div class="col-lg-6">
         <div class="about-content tm-padding-section">
-          <h2><span><span class="color-theme">{{ section.settings.subheading }}</span></span>{{ section.settings.heading }}</h2>
+          <h2>
+            <span
+              ><span class="color-theme">{{ section.settings.subheading }}</span></span
+            >
+            {{- section.settings.heading }}
+          </h2>
           <p>
             {{ section.settings.description }}
           </p>
           <div class="about-contentbottom">
-            <a href="about-us.html" class="tm-button">{{ section.settings.button-text }}</a>
+            <a href="about-us.html" class="tm-button">{{ section.settings['button-text'] }}</a>
             <a href="tel:{{ section.settings.phone }}" class="tm-callbutton">
               <span class="tm-callbutton-icon"><i class="zmdi zmdi-phone-in-talk"></i></span>
               <h3>{{ section.settings.phone }}</h3>
@@ -79,34 +84,34 @@
       "default": 14
     },
     {
-          "type": "richtext",
-          "id": "button-text",
-          "label": "Button text",
-          "default": "<p>Read more</p>"
-        },
-        {
-          "type": "font",
-          "id": "button-font",
-          "label": "Font style"
-        },
-        {
-          "type": "range",
-          "id": "button-font-size",
-          "min": 12,
-          "max": 36,
-          "step": 1,
-          "unit": "px",
-          "label": "Font size",
-          "default": 16
-        },
-     {
-          "type": "text",
-          "id": "phone",
-          "label": "Phone",
-          "default": "+8801823728535"
-        }
+      "type": "richtext",
+      "id": "button-text",
+      "label": "Button text",
+      "default": "<p>Read more</p>"
+    },
+    {
+      "type": "font",
+      "id": "button-font",
+      "label": "Font style"
+    },
+    {
+      "type": "range",
+      "id": "button-font-size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+8801823728535"
+    }
   ],
-  "presets":[
+  "presets": [
     {
       "name": "About us section"
     }
