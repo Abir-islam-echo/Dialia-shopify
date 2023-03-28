@@ -2,15 +2,10 @@
   "sections": {
     "main": {
       "type": "header",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
     "main"
   ]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a12c5e52c97f204bb469642046b6b1d53fbbd6ad
