@@ -209,7 +209,21 @@
     "e95a5b03-9c06-4456-a78a-8c54c84f851e": {
       "type": "products",
       "settings": {
-        "collection-id": "frontpage"
+        "collection-id": "frontpage",
+        "heading": "<p>Welcome to our shop<\/p>",
+        "description": "<p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.<\/p>",
+        "text-color": "#000000",
+        "font-size": 14
+      }
+    },
+    "ef024f91-d22b-4510-be38-3de200ff1665": {
+      "type": "appointment-details",
+      "settings": {
+      }
+    },
+    "edf96d52-fad9-4a71-9804-826df19d9e86": {
+      "type": "latest-blog",
+      "settings": {
       }
     }
   },
@@ -220,6 +234,8 @@
     "e84fea37-4ac8-4104-a3e2-6f8d11397853",
     "436c6fc0-b7d6-409e-a31e-f5e639db4d32",
     "213c046c-be66-47d4-bdee-0e1340dd39d3",
-    "e95a5b03-9c06-4456-a78a-8c54c84f851e"
+    "e95a5b03-9c06-4456-a78a-8c54c84f851e",
+    "ef024f91-d22b-4510-be38-3de200ff1665",
+    "edf96d52-fad9-4a71-9804-826df19d9e86"
   ]
 }
