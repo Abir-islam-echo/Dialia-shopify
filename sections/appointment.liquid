@@ -1,91 +1,93 @@
 <!-- Call To Action -->
-<div class="tm-section call-to-action-area tm-padding-section appointment-section-{{ section.id }}"
-    data-bgimage="{{ section.settings.background | image_url }}" data-overlay="8">
-    <div class="container">
-        <div class="tm-cta">
-            <div class="tm-cta-content">
-                <h3>{{ section.settings.title }}</h3>
-                <h2>{{ section.settings.subtitle }}</h2>
-            </div>
-            <div class="tm-cta-button">
-                <a href="#" class="tm-button tm-button-white">{{ section.settings.button-text }}</a>
-            </div>
-        </div>
+<div
+  class="tm-section call-to-action-area tm-padding-section appointment-section-{{ section.id }}"
+  data-bgimage="{{ section.settings.background | image_url }}"
+  data-overlay="8"
+>
+  <div class="container">
+    <div class="tm-cta">
+      <div class="tm-cta-content">
+        <h3>{{ section.settings.title }}</h3>
+        <h2>{{ section.settings.subtitle }}</h2>
+      </div>
+      <div class="tm-cta-button">
+        <a href="#" class="tm-button tm-button-white">{{ section.settings['button-text'] }}</a>
+      </div>
     </div>
+  </div>
 </div>
-<!--// Call To Action -->
+<!-- // Call To Action -->
 {% schema %}
-  {
-    "name": "appointment section",
-    "settings":[
-      {
-          "type": "image_picker",
-          "label": "Background",
-          "id": "background"
-        },
-          {
-          "type": "richtext",
-          "id": "title",
-          "label": "Title",
-          "default": "<p>New Patient Special Offer</p>"
-        },
-        {
-          "type": "richtext",
-          "id": "subtitle",
-          "label": "Subtitle",
-          "default": "<p>For your convenience, you can book your appointment</p>"
-        },
-        {
-          "type": "font",
-          "id": "font",
-          "label": "Font style"
-        },
-        {
-          "type": "color",
-          "id": "text-color",
-          "label": "Text Color",
-          "default": "#000000"
-        },
-        {
-          "type": "range",
-          "id": "font-size",
-          "min": 12,
-          "max": 36,
-          "step": 1,
-          "unit": "px",
-          "label": "Font size",
-          "default": 14
-        },
-        
-      {
-          "type": "richtext",
-          "id": "button-text",
-          "label": "Button Text",
-          "default": "<p>Book an Appointment</p>"
-        },
-        {
-          "type": "font",
-          "id": "button-font",
-          "label": "Font style"
-        },
-        {
-          "type": "range",
-          "id": "button-font-size",
-          "min": 12,
-          "max": 36,
-          "step": 1,
-          "unit": "px",
-          "label": "Font size",
-          "default": 16
-        }
-        ],
-    "presets":[
-      {
-        "name":"appontment section"
-      }
-      
-    ]
-  }
+{
+  "name": "appointment section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Background",
+      "id": "background"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>New Patient Special Offer</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>For your convenience, you can book your appointment</p>"
+    },
+    {
+      "type": "font",
+      "id": "font",
+      "label": "Font style"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "font-size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+
+    {
+      "type": "richtext",
+      "id": "button-text",
+      "label": "Button Text",
+      "default": "<p>Book an Appointment</p>"
+    },
+    {
+      "type": "font",
+      "id": "button-font",
+      "label": "Font style"
+    },
+    {
+      "type": "range",
+      "id": "button-font-size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "appontment section"
+    }
+  ]
+}
 {% endschema %}
 
 {% style %}
