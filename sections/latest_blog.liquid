@@ -14,7 +14,7 @@
     </div>
     <div class="row blog-slider-active tm-slider-dots">
       <!-- Single Blog -->
-      {% for article in  section.settings.blog .articles %}
+      {% for article in section.settings.blog.articles %}
         <div class="col">
           <div class="tm-blog">
             <div class="tm-blog-top">
@@ -56,11 +56,11 @@
 {
   "name": "latest-blog",
   "tag": "section",
-  "settings":[
+  "settings": [
     {
-      "type":"blog",
-      "id":"blog",
-      "label":"Blog"
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
     }
   ],
   "presets": [
