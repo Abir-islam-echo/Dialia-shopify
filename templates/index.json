@@ -220,6 +220,11 @@
       "type": "appointment-details",
       "settings": {
       }
+    },
+    "f618f376-c869-4484-8bfd-01222eb2db6a": {
+      "type": "latest-blog",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -230,6 +235,7 @@
     "436c6fc0-b7d6-409e-a31e-f5e639db4d32",
     "213c046c-be66-47d4-bdee-0e1340dd39d3",
     "e95a5b03-9c06-4456-a78a-8c54c84f851e",
-    "ef024f91-d22b-4510-be38-3de200ff1665"
+    "ef024f91-d22b-4510-be38-3de200ff1665",
+    "f618f376-c869-4484-8bfd-01222eb2db6a"
   ]
 }
