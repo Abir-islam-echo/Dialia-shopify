@@ -1,0 +1,112 @@
+<!-- Services Area -->
+<div class="tm-section services-area tm-padding-section bg-white service-section-{{ section.id }}">
+  <span class="bg-shape-left"><img src="{{ "bg-shape-1.png" | asset_url }}" alt="background shape"></span>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 col-lg-8 col-md-10 col-12">
+        <div class="tm-section-title text-center">
+          <h2>Our Services</h2>
+          <p>
+            Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at
+            phaedrum.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-30-reverse">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'service-block' %}
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-12 mt-30">
+              <div class="tm-service text-center wow fadeInUp">
+                <div class="tm-service-inner">
+                  <span class="tm-service-icon">
+                    <img src="{{ block.settings['icon-picker'] | image_url }}">
+                  </span>
+                  <span class="tm-service-backicon">
+                    <img src="{{ block.settings['icon-picker'] | image_url }}">
+                  </span>
+                  <h5>
+                    <a href="service-details.html">{{- block.settings.heading | remove: '<p>' | remove: '</p>' -}}</a>
+                  </h5>
+                  <p>
+                    {{- block.settings.description | remove: '<p>' | remove: '</p>' -}}
+                  </p>
+                  <a href="service-details.html" class="tm-readmore">Read more</a>
+                </div>
+              </div>
+            </div>
+            <!-- // Single Service -->
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- // Services Area -->
+
+{% schema %}
+{
+  "name": "Service section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "service-block",
+      "name": "service",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Sports Rehabilitation</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Aromatherapy uses plant materials and arom atic plant oils, including essential oils. It can be offered as a complementary therapy.</p>"
+        },
+        {
+          "type": "font",
+          "id": "font",
+          "label": "Font style"
+        },
+        {
+          "type": "color",
+          "id": "text-color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        },
+        {
+          "type": "image_picker",
+          "label": "Icon / Image",
+          "id": "icon-picker"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service section",
+      "blocks": [
+        {
+          "type": "service-block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+{% endstyle %}

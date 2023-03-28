@@ -3990,6 +3990,29 @@ button.tm-videobutton:hover span {
   transition: all 0.4s ease-out 0s;
 }
 
+/* Abir */
+.tm-feature-icon img,
+.tm-feature-backicon img,
+.tm-service-icon img,
+.tm-service-backicon img{
+  width:100% !important;
+}
+
+.tm-feature-backicon img,
+.tm-service-backicon img{
+  opacity:0.05;
+}
+.tm-feature-icon ,
+.tm-service-icon{
+  width:60px !important;
+}
+
+.tm-feature-backicon,
+.tm-service-backicon{
+  width:160px !important;
+}
+/* Abir */
+
 .tm-feature p {
   margin-bottom: 0;
 }
