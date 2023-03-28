@@ -15,46 +15,46 @@
     </div>
     <div class="row justify-content-center mt-30-reverse">
       {% for block in section.blocks %}
-      {% case block.type %}
-        {% when "service-block" %}
-        <!-- Single Service -->
-        <div class="col-lg-4 col-md-6 col-12 mt-30">
-          <div class="tm-service text-center wow fadeInUp">
-            <div class="tm-service-inner">
-              <span class="tm-service-icon">
-                 <img src="{{ block.settings['icon-picker'] | image_url }}">
-              </span>
-              <span class="tm-service-backicon">
-                 <img src="{{ block.settings['icon-picker'] | image_url }}">
-              </span>
-              <h5><a href="service-details.html">{{- block.settings.heading | remove: '<p>' | remove: '</p>' -}}</a></h5>
-              <p>
-                {{- block.settings.description | remove: '<p>' | remove: '</p>' -}}
-              </p>
-              <a href="service-details.html" class="tm-readmore">Read more</a>
+        {% case block.type %}
+          {% when 'service-block' %}
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-12 mt-30">
+              <div class="tm-service text-center wow fadeInUp">
+                <div class="tm-service-inner">
+                  <span class="tm-service-icon">
+                    <img src="{{ block.settings['icon-picker'] | image_url }}">
+                  </span>
+                  <span class="tm-service-backicon">
+                    <img src="{{ block.settings['icon-picker'] | image_url }}">
+                  </span>
+                  <h5>
+                    <a href="service-details.html">{{- block.settings.heading | remove: '<p>' | remove: '</p>' -}}</a>
+                  </h5>
+                  <p>
+                    {{- block.settings.description | remove: '<p>' | remove: '</p>' -}}
+                  </p>
+                  <a href="service-details.html" class="tm-readmore">Read more</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <!-- // Single Service -->
-      {% endcase %}
+            <!-- // Single Service -->
+        {% endcase %}
       {% endfor %}
-      
     </div>
   </div>
 </div>
 <!-- // Services Area -->
 
-
 {% schema %}
-  {
-    "name": "Service section",
-    "settings": [],
-    "blocks":[
-      {
-        "type":"service-block",
-        "name":"service",
-        "settings":[
-          {
+{
+  "name": "Service section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "service-block",
+      "name": "service",
+      "settings": [
+        {
           "type": "richtext",
           "id": "heading",
           "label": "Heading",
@@ -92,20 +92,20 @@
           "label": "Icon / Image",
           "id": "icon-picker"
         }
-        ]
-      }
-    ],
-    "presets":[
-      {
-        "name":"Service section",
-        "blocks":[
-          {
-            "type":"service-block"
-          }
-        ]
-      }
-    ]
-  }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service section",
+      "blocks": [
+        {
+          "type": "service-block"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
 
 {% style %}
