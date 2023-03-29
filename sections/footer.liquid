@@ -28,7 +28,8 @@
                                 <h5 class="widget-title">Recent Posts</h5>
                                 <ul>
                                   {% for article in section.settings.blog.articles %}
-                                    <li>
+                                    {% if forloop.index<=3 %}
+                                      <li>
                                         <a href="{{ article.url }}" class="widget-recentpost-image">
                                             <img src="{{ article.image | image_url }}"
                                                 alt="blog thumbnail">
@@ -37,7 +38,8 @@
                                             <h6><a href="{{ article.url }}">{{ article.title }}</a></h6>
                                             <span>{{ article.created_at }}</span>
                                         </div>
-                                    </li> 
+                                    </li>
+                                    {% endif %}
                                   {% endfor %}                                   
                                 </ul>
                             </div>
