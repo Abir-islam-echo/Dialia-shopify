@@ -3,6 +3,7 @@
     "article": {
       "type": "article-layout",
       "settings": {
+        "blog": "new-blogs"
       }
     }
   },
