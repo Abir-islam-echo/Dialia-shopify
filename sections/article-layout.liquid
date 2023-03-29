@@ -40,8 +40,8 @@
         <div class="sticky-sidebar">
           <div class="tm-blog blogitem">
             <div class="tm-blog-top">
-              <img src="assets/images/blog/post-image/blog-post-image-1.jpg" alt="blog image">
-              <span class="tm-blog-date">18 Nov, 2019</span>
+              <img src="{{ article.image | image_url }}" alt="blog image">
+              <span class="tm-blog-date">{{ article.created_at | date: "%B %d, %Y" }}</span>
             </div>
             <div class="tm-blog-bottom">
               <div class="tm-blog-meta">
@@ -56,16 +56,10 @@
                 >
               </div>
               <h5 class="tm-blog-title">
-                Positive Effects of massage is the complementary and alternative treatment that uses massage therapy
+                {{ article.title }}
               </h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mi dolor, malesuada id metus a, mattis
-                eleifend elit. Nullam pharetra consequat ex in dapibus. Vestibulum ante ipsum primis in faucibus orci
-                luctus et ultrices posuere cubilia Curae; Vivamus lacinia dui tellus. Donec condimentum vel diam eget
-                accumsan. Fusce sit amet nunc fermentum, mattis lacus eu, euismod ipsum. Nam tincidunt leo sed lorem
-                ultricies molestie. In in turpis id risus lacinia finibus eget eget eros. Mauris lobortis, tortor eu
-                ornare conva mauris tortor blandit orci, nec eleifend velit dolor sit amet nunc. Suspendisse vel ipsum
-                tempor, volutpat arcuat, faucibus mi. In efficitur lorem.
+                {{ article.content }}
               </p>
               <blockquote>
                 <p>
