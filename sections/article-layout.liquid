@@ -210,7 +210,7 @@
                     <img src="{{ article.image | image_url }}" alt="blog thumbnail">
                   </a>
                   <div class="widget-recentpost-content">
-                    <h6><a href="{{ article.url }}">{{ article.title }}</a></h6>
+                    <h6><a href="{{ article.url }}">{{ article.title | slice: 0,40 | append: " . . ." }}</a></h6>
                     <span>{{ article.created_at | date: "%B %d, %Y" }}</span>
                   </div>
                 </li> 
