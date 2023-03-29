@@ -199,7 +199,7 @@
                 {% for article in section.settings.blog.articles  %}
                   <li>
                   <a href="{{ article.url }}" class="widget-recentpost-image">
-                    <img src="{{ article.image }}" alt="blog thumbnail">
+                    <img src="{{ article.image | image_url }}" alt="blog thumbnail">
                   </a>
                   <div class="widget-recentpost-content">
                     <h6><a href="{{ article.url }}">{{ article.title }}</a></h6>
