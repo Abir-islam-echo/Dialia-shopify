@@ -119,6 +119,7 @@
             <div class="blogitem-commentbox mt-50">
               <h5 class="small-title">Leave a Comment</h5>
               {% form 'new_comment', article %}
+                {{ form.errors | default_errors }}
                  <div  class="tm-commentbox">
                 <div class="tm-commentbox-singlefield">
                   <p>Your email address will not be published. Required fields are marked *</p>
