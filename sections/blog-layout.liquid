@@ -1,0 +1,185 @@
+<!-- Breadcrumb Area -->
+<div
+  class="tm-breadcrumb-area tm-padding-section"
+  data-bgimage="assets/images/bg/breadcrumb-bg.jpg"
+  data-black-overlay="4"
+>
+  <div class="container">
+    <div class="tm-breadcrumb text-center">
+      <h2>Blogs</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>Blogs</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- // Breadcrumb Area -->
+
+<!-- Blog Area -->
+<div class="tm-section blogs-area bg-whtie tm-padding-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="sticky-sidebar">
+          <div class="tm-blog-list mt-50-reverse">
+            <!-- Single Blog -->
+            <h4>Blog title : {{ blog.title }}</h4>
+            {% for article in blog.articles %}
+            
+            <div class="tm-blog mt-50">
+              <div class="tm-blog-top">
+                <a href="{{ article.url }}">
+                  <img src="{{ article.image | image_url }}" alt="blog image">
+                </a>
+                <span class="tm-blog-date" height="40px"> {{ article.created_at | date: "%B %d, %Y" }}</span>
+              </div>
+              <div class="tm-blog-bottom">
+                <div class="tm-blog-meta">
+                  <span
+                    ><a href="blog.html"><i class="zmdi zmdi-account"></i>Admin</a></span
+                  >
+                  <span
+                    ><a href="blog-details.html"><i class="zmdi zmdi-comments"></i> Comments (0)</a></span
+                  >
+                  <span
+                    ><a href="blog.html"><i class="zmdi zmdi-folder"></i> Services</a></span
+                  >
+                </div>
+                <h5 class="tm-blog-title">
+                  <a href="{{ article.url }}"
+                    > {{ article.title }}</a
+                  >
+                </h5>
+                <p>
+                    {{ article.content }}
+                </p>
+                <a href="{{ article.url }}" class="tm-button tm-button-dark">Read more</a>
+              </div>
+            </div>
+        {% endfor %}
+
+
+          <div class="tm-pagination mt-50">
+            <ul>
+              <li><a href="blog.html">&lt; Prev</a></li>
+              <li class="is-active"><a href="blog.html">1</a></li>
+              <li><a href="blog.html">2</a></li>
+              <li><a href="blog.html">3</a></li>
+              <li><a href="blog.html">Next &gt;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="sticky-sidebar">
+          <div class="widgets widgets-blog">
+            <!-- Single Widget -->
+            <div class="single-widget widget-search">
+              <h5 class="widget-title">Search</h5>
+              <form action="#" class="widget-search-form">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="zmdi zmdi-search"></i></button>
+              </form>
+            </div>
+            <!-- // Single Widget -->
+
+            <!-- Single Widget -->
+            <div class="single-widget widget-categories">
+              <h5 class="widget-title">Categories</h5>
+              <ul>
+                <li>
+                  <a href="#">Moxibustion Therapy <span>(02)</span></a>
+                </li>
+                <li>
+                  <a href="#">Headaches Treatments <span>(03)</span></a>
+                </li>
+                <li>
+                  <a href="#">Auriculoterapia <span>(09)</span></a>
+                </li>
+                <li>
+                  <a href="#">Falls Prevention Program <span>(04)</span></a>
+                </li>
+                <li>
+                  <a href="#">Shockwave Therapy <span>(08)</span></a>
+                </li>
+                <li>
+                  <a href="#">Intense Pulsed Light <span>(02)</span></a>
+                </li>
+              </ul>
+            </div>
+            <!-- // Single Widget -->
+
+            <!-- Single Widget -->
+            <div class="single-widget widget-recentpost">
+              <h5 class="widget-title">Recent Posts</h5>
+              <ul>
+                <li>
+                  <a href="blog-details.html" class="widget-recentpost-image">
+                    <img src="assets/images/blog/thumbnails/blog-thumbnail-1.jpg" alt="blog thumbnail">
+                  </a>
+                  <div class="widget-recentpost-content">
+                    <h6><a href="blog-details.html">Fundamental analysis services</a></h6>
+                    <span>August 01, 2019</span>
+                  </div>
+                </li>
+                <li>
+                  <a href="blog-details.html" class="widget-recentpost-image">
+                    <img src="assets/images/blog/thumbnails/blog-thumbnail-2.jpg" alt="blog thumbnail">
+                  </a>
+                  <div class="widget-recentpost-content">
+                    <h6><a href="blog-details.html">Steps to a successful Business</a></h6>
+                    <span>August 01, 2019</span>
+                  </div>
+                </li>
+                <li>
+                  <a href="blog-details.html" class="widget-recentpost-image">
+                    <img src="assets/images/blog/thumbnails/blog-thumbnail-3.jpg" alt="blog thumbnail">
+                  </a>
+                  <div class="widget-recentpost-content">
+                    <h6><a href="#blog-details.html">Development Progress Conference</a></h6>
+                    <span>August 01, 2019</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- // Single Widget -->
+
+            <!-- Single Widget -->
+            <div class="single-widget widget-tags">
+              <h5 class="widget-title">Tags</h5>
+              <ul>
+                <li><a href="blog.html">Health</a></li>
+                <li><a href="blog.html">Body</a></li>
+                <li><a href="blog.html">Therapy</a></li>
+                <li><a href="blog.html">Acupuncture</a></li>
+                <li><a href="blog.html">Skin</a></li>
+                <li><a href="blog.html">Service</a></li>
+                <li><a href="blog.html">Ontario</a></li>
+                <li><a href="blog.html">Stone</a></li>
+              </ul>
+            </div>
+            <!-- // Single Widget -->
+
+            <!-- Single Widget -->
+            <div class="single-widget widget-archives">
+              <h5 class="widget-title">Archives</h5>
+              <ul>
+                <li><a href="blog.html">January 2019</a></li>
+                <li><a href="blog.html">March 2019</a></li>
+                <li><a href="blog.html">April 2019</a></li>
+                <li><a href="blog.html">July 2019</a></li>
+                <li><a href="blog.html">September 2019</a></li>
+                <li><a href="blog.html">October 2019</a></li>
+              </ul>
+            </div>
+            <!-- // Single Widget -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Blog Area -->
+
+
