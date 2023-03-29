@@ -59,12 +59,11 @@
                 {{ article.title }}
               </h5>
               <p>
-                {{ article.content }}
+                {{ article.content | slice: 50 }}
               </p>
               <blockquote>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, eos magni! Laudantium illum,
-                  reprehenderit distinctio expedita voluptates eligendi fugiat voluptatibus nostrum tenetur modi libero.
+                  {{ article.content | slice: 50,20 }}
                 </p>
               </blockquote>
               <p>
