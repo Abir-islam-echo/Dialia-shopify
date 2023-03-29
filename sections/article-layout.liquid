@@ -96,13 +96,14 @@
                 {% for comment in article.comments %}
                   <div class="tm-comment">
                   <div class="tm-comment-thumb">
-                    <img src="assets/images/authors/author-image-1.jpg" alt="author image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="author image">
                   </div>
                   <div class="tm-comment-content">
                     <h6 class="tm-comment-authorname"><a href="#">{{ comment.author }}</a></h6>
                     <span class="tm-comment-date">{{ comment.created_at | date: "%B %d, %Y" }}</span>
                     <p>
                       {{ comment.content }}
+                      {{ comment.status }}
                     </p>
                     <a href="#" class="tm-comment-replybutton"><i class="zmdi zmdi-mail-reply-all"></i> Reply</a>
                   </div>
