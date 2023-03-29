@@ -18,7 +18,7 @@
         <div class="col">
           <div class="tm-blog">
             <div class="tm-blog-top">
-              <a href="blog-details.html">
+              <a href="{{ article.url }}">
                 <img src="{{ article.image | image_url }}" alt="blog image">
               </a>
               <span class="tm-blog-date">{{ article.created_at | date: "%B %d, %Y" }}</span>
@@ -35,7 +35,7 @@
                   ><a href="blog.html"><i class="zmdi zmdi-folder"></i> Services</a></span
                 >
               </div>
-              <h5 class="tm-blog-title"><a href="blog-details.html">{{ article.title }}</a></h5>
+              <h5 class="tm-blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h5>
               <p>
                 {{ article.content }}
               </p>
