@@ -1,7 +1,13 @@
 {% schema %}
   {
     "name": "Article",
-    "settings": [],
+      "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    }
+  ],
     "presets":[
       {
         "name":"Article"
@@ -112,7 +118,7 @@
             <!-- Blogitem Commentbox -->
             <div class="blogitem-commentbox mt-50">
               <h5 class="small-title">Leave a Comment</h5>
-              <form action="#" class="tm-commentbox">
+              <form action="{{ article.comment_post_url }}" class="tm-commentbox">
                 <div class="tm-commentbox-singlefield">
                   <p>Your email address will not be published. Required fields are marked *</p>
                 </div>
@@ -190,33 +196,18 @@
             <div class="single-widget widget-recentpost">
               <h5 class="widget-title">Recent Posts</h5>
               <ul>
-                <li>
-                  <a href="blog-details.html" class="widget-recentpost-image">
-                    <img src="assets/images/blog/thumbnails/blog-thumbnail-1.jpg" alt="blog thumbnail">
+                {% for article in section.settings.blog.articles  %}
+                  <li>
+                  <a href="{{ article.url }}" class="widget-recentpost-image">
+                    <img src="{{ article.image }}" alt="blog thumbnail">
                   </a>
                   <div class="widget-recentpost-content">
-                    <h6><a href="blog-details.html">Fundamental analysis services</a></h6>
-                    <span>August 01, 2019</span>
+                    <h6><a href="{{ article.url }}">{{ article.title }}</a></h6>
+                    <span>{{ article.created_at | date: "%B %d, %Y" }}</span>
                   </div>
-                </li>
-                <li>
-                  <a href="blog-details.html" class="widget-recentpost-image">
-                    <img src="assets/images/blog/thumbnails/blog-thumbnail-2.jpg" alt="blog thumbnail">
-                  </a>
-                  <div class="widget-recentpost-content">
-                    <h6><a href="blog-details.html">Steps to a successful Business</a></h6>
-                    <span>August 01, 2019</span>
-                  </div>
-                </li>
-                <li>
-                  <a href="blog-details.html" class="widget-recentpost-image">
-                    <img src="assets/images/blog/thumbnails/blog-thumbnail-3.jpg" alt="blog thumbnail">
-                  </a>
-                  <div class="widget-recentpost-content">
-                    <h6><a href="#blog-details.html">Development Progress Conference</a></h6>
-                    <span>August 01, 2019</span>
-                  </div>
-                </li>
+                </li> 
+                  {% endfor %}
+                
               </ul>
             </div>
             <!-- // Single Widget -->
@@ -256,3 +247,5 @@
     </div>
   </div>
 </div>
+
+
