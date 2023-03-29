@@ -29,7 +29,7 @@
             
             <div class="tm-blog mt-50">
               <div class="tm-blog-top">
-                <a href="blog-details.html">
+                <a href="{{ article.url }}">
                   <img src="{{ article.image | image_url }}" alt="blog image">
                 </a>
                 <span class="tm-blog-date" height="40px"> {{ article.created_at | date: "%B %d, %Y" }}</span>
@@ -47,14 +47,14 @@
                   >
                 </div>
                 <h5 class="tm-blog-title">
-                  <a href="blog-details.html"
+                  <a href="{{ article.url }}"
                     > {{ article.title }}</a
                   >
                 </h5>
                 <p>
                     {{ article.content }}
                 </p>
-                <a href="blog-details.html" class="tm-button tm-button-dark">Read more</a>
+                <a href="{{ article.url }}" class="tm-button tm-button-dark">Read more</a>
               </div>
             </div>
         {% endfor %}
