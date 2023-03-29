@@ -35,7 +35,7 @@ ul {
 	counter-reset: list;
 	padding: 0 1rem;
 }
-collection-list.li {
+.collection-list.li {
 	--stop: calc(100% / var(--length) * var(--i));
 	--l: 62%;
 	--l2: 88%;
@@ -54,7 +54,7 @@ collection-list.li {
 	background-color: white;
 }
 
-collection-list.li::before {
+.collection-list.li::before {
 	content: '';
 	display: block;
 	width: 100%;
@@ -69,7 +69,7 @@ collection-list.li::before {
 }
 
 @media (min-width: 40em) {
-	collection-list.li {
+	.collection-list.li {
 		margin: 3rem auto;
 		padding: 3rem 2rem 2rem;
 	}
