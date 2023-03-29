@@ -55,7 +55,7 @@
                   ><a href="blog.html"><i class="zmdi zmdi-account"></i> Admin</a></span
                 >
                 <span
-                  ><a href="blog-details.html"><i class="zmdi zmdi-comments"></i> Comments (0)</a></span
+                  ><a href="blog-details.html"><i class="zmdi zmdi-comments"></i>{{ article.comments_count }} Comments</a></span
                 >
                 <span
                   ><a href="blog.html"><i class="zmdi zmdi-folder"></i> Services</a></span
@@ -104,7 +104,7 @@
                     <p>
                       {{ comment.content }}
                     </p>
-                    <a href="{{ comment.url }}" class="tm-comment-replybutton"><i class="zmdi zmdi-mail-reply-all"></i> Reply</a>
+                    <a href="#" class="tm-comment-replybutton"><i class="zmdi zmdi-mail-reply-all"></i> Reply</a>
                   </div>
                 </div>
                 {% endfor %}
