@@ -1,5 +1,4 @@
 <footer class="footer">
-
             <!-- Footer Widgets -->
             <div class="footer-toparea tm-padding-section">
                 <div class="container">
@@ -28,36 +27,18 @@
                             <div class="single-widget widget-recentpost">
                                 <h5 class="widget-title">Recent Posts</h5>
                                 <ul>
+                                  {% for article in section.settings.blog.articles %}
                                     <li>
-                                        <a href="blog-details.html" class="widget-recentpost-image">
-                                            <img src="assets/images/blog/thumbnails/blog-thumbnail-1.jpg"
+                                        <a href="{{ article.url }}" class="widget-recentpost-image">
+                                            <img src="{{ article.image }}"
                                                 alt="blog thumbnail">
                                         </a>
                                         <div class="widget-recentpost-content">
-                                            <h6><a href="blog-details.html">Minor Surgeries of the Foot</a></h6>
-                                            <span>August 01, 2019</span>
+                                            <h6><a href="{{ article.url }}">{{ article.title }}</a></h6>
+                                            <span>{{ article.created_at }}</span>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <a href="blog-details.html" class="widget-recentpost-image">
-                                            <img src="assets/images/blog/thumbnails/blog-thumbnail-2.jpg"
-                                                alt="blog thumbnail">
-                                        </a>
-                                        <div class="widget-recentpost-content">
-                                            <h6><a href="blog-details.html">Assistive Device Program</a></h6>
-                                            <span>August 01, 2019</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="blog-details.html" class="widget-recentpost-image">
-                                            <img src="assets/images/blog/thumbnails/blog-thumbnail-3.jpg"
-                                                alt="blog thumbnail">
-                                        </a>
-                                        <div class="widget-recentpost-content">
-                                            <h6><a href="blog-details.html">Initial plus treatment</a></h6>
-                                            <span>August 01, 2019</span>
-                                        </div>
-                                    </li>
+                                    </li> 
+                                  {% endfor %}                                   
                                 </ul>
                             </div>
                             <!--// Single Widget (Widget Blog) -->
@@ -117,3 +98,17 @@
             <!--// Footer -->
 
         </footer>
+
+        {% schema %}
+          {
+            "name":"Footer",
+            "tag":"section",
+            "settings":[
+              {
+                "type":"blog",
+                "id":"blog",
+                "label":"Recent blogs"
+              }
+            ]
+          }
+        {% endschema %}
