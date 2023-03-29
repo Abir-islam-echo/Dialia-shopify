@@ -103,9 +103,8 @@
                     <span class="tm-comment-date">{{ comment.created_at | date: "%B %d, %Y" }}</span>
                     <p>
                       {{ comment.content }}
-                      {{ comment.status }}
                     </p>
-                    <a href="#" class="tm-comment-replybutton"><i class="zmdi zmdi-mail-reply-all"></i> Reply</a>
+                    <a href="{{ comment.url }}" class="tm-comment-replybutton"><i class="zmdi zmdi-mail-reply-all"></i> Reply</a>
                   </div>
                 </div>
                 {% endfor %}
