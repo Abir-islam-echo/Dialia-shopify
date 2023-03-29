@@ -22,13 +22,12 @@
                                 <div class="tm-blog-list mt-50-reverse">
                                    <!-- Single Blog -->
                                   {% for article in blog.articles %}
-                                  
                                   <div class="tm-blog mt-50">
                                     <div class="tm-blog-top">
                                       <a href="{{ article.url }}">
                                         <img src="{{ article.image | image_url }}" alt="blog image">
                                       </a>
-                                      <span class="tm-blog-date" height="40px"> {{ article.created_at | date: "%B %d, %Y" }}</span>
+                                      <span class="tm-blog-date" height="40px">{{ article.created_at | date: "%B %d, %Y" }}</span>
                                     </div>
                                     <div class="tm-blog-bottom">
                                       <div class="tm-blog-meta">
@@ -102,39 +101,18 @@
                                     <div class="single-widget widget-recentpost">
                                         <h5 class="widget-title">Recent Posts</h5>
                                         <ul>
+                                          {% for article in blog.articles %}
                                             <li>
-                                                <a href="blog-details.html" class="widget-recentpost-image">
-                                                    <img src="assets/images/blog/thumbnails/blog-thumbnail-1.jpg"
+                                                <a href="{{ article.url }}" class="widget-recentpost-image">
+                                                    <img src="{{ article.image | image_url}}"
                                                         alt="blog thumbnail">
                                                 </a>
                                                 <div class="widget-recentpost-content">
-                                                    <h6><a href="blog-details.html">Fundamental analysis
-                                                            services</a></h6>
-                                                    <span>August 01, 2019</span>
+                                                    <h6><a href="blog-details.html">{{ article.title }}</a></h6>
+                                                    <span>{{ article.created_at | date: "%B %d, %Y" }}</span>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <a href="blog-details.html" class="widget-recentpost-image">
-                                                    <img src="assets/images/blog/thumbnails/blog-thumbnail-2.jpg"
-                                                        alt="blog thumbnail">
-                                                </a>
-                                                <div class="widget-recentpost-content">
-                                                    <h6><a href="blog-details.html">Steps to a successful
-                                                            Business</a></h6>
-                                                    <span>August 01, 2019</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="blog-details.html" class="widget-recentpost-image">
-                                                    <img src="assets/images/blog/thumbnails/blog-thumbnail-3.jpg"
-                                                        alt="blog thumbnail">
-                                                </a>
-                                                <div class="widget-recentpost-content">
-                                                    <h6><a href="#blog-details.html">Development Progress
-                                                            Conference</a></h6>
-                                                    <span>August 01, 2019</span>
-                                                </div>
-                                            </li>
+                                            {% endfor %}  
                                         </ul>
                                     </div>
                                     <!--// Single Widget -->
