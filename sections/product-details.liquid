@@ -75,10 +75,13 @@
                                                 </div>
                                             </div>
                                             <div class="tm-prodetails-thumbnails">
+                                              {% for image in product.images %}
                                                 <div class="tm-prodetails-thumbnail">
-                                                    <img src="assets/images/product/thumbnail/product-image-1.jpg"
+                                                    <img src="{{ image | image_url }}"
                                                         alt="product image">
                                                 </div>
+                                                {% endfor %}
+                                                
                                             </div>
                                         </div>
                                         <!--// Product Details Images -->
