@@ -35,8 +35,8 @@
                                                 alt="blog thumbnail">
                                         </a>
                                         <div class="widget-recentpost-content">
-                                            <h6><a href="{{ article.url }}">{{ article.title }}</a></h6>
-                                            <span>{{ article.created_at }}</span>
+                                            <h6><a href="{{ article.url }}">{{ article.title | slice: 0,20 | append : ' ...'}}</a></h6>
+                                            <span>{{ article.created_at | date: "%B %d, %Y" }} }}</span>
                                         </div>
                                     </li>
                                     {% endif %}
