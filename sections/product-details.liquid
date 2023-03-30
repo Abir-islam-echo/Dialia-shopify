@@ -50,7 +50,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="tm-prodetails-content">
-                                            <h3 class="tm-prodetails-title">Cosmetology Essential oil</h3>
+                                            <h3 class="tm-prodetails-title">{{ product.title }}</h3>
                                             <div class="tm-rating">
                                                 <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                 <span class="active"><i class="zmdi zmdi-star"></i></span>
@@ -60,7 +60,11 @@
                                             </div>
                                             <p class="tm-prodetails-availability">Availalbe: <span>In Stock</span></p>
                                             <div class="tm-prodetails-price">
-                                                <span><del>$75.99</del> $59.99</span>
+                                                <span>{% if product.compare_at_price -%}
+                                                        <del>{{ product.compare_at_price | money_without_currency }}</del>
+                                                      {%- endif %}
+                                                      {{ product.price | money_with_currency }}
+                                                      </span>
                                             </div>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mi
                                                 dolor,
