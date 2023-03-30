@@ -13,7 +13,7 @@
 {% endfor %}
 {% endfor %}
 
-{%  for product in collection.products %}
+{%  for product in collection.all.products %}
   <h4>{{ product.title }}</h4>
 {% endfor %}
         <div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{{ "breadcrumb-bg.jpg" | asset_url }}"
