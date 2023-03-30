@@ -1,8 +1,19 @@
+{% assign current_product = product %}
 
-
-{%  for product in collection.products %}
-  <h4>{{ product.title }}</h4>
+<!-- Breadcrumb Area -->
+{% for current_tag in current_product.tags %}
+  
+{% for sample_product in collections["all"].products %}
+  <h4>{{ current_tag }}</h4>
+<!-- {% for tag in product.tags %}
+  {% if current_tag == tag %}
+       
+  {% endif %}
+{% endfor %} -->
 {% endfor %}
+{% endfor %}
+
+
         <div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{{ "breadcrumb-bg.jpg" | asset_url }}"
             data-black-overlay="4">
             <div class="container">
