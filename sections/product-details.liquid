@@ -215,8 +215,8 @@
                                           <div class="col-12">
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
-                                                    <a class="tm-product-imagelink" href="product-details.html">
-                                                        <img src="assets/images/product/product-image-1.jpg"
+                                                    <a class="tm-product-imagelink" href="{{ product.url }}">
+                                                        <img src="{{ product.featured_image }}"
                                                             alt="product image">
                                                     </a>
                                                     <ul class="tm-product-actions">
@@ -229,9 +229,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="tm-product-content">
-                                                    <h5 class="tm-product-title"><a href="product-details.html">Cosmetology
-                                                            Essential
-                                                            oil</a></h5>
+                                                    <h5 class="tm-product-title"><a href="product-details.html">{{ product.title }}</a></h5>
                                                     <div class="tm-product-rating">
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
@@ -239,7 +237,10 @@
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                     </div>
-                                                    <h6 class="tm-product-price">$99.99 <del>$120.00</del></h6>
+                                                    <h6 class="tm-product-price"> {{ product.price | money_with_currency }}
+                                                      {% if product.compare_at_price -%}
+                                                        <del>{{ product.compare_at_price | money_without_currency }}</del>
+                                                      {%- endif %}</h6>
                                                 </div>
                                             </div>
                                         </div>
