@@ -4698,6 +4698,23 @@ button.tm-videobutton:hover span {
   min-height:400px;
   max-height:400px;
 }
+.sale-tag{
+    margin: 10px 0;
+    background: linear-gradient(-45deg, #1e6a11, #91bb90, #1e6a11);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    position: relative;
+    justify-content: flex-end;
+    bottom: 504px;
+    right: 20px;
+    padding-right: 20px;
+    width: 90px;
+}
 
 .tm-product-imagelink {
   display: block;
