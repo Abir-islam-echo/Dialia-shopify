@@ -3,6 +3,7 @@
     "collection": {
       "type": "collection-layout",
       "settings": {
+        "collection-id": "popular-products"
       }
     }
   },
