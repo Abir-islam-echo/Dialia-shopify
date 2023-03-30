@@ -126,14 +126,11 @@
                                     <!-- Single Widget -->
                                     <div class="single-widget widget-categories">
                                         <h5 class="widget-title">Categories</h5>
+                                      {% for tag in collection.all_tags %}
                                         <ul>
-                                            <li><a href="#">Moxibustion Therapy <span>(02)</span></a></li>
-                                            <li><a href="#">Headaches Treatments <span>(03)</span></a></li>
-                                            <li><a href="#">Auriculoterapia <span>(09)</span></a></li>
-                                            <li><a href="#">Falls Prevention Program <span>(04)</span></a></li>
-                                            <li><a href="#">Shockwave Therapy <span>(08)</span></a></li>
-                                            <li><a href="#">Intense Pulsed Light <span>(02)</span></a></li>
+                                            <li><a href="#">{{ tag }}<span>(02)</span></a></li>
                                         </ul>
+                                        {% endfor %}
                                     </div>
                                     <!--// Single Widget -->
 
