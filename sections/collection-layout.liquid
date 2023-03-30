@@ -65,6 +65,9 @@
                                                       {% if product.compare_at_price -%}
                                                         <del>{{ product.compare_at_price | money_with_currency }}</del>
                                                       {%- endif %}</h6>
+                                                      {% if product.compare_at_price %}
+                                                        <span class="sale-tag"> Sale!! </span>
+                                                      {% endif %}
                                                 </div>
                                             </div>
                                         </div>
@@ -186,8 +189,33 @@
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
+{% style %}
+  .sale-tag {
+    margin: 10px 0;
+    padding: 5px 10px;
+    background: linear-gradient(-45deg, #1e6a11, #91bb90, #1e6a11);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    justify-content: center;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+{% endstyle %}
+
 
 {% javascript %}
 {% endjavascript %}
