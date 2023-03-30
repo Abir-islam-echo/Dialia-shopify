@@ -61,7 +61,7 @@
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                     </div>
-                                                    <h6 class="tm-product-price"> {{ product.price | money_with_currency | remove: "TK" }}
+                                                    <h6 class="tm-product-price"> {{ product.price | money_with_currency }}
                                                       {% if product.compare_at_price -%}
                                                         <del>{{ product.compare_at_price | money_without_currency }}</del>
                                                       {%- endif %}</h6>
