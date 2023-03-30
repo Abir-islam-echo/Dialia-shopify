@@ -25,14 +25,7 @@
                                         <!-- Product Details Images -->
                                         <div class="tm-prodetails-images">
                                             <div class="tm-prodetails-largeimages">
-                                               <div class="tm-prodetails-largeimage">
-                                                    <a data-fancybox="tm-prodetails-imagegallery"
-                                                        href="{{ product.featured_image | image_url }}"
-                                                        data-caption="Product Zoom Image 1">
-                                                        <img src="{{ product.featured_image | image_url }}"
-                                                            alt="product image">
-                                                    </a>                        
-                                                </div>
+                                               
                                               {% for image in product.images %}
                                                 <div class="tm-prodetails-largeimage">
                                                     <a data-fancybox="tm-prodetails-imagegallery"
