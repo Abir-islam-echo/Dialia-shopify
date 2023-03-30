@@ -313,10 +313,11 @@
                                 <div class="single-widget widget-size">
                                     <h5 class="widget-title">Size Options</h5>
                                     <ul>
-                                        <li><a href="#">Small </a></li>
-                                        <li><a href="#">Medium</a></li>
-                                        <li><a href="#">Large</a></li>
-                                        <li><a href="#">Extra Large </a></li>
+                                      {% for variant in product.variants %}
+                                        <li><a href="#">{{ variant.title }}</a></li>
+                                        {% endfor %}
+                                        
+
                                     </ul>
                                 </div>
                                 <!--// Single Widget -->
