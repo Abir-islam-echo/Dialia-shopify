@@ -4696,6 +4696,7 @@ button.tm-videobutton:hover span {
   display: block;
   width: 100%;
   min-height:400px;
+  max-height:400px;
 }
 
 .tm-product-imagelink {
