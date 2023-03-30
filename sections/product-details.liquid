@@ -12,6 +12,10 @@
 {% endfor %} -->
 {% endfor %}
 {% endfor %}
+
+{% for sample_product in collection.products %}
+  <h4>{{ sample_product.title }}</h4>
+{% endfor %}
         <div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{{ "breadcrumb-bg.jpg" | asset_url }}"
             data-black-overlay="4">
             <div class="container">
