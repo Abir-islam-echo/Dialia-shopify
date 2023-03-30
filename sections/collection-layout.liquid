@@ -126,11 +126,13 @@
                                     <!-- Single Widget -->
                                     <div class="single-widget widget-categories">
                                         <h5 class="widget-title">Categories</h5>
-                                      {% for tag in collection.all_tags %}
+                                     
                                         <ul>
-                                            <li><a href="#">{{ tag }}</a></li>
-                                        </ul>
+                                         {% for collection in collections %}
+                                        <li><a href="{{ collection.url }}">{{ collection.title }} <span>{{ collection.products_count }}</span></a></li>
                                         {% endfor %}
+                                        </ul>
+                                        
                                     </div>
                                     <!--// Single Widget -->
 
