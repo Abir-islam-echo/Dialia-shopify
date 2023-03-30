@@ -53,9 +53,7 @@
                                                 </div>
                                                 <div class="tm-product-content">
                                                     <h5 class="tm-product-title"><a
-                                                            href="product-details.html">Cosmetology
-                                                            Essential
-                                                            oil</a></h5>
+                                                            href="{{ product.url }}">{{ product.title }}</a></h5>
                                                     <div class="tm-product-rating">
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
@@ -63,16 +61,16 @@
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                     </div>
-                                                    <h6 class="tm-product-price">$99.99 <del>$120.00</del></h6>
+                                                    <h6 class="tm-product-price"> {{ product.price | money_with_currency }}
+                                                      {% if product.compare_at_price -%}
+                                                        <del>{{ product.compare_at_price | money_with_currency }}</del>
+                                                      {%- endif %}</h6>
                                                 </div>
                                             </div>
                                         </div>
                                         <!--// Single Product -->
                                       {% endfor %}
                                        
-
-
-
                                     </div>
                                 </div>
                                 <div class="tm-pagination mt-50">
