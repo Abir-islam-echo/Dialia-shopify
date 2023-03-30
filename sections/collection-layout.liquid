@@ -129,6 +129,9 @@
                                      
                                         <ul>
                                          {% for collection in collections %}
+                                           {% if forloop.index<=10 %}
+                                           {% break %}
+                                             {% endif %}
                                         <li><a href="{{ collection.url }}">{{ collection.title }} <span>{{ collection.products_count }}</span></a></li>
                                         {% endfor %}
                                         </ul>
