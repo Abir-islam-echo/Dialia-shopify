@@ -262,7 +262,7 @@
                                     <h5 class="widget-title">Categories</h5>
                                     <ul>
                                       {% for collection in collections %}
-                                        <li><a href="#">{{ collection.title }} <span>{{ collection.products_count }}</span></a></li>
+                                        <li><a href="{{ collection.url }}">{{ collection.title }} <span>{{ collection.products_count }}</span></a></li>
                                         {% endfor %}
                                     </ul>
                                 </div>
