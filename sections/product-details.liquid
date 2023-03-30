@@ -1,18 +1,5 @@
 {% assign current_product = product %}
-
 <!-- Breadcrumb Area -->
-{% for current_tag in current_product.tags %}
-  
-{% for sample_product in collections["all"].products %}
-  
-{% for tag in product.tags %}
-  {% if current_tag == tag %}
-       <h4>{{ current_tag }}</h4>
-  {% endif %}
-{% endfor %}
-{% endfor %}
-{% endfor %}
-
 
         <div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{{ "breadcrumb-bg.jpg" | asset_url }}"
             data-black-overlay="4">
@@ -222,7 +209,7 @@
                                     class="tm-similliar-products-slider tm-slider-arrow tm-slider-arrow-hovervisible row">
                                     <!-- Single Product -->
                                   {% for current_tag in current_product.tags %}
-                                    {% for product in collection.products %}
+                                    {% for product in collections["all"].products %}
                                       {% for tag in product.tags %}
                                         {% if current_tag == tag %}
                                           <div class="col-12">
