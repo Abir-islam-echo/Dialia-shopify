@@ -7,7 +7,6 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Products</a></li>
-                        <li>{{ product.title }}</li>
                     </ul>
                 </div>
             </div>
@@ -23,15 +22,14 @@
                             <div class="tm-prodetails">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
-
                                         <!-- Product Details Images -->
                                         <div class="tm-prodetails-images">
                                             <div class="tm-prodetails-largeimages">
                                                 <div class="tm-prodetails-largeimage">
                                                     <a data-fancybox="tm-prodetails-imagegallery"
-                                                        href="assets/images/product/product-image-1.jpg"
+                                                        href="{{ product.featured_image | image_url }}"
                                                         data-caption="Product Zoom Image 1">
-                                                        <img src="assets/images/product/product-image-1.jpg"
+                                                        <img src="{{ product.featured_image | image_url }}"
                                                             alt="product image">
                                                     </a>
                                                 </div>
