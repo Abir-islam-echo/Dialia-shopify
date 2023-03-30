@@ -4,12 +4,12 @@
 {% for current_tag in current_product.tags %}
   
 {% for sample_product in collections["all"].products %}
-  <h4>{{ current_tag }}</h4>
-<!-- {% for tag in product.tags %}
+  
+{% for tag in product.tags %}
   {% if current_tag == tag %}
-       
+       <h4>{{ current_tag }}</h4>
   {% endif %}
-{% endfor %} -->
+{% endfor %}
 {% endfor %}
 {% endfor %}
 
