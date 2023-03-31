@@ -314,7 +314,7 @@
 
 
                           
-<script>
+<script defer>
   fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
