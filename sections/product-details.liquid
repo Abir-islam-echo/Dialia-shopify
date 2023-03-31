@@ -321,7 +321,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
     if (products.length > 0) {
       console.log(products)
       products.forEach(simillar_product=>{
-        console.log(simillar_product)
+        console.log(simillar_product.title)
         let element=`<div class="col-12">
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
