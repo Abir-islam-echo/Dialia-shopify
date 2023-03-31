@@ -320,8 +320,9 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
   .then(({ products }) => {
     if (products.length > 0) {
       console.log(products)
-      console.log(document.querySelector(".tm-similliar-products-slider"))
-      let element=`<div class="col-12">
+      
+      products.forEach(product=>{
+        let element=`<div class="col-12">
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
                                                     <a class="tm-product-imagelink" href="{{ product.url }}">
@@ -354,6 +355,8 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
                                             </div>
                                         </div>`
       document.querySelector(".tm-similliar-products-slider").insertAdjacentHTML('beforeend',element)
+      
+      })
       
     }
   }
