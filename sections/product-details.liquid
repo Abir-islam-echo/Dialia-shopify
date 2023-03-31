@@ -300,7 +300,7 @@
                                     <h5 class="widget-title">Size Options</h5>
                                     <ul>
                                       {% for variant in product.variants %}
-                                        <li><a href="#">{{ variant.title }}</a></li>
+                                        <li><a href="{{ variant.url }}">{{ variant.title }}</a></li>
                                         {% endfor %}
                                         
 
