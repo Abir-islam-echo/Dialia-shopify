@@ -320,6 +320,7 @@
   .then(({ products }) => {
     if (products.length > 0) {
       const simillar_products = products 
+      setTimeout(()=>{console.log( document.querySelector(".tm-similliar-products-slider"))},1000)
       console.log( document.querySelector(".tm-similliar-products-slider"))
       simillar_products.forEach(product=>{
         
