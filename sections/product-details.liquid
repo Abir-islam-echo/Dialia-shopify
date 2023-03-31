@@ -326,7 +326,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
                                                     <a class="tm-product-imagelink" href="${sproduct.url}">
-                                                        <img src="${sproduct.featured_image | image_url}"
+                                                        <img src="${sproduct.featured_image}"
                                                             alt="product image">
                                                     </a>
                                                     <ul class="tm-product-actions">
@@ -347,7 +347,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                     </div>
-                                                    <h6 class="tm-product-price"> ${sproduct.price | money_with_currency }
+                                                    <h6 class="tm-product-price"> ${sproduct.price}
                                                       </h6>
                                                 </div>
                                             </div>
