@@ -321,44 +321,10 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
     if (products.length > 0) {
       console.log(products)
       
-      products.forEach(simillar_product=>{
-        let element=`<div class="col-12">
-                                            <div class="tm-product">
-                                                <div class="tm-product-image">
-                                                    <a class="tm-product-imagelink" href="{{ simillar_product.url }}">
-                                                        <img src="{{ simillar_product.featured_image | image_url }}"
-                                                            alt="product image">
-                                                    </a>
-                                                    <ul class="tm-product-actions">
-                                                        <li><button type="button" data-fancybox
-                                                                data-src="#tm-product-quickview"><i
-                                                                    class="zmdi zmdi-eye"></i></button></li>
-                                                        <li><a href="cart.html"><i class="zmdi zmdi-shopping-cart"></i></a>
-                                                        </li>
-                                                        <li><a href="cart.html"><i class="zmdi zmdi-favorite"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="tm-product-content">
-                                                    <h5 class="tm-product-title"><a href="product-details.html">{{ simillar_product.title }}</a></h5>
-                                                    <div class="tm-product-rating">
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                    </div>
-                                                    <h6 class="tm-product-price"> {{ simillar_product.price | money_with_currency }}
-                                                      {% if simillar_product.compare_at_price -%}
-                                                        <del>{{ simillar_product.compare_at_price | money_without_currency }}</del>
-                                                      {%- endif %}</h6>
-                                                </div>
-                                            </div>
-                                        </div>`
-      document.querySelector(".tm-similliar-products-slider").insertAdjacentHTML('beforeend',element)
       
-      })
       
     }
   }
 );
+</script>
 
