@@ -1733,7 +1733,7 @@ input[type=radio]:checked ~ label::before {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  color: #ffffff;
+  color: #ffffff !important;
   border: 1px solid #0075b7;
   z-index: 1;
   vertical-align: middle;
