@@ -311,7 +311,9 @@
     background: #f7e3e3 !important;
   }
 {% endstyle %}
-{% assign p = "s" %}
+
+
+                          
 <script>
   fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
   .then(response => response.json())
@@ -319,7 +321,8 @@
     if (products.length > 0) {
       const simillar_products = products 
       simillar_products.forEach(product=>{
-        document.querySelector(".tm-similliar-products-slider").insertAdjacentHtml('beforeend',<div class="col-12">
+        console.log( document.querySelector(".tm-similliar-products-slider"))
+        document.querySelector(".tm-similliar-products-slider").insertAdjacentHTML('beforeend',<div class="col-12">
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
                                                     <a class="tm-product-imagelink" href="{{ product.url }}">
