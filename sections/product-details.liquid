@@ -93,8 +93,9 @@
                                             <div class="tm-prodetails-tags">
                                                 <h6>Tags :</h6>
                                                 <ul>
-                                                    <li><a href="shop.html">Electronic</a></li>
-                                                    <li><a href="shop.html">Smartwatch</a></li>
+                                                  {% for tag in product.tags %}
+                                                    <li><a href="#">{{ tag }}</a></li>
+                                                  {% endfor %}
                                                 </ul>
                                             </div>
 
