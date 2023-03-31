@@ -315,8 +315,7 @@
 
                           
 <script>
-  console.log("products")
-fetch(window.Shopify.routes.root + "recommendations/products.json?product_id=1234567890123&limit=4&intent=related")
+fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
