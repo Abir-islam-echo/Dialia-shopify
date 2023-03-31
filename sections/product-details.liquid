@@ -320,8 +320,9 @@
   .then(({ products }) => {
     if (products.length > 0) {
       const simillar_products = products 
+      console.log( document.querySelector(".tm-similliar-products-slider"))
       simillar_products.forEach(product=>{
-        console.log( document.querySelector(".tm-similliar-products-slider"))
+        
         document.querySelector(".tm-similliar-products-slider").insertAdjacentHTML('beforeend',<div class="col-12">
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
