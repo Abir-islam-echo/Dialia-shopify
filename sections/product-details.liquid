@@ -321,6 +321,19 @@
     if (products.length > 0) {
       console.log(products)
       console.log(document.querySelector(".tm-similliar-products-slider"))
+  }
+);
+
+</script>
+
+
+<script>
+  fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
+  .then(response => response.json())
+  .then(({ products }) => {
+    if (products.length > 0) {
+      console.log(products)
+      console.log(document.querySelector(".tm-similliar-products-slider"))
       const simillar_products = products 
       setTimeout(()=>{
         console.log( document.querySelector(".tm-similliar-products-slider"))
@@ -367,4 +380,4 @@
   }
 );
 
-</script>
+/* </script> */
