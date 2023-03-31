@@ -314,20 +314,20 @@
 
 
                           
-<script defer>
-  fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
+<script>
+fetch(window.Shopify.routes.root + "recommendations/products.json?product_id=1234567890123&limit=4&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
       console.log(products)
-      console.log(document.querySelector(".tm-similliar-products-slider"))
+    }
   }
 );
 
 </script>
 
 
-<script>
+<!-- <script>
   fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
@@ -380,4 +380,4 @@
   }
 );
 
-/* </script> */
+</script> -->
