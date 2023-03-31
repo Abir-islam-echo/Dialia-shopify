@@ -63,7 +63,7 @@
                                                 <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                 <span class="active"><i class="zmdi zmdi-star"></i></span>
                                             </div>
-                                            <p class="tm-prodetails-availability">{% if product.available %}<span class='stock-status stocked'>out of Stock</span>{% else %}<span class='stock-status stock-out'>out of Stock</span>{% endif %}</p>
+                                            <p class="tm-prodetails-availability">{% if product.available %}<span class='stock-status stocked'>In Stock</span>{% else %}<span class='stock-status stock-out'>Out of Stock</span>{% endif %}</p>
                                             <div class="tm-prodetails-price">
                                                 <span>{% if product.compare_at_price -%}
                                                         <del>{{ product.compare_at_price | money_without_currency }}</del>
@@ -331,8 +331,9 @@
     justify-content: center;
   }
   .stocked{
-    color: #df0d0d !important;
-    background: green;
+    color: #1e6410 !important;
+    background: #d9ebd9;
+}
   }
   .stock-out{
     color: #df0d0d !important;
