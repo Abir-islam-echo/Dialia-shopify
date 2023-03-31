@@ -357,10 +357,12 @@
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
-      console.log(products)
+      
       {% assign simillar_products = products %}
+      console.log(simillar_products)
     }
   }
 );
 
 </script>
+
