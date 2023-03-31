@@ -79,9 +79,12 @@
                                             <div class="tm-prodetails-quantitycart">
                                               {% form 'product', product %}
                                                 <div class="form-wrapper">
-                                                   <div class="tm-quantitybox">
+                                                  <div class="selector">
+                                                    <div class="tm-quantitybox">
                                                       <input type="text" value="1">
+                                                    </div>
                                                   </div>
+                                                   
                                                   <input type="submit" class="tm-button tm-button-dark" value="Add To Cart">
                                                 </div>
                                                   
@@ -349,5 +352,14 @@
   }
 {% endstyle %}
 
-{% javascript %}
-{% endjavascript %}
+<script>
+  fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
+  .then(response => response.json())
+  .then(({ products }) => {
+    if (products.length > 0) {
+      console.log(products)
+    }
+  }
+);
+
+</script>
