@@ -4695,8 +4695,6 @@ button.tm-videobutton:hover span {
 .tm-product-image img {
   display: block;
   width: 100%;
-  min-height:400px;
-  max-height:400px;
 }
 .sale-tag{
     margin: 10px 0;
