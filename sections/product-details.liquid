@@ -315,13 +315,13 @@
 
                           
 <script>
-fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
+fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
       console.log(products)
       
-      products.forEach(simillar_product=>{
+      products.forEach((simillar_product)=>{
         let element=`<div class="col-12">
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
