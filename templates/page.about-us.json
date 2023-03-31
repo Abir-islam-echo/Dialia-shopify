@@ -1,12 +1,12 @@
 {
   "sections": {
-    "about": {
+    "main": {
       "type": "about-us-layout",
       "settings": {
       }
     }
   },
   "order": [
-    "about"
+    "main"
   ]
 }
