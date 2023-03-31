@@ -351,17 +351,18 @@
     background: #f7e3e3 !important;
   }
 {% endstyle %}
-
+{% assign p = "s" %}
 <script>
   fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
-      {% assign simillar_products = products %}
-      console.log(simillar_products)
+      const simillar_products = products 
+      {{ p }}= simillar_products
+
     }
   }
 );
 
 </script>
-
+                              <h4>dasd{{ p }}</h4>
