@@ -319,6 +319,8 @@
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
+      console.log(products)
+      console.log(document.querySelector(".tm-similliar-products-slider"))
       const simillar_products = products 
       setTimeout(()=>{
         console.log( document.querySelector(".tm-similliar-products-slider"))
