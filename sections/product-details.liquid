@@ -322,7 +322,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
       console.log(products)
       products.forEach(sproduct=>{
         console.log(sproduct)
-        const element=`<div class="col-12">
+        const element=`<div class="col-12 slick-slide slick-cloned">
                                             <div class="tm-product">
                                                 <div class="tm-product-image">
                                                     <a class="tm-product-imagelink" href="${sproduct.url}">
