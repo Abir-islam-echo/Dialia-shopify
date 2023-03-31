@@ -320,6 +320,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
   .then(({ products }) => {
     if (products.length > 0) {
       console.log(products)
+      console.log(document.querySelector(".tm-similliar-products-slider"))
     }
   }
 );
