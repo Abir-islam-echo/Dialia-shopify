@@ -348,9 +348,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
                                                         <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                     </div>
                                                     <h6 class="tm-product-price"> ${sproduct.price | money_with_currency }
-                                                      {% if sproduct.compare_at_price -%}
-                                                        <del>${sproduct.compare_at_price | money_without_currency }</del>
-                                                      {%- endif %}</h6>
+                                                      </h6>
                                                 </div>
                                             </div>
                                         </div>`
@@ -364,4 +362,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
   }
 );
 </script>
+<!-- {% if sproduct.compare_at_price -%}
+                                                        <del>${sproduct.compare_at_price | money_without_currency }</del>
+                                                      {%- endif %} -->
 
