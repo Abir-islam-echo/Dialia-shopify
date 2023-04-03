@@ -246,7 +246,7 @@
                                     <h5 class="widget-title">Popular Product</h5>
                                     <ul>
                                        {% for collection in product.collections %}
-                                         {% assign products = collection.products  %}
+                                         {% assign products = collection.products | sort: "best-selling" %}
                                          {% for product in products  %}
                                            <h1>{{ product.price }}</h1>
                                            {% endfor %}
