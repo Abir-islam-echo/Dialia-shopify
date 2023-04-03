@@ -254,7 +254,7 @@
                                                       alt="product thumbnail">
                                               </a>
                                               <div class="widget-popularproduct-content">
-                                                  <h6><a href="{{ product.url }}">Brown liquid inside</a></h6>
+                                                  <h6><a href="{{ product.url }}">{{ product.title }}</a></h6>
                                                   <span> {{ product.price | money_with_currency }}
                                                         {% if product.compare_at_price -%}
                                                           <del>{{ product.compare_at_price | money_without_currency }}</del>
