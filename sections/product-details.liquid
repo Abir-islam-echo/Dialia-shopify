@@ -246,7 +246,7 @@
                                     <h5 class="widget-title">Popular Product</h5>
                                     <ul>
 <!--                                       {% assign products = collection.default_sort_by %}  -->
-                                      {% assign products = collections.vans.products | sort: 'best-selling' %}
+                                      {% assign products = collections.vans.products | sort_by: 'best-selling' %}
                                       {% for product in products  %}
                                         <li>
                                             <a href="{{ product.url }}" class="widget-popularproduct-image">
