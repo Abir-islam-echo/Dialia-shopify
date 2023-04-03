@@ -251,7 +251,7 @@
                                             {% endif %}
                                          {% assign products = collection.products | sort: "best-selling" %}
                                          {% for product in products  %}
-                                           {% increment variable %}
+                                           {% capture _ %}{% increment variable %}{% endcapture %}
                                            {% if variable>=4 %}
                                              {% break %}
                                             {% endif %}
@@ -261,7 +261,7 @@
                                                       alt="product thumbnail">
                                               </a>
                                               <div class="widget-popularproduct-content">
-                                                  <h6><a href="{{ product.url }}">{{ product.title }} {{ variable }}</a></h6>
+                                                  <h6><a href="{{ product.url }}">{{ product.title }}</a></h6>
                                                   <span> {{ product.price | money_with_currency }}
                                                         {% if product.compare_at_price -%}
                                                           <del>{{ product.compare_at_price | money_without_currency }}</del>
