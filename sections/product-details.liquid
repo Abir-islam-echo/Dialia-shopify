@@ -247,7 +247,7 @@
                                     <ul>
 <!--                                       {% assign products = collection.default_sort_by %}  -->
                                       {% assign products = all_products | sort: 'price' %}
-                                      {% for product in products  %}
+                                      {% for product in all_products  %}
                                         <li>
                                             <a href="{{ product.url }}" class="widget-popularproduct-image">
                                                 <img src="{{ product.featured_image | image_url }}"
