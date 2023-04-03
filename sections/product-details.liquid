@@ -321,6 +321,9 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
   .then(({ products }) => {
     if (products.length > 0) {
       console.log(products)
+       {% for collection in product.collections %}
+                                        console.log(collection)
+                                        {% endfor %}
       products.forEach(sproduct=>{
         console.log(sproduct)
         const element=` 
