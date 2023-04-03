@@ -246,7 +246,7 @@
                                     <h5 class="widget-title">Popular Product</h5>
                                     <ul>
                                        {% for collection in product.collections %}
-                                        <h1>{{ collection.title }}</h1>
+                                        <h1>{{ collection.all_products_count }}</h1>
                                         {% endfor %}
 
                                       {% for product in collections.vans.products  %}
