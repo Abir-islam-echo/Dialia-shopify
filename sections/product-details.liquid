@@ -245,7 +245,7 @@
                                 <div class="single-widget widget-popularproduct">
                                     <h5 class="widget-title">Popular Product</h5>
                                     <ul>
-                                      {% assign products = collections.all.products | sort_by: 'best-selling' %} 
+                                      {% assign products = collection.default_sort_by %} 
                                       {% for product in products %}
                                         <li>
                                             <a href="{{ product.url }}" class="widget-popularproduct-image">
