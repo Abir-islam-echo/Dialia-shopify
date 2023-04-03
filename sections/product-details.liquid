@@ -246,9 +246,15 @@
                                     <h5 class="widget-title">Popular Product</h5>
                                     <ul>
                                        {% for collection in product.collections %}
+                                         {% if variable>=4 %}
+                                             {% break %}
+                                            {% endif %}
                                          {% assign products = collection.products | sort: "best-selling" %}
                                          {% for product in products  %}
                                            {% increment variable %}
+                                           {% if variable>=4 %}
+                                             {% break %}
+                                            {% endif %}
                                            <li>
                                               <a href="{{ product.url }}" class="widget-popularproduct-image">
                                                   <img src="{{ product.featured_image | image_url }}"
