@@ -104,7 +104,7 @@
                                                 <h6>Tags :</h6>
                                                 <ul>
                                                   {% for tag in product.tags %}
-                                                    <li><a href="#">{{ tag }}</a></li>
+                                                    <li>{{ tag | link_to_tag : tag }}</li>
                                                   {% endfor %}
                                                 </ul>
                                             </div>
