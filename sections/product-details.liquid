@@ -328,9 +328,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
-      console.log(products)
       products.forEach(sproduct=>{
-        console.log(sproduct)
         const element=` 
                         <div class="col-12 slick-slide slick-cloned" style="width: 270px;" tabindex="-1" data-slick-index="-2" aria-hidden="true">
                                         <div class="tm-product">
@@ -359,7 +357,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
                                         </div>
                                     </div>`
       
-      document.querySelector(".tm-similliar-products-slider").insertAdjacentHTML('beforeend',element)
+      document.querySelector(".tm-similliar-products-slider.tm-slider-arrow.tm-slider-arrow-hovervisible.row").insertAdjacentHTML('beforeend',element)
       
       })
       
