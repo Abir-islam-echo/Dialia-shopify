@@ -325,6 +325,8 @@
 
                           
 <script>
+  console.log("hi")
+  console.log(document.querySelector('.nice-select'))
 fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
