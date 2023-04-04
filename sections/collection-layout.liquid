@@ -141,18 +141,18 @@
 
                                     <!-- Single Widget -->
                                     <div class="single-widget widget-popularproduct">
-                                        <h5 class="widget-title">Popular Product</h5>
+                                        <h5 class="widget-title">Popular Products</h5>
                                         <ul>
 
 
                                        {% for collection in collections %}
-                                         {% if variable>=4 %}
+                                         {% if variable>=6 %}
                                              {% break %}
                                             {% endif %}
                                          {% assign products = collection.products | sort: "best-selling" %}
                                          {% for product in products  %}
                                            {% capture _ %}{% increment variable %}{% endcapture %}
-                                           {% if variable>=4 %}
+                                           {% if variable>=6 %}
                                              {% break %}
                                             {% endif %}
                                            <li>
