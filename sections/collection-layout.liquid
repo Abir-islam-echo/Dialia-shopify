@@ -143,22 +143,35 @@
                                     <div class="single-widget widget-popularproduct">
                                         <h5 class="widget-title">Popular Product</h5>
                                         <ul>
-                                          {% for product in section.settings.collection-id.products %}
-                                            <li>
-                                                <a href="{{ product.url }}" class="widget-popularproduct-image">
-                                                    <img src="{{ product.featured_image | image_url }}"
-                                                        alt="product thumbnail">
-                                                </a>
-                                                <div class="widget-popularproduct-content">
-                                                    <h6><a href="{{ product.url }}">{{ product.title }}</a></h6>
-                                                    <span> {{ product.price | money_with_currency }}
-                                                      {% if product.compare_at_price -%}
-                                                        <del>{{ product.compare_at_price | money_without_currency }}</del>
-                                                      {%- endif %}</span>
 
-                                                </div>
-                                            </li>
-                                            {% endfor %}                                       
+
+                                       {% for collection in product.collections %}
+                                         {% if variable>=4 %}
+                                             {% break %}
+                                            {% endif %}
+                                         {% assign products = collection.products | sort: "best-selling" %}
+                                         {% for product in products  %}
+                                           {% capture _ %}{% increment variable %}{% endcapture %}
+                                           {% if variable>=4 %}
+                                             {% break %}
+                                            {% endif %}
+                                           <li>
+                                              <a href="{{ product.url }}" class="widget-popularproduct-image">
+                                                  <img src="{{ product.featured_image | image_url }}"
+                                                      alt="product thumbnail">
+                                              </a>
+                                              <div class="widget-popularproduct-content">
+                                                  <h6><a href="{{ product.url }}">{{ product.title }}</a></h6>
+                                                  <span> {{ product.price | money_with_currency }}
+                                                        {% if product.compare_at_price -%}
+                                                          <del>{{ product.compare_at_price | money_without_currency }}</del>
+                                                        {%- endif %}</span>
+                                              </div>
+                                          </li>
+                                           {% endfor %}    
+                                        {% endfor %}
+                                          
+                                                                              
                                         </ul>
                                     </div>
                                     <!--// Single Widget -->
