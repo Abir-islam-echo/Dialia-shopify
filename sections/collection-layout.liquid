@@ -34,6 +34,9 @@
                                 <div class="tm-shop-products">
                                     <div class="row mt-30-reverse">
                                     {%  for product in collection.products %}
+                                      {% if forloop.index>=12 %}
+                                        {% break %}
+                                        {% endif %}
                                        <!-- Single Product -->
                                         <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-30">
                                             <div class="tm-product">
