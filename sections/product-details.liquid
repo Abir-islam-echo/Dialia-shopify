@@ -274,29 +274,17 @@
                                 </div>
                                 <!--// Single Widget -->
                                 {% for option in product.options_with_values %}
-                                <!-- Single Widget -->
-                                <div class="single-widget widget-size">
-                                    <h5 class="widget-title">{{ option.name }}</h5>
-                                    <ul>
-                                      {% for value in option.values %}
-                                        <li><a href="{{ value.url }}">{{ value }}</a></li>
-                                        {% endfor %}
-                                        
-
-                                    </ul>
-                                </div>
-                                <!--// Single Widget -->
+                                    <!-- Single Widget -->
+                                    <div class="single-widget widget-size">
+                                        <h5 class="widget-title">{{ option.name }}</h5>
+                                        <ul>
+                                          {% for value in option.values %}
+                                            <li><a href="{{ value.url }}">{{ value }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <!--// Single Widget -->
                                   {% endfor %}
-<!--                                   <div class="single-widget widget-size">
-                                    <h5 class="widget-title">Size Options</h5>
-                                    <ul>
-                                      {% for variant in product.variants %}
-                                        <li><a href="{{ variant.url }}">{{ variant.title }}</a></li>
-                                        {% endfor %}
-                                        
-
-                                    </ul>
-                                </div> -->
                             </div>
                         </div>
                     </div>
