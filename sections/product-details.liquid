@@ -278,8 +278,8 @@
                                 <div class="single-widget widget-size">
                                     <h5 class="widget-title">{{ option.name }}</h5>
                                     <ul>
-                                      {% for variant in product.variants %}
-                                        <li><a href="{{ variant.url }}">{{ variant.title }}</a></li>
+                                      {% for value in option.values %}
+                                        <li><a href="{{ value.url }}">{{ value }}</a></li>
                                         {% endfor %}
                                         
 
