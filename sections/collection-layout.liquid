@@ -204,10 +204,11 @@
 <script>
   
   console.log("hi Abir")
-   document.querySelector('#sorting-collection').addEventListener('change', ()=>{
-   console.log( document.querySelector('#sorting-collection').options[document.querySelector('#sorting-collection').selectedIndex].value;)
-      const sortOption =  document.querySelector('#sorting-collection').options[document.querySelector('#sorting-collection').selectedIndex].value;
-     console.log(sortOption)
+  const select=document.qurySelector('#sorting-collection');
+  select.addEventListener('change',()=>{
+    console.log(select)
+  })
+
 
  });
   
