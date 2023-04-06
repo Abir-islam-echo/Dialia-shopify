@@ -207,7 +207,7 @@
 <script>
   var select=document.querySelector('#sorting-collection');
   select.onchange=(e)=>{
-    location.href=location.href+'?sort_by='+e.target.value
+    location.href=location.origin+location.pathname+'?sort_by='+e.target.value
   }
 
 </script>
