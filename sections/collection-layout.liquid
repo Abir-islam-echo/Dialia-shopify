@@ -36,51 +36,50 @@
                                 </div>
                                 <div class="tm-shop-products">
                                     <div class="row mt-30-reverse">
-                                    {%  for product in collections.all.products %}
-                                      {% if forloop.index>=12 %}
-                                        {% break %}
-                                        {% endif %}
-                                       <!-- Single Product -->
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-30">
-                                            <div class="tm-product">
-                                                <div class="tm-product-image">
-                                                    <a class="tm-product-imagelink" href="{{ product.url }}">
-                                                        <img src="{{ product.featured_image | image_url }}"
-                                                            alt="product image">
-                                                    </a>
-                                                    <ul class="tm-product-actions">
-                                                        <li><button type="button" data-fancybox
-                                                                data-src="#tm-product-quickview"><i
-                                                                    class="zmdi zmdi-eye"></i></button></li>
-                                                        <li><a href="cart.html"><i
-                                                                    class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                        <li><a href="cart.html"><i class="zmdi zmdi-favorite"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="tm-product-content">
-                                                    <h5 class="tm-product-title"><a
-                                                            href="{{ product.url }}">{{ product.title }}</a></h5>
-                                                    <div class="tm-product-rating">
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                                      {% paginate collection.products by 5 %}
+                                        {%  for product in collections.all.products %}
+                                          
+                                           <!-- Single Product -->
+                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-30">
+                                                <div class="tm-product">
+                                                    <div class="tm-product-image">
+                                                        <a class="tm-product-imagelink" href="{{ product.url }}">
+                                                            <img src="{{ product.featured_image | image_url }}"
+                                                                alt="product image">
+                                                        </a>
+                                                        <ul class="tm-product-actions">
+                                                            <li><button type="button" data-fancybox
+                                                                    data-src="#tm-product-quickview"><i
+                                                                        class="zmdi zmdi-eye"></i></button></li>
+                                                            <li><a href="cart.html"><i
+                                                                        class="zmdi zmdi-shopping-cart"></i></a></li>
+                                                            <li><a href="cart.html"><i class="zmdi zmdi-favorite"></i></a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
-                                                    <h6 class="tm-product-price"> {{ product.price | money_with_currency }}
-                                                      {% if product.compare_at_price -%}
-                                                        <del>{{ product.compare_at_price | money_without_currency }}</del>
-                                                      {%- endif %}</h6>
-                                                      {% if product.compare_at_price %}
-                                                        <span class="sale-tag"> Sale!! </span>
-                                                      {% endif %}
+                                                    <div class="tm-product-content">
+                                                        <h5 class="tm-product-title"><a
+                                                                href="{{ product.url }}">{{ product.title }}</a></h5>
+                                                        <div class="tm-product-rating">
+                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
+                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
+                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
+                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
+                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
+                                                        </div>
+                                                        <h6 class="tm-product-price"> {{ product.price | money_with_currency }}
+                                                          {% if product.compare_at_price -%}
+                                                            <del>{{ product.compare_at_price | money_without_currency }}</del>
+                                                          {%- endif %}</h6>
+                                                          {% if product.compare_at_price %}
+                                                            <span class="sale-tag"> Sale!! </span>
+                                                          {% endif %}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!--// Single Product -->
+                                            <!--// Single Product -->
                                       {% endfor %}
-                                       
+                                      {% endpaginate %}
                                     </div>
                                 </div>
                                 <div class="tm-pagination mt-50">
