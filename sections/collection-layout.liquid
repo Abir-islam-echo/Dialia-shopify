@@ -23,7 +23,7 @@
                             <div class="sticky-sidebar">
                                 <div action="#" class="tm-shop-header">
                                     <p class="tm-shop-countview">Showing {{ collection.all_products_count }} products </p>
-                                    <select>
+                                    <select id='sorting-collection'>
                                         <option value="value">Default Sorting</option>
                                         <option value="value">Name A-Z</option>
                                         <option value="value">Date</option>
@@ -203,6 +203,8 @@
 
 <script>
   console.log("hi Abir")
+  console.log( document.querySelector('#sorting-collection').options[select.selectedIndex].value;)
+ 
 
   // observer
     const targetNode = document.querySelector(".tm-shop-header");
@@ -216,12 +218,4 @@
     observer.observe(targetNode, config);
   
   // observer
-  
-  // setTimeout(()=>{
-  //                 document.querySelector('.nice-select').addEventListener('change',()=>{
-  //                   console.log(document.querySelector('.nice-select .current').textContent)
-  //                 })
-  //                },500)
-
-  
 </script>
