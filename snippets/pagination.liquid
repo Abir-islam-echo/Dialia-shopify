@@ -1,5 +1,5 @@
 {%- if paginate.pages > 1 -%}
-  <nav role="navigation {{ page }}">
+  <nav role="navigation" class="{{ page }}-page">
     <ul class="pagination">
       {%- if paginate.previous-%}
         <li>
