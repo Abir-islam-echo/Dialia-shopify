@@ -202,12 +202,26 @@
 
 
 <script>
-  console.log("hi")
-  setTimeout(()=>{
-                  document.querySelector('.nice-select').addEventListener('change',()=>{
-                    console.log(document.querySelector('.nice-select .current').textContent)
-                  })
-                 },500)
-  console.log(document.querySelector('.nice-select'))
+  console.log("hi Abir")
+
+  // observer
+    const targetNode = document.querySelector(".tm-shop-header");
+    const config = { attributes: true, childList: true, subtree: true };
+
+    const callback = (mutationList, observer) => {
+      console.log(document.querySelector('.nice-select .current').textContent)
+    };
+    
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+  
+  // observer
+  
+  // setTimeout(()=>{
+  //                 document.querySelector('.nice-select').addEventListener('change',()=>{
+  //                   console.log(document.querySelector('.nice-select .current').textContent)
+  //                 })
+  //                },500)
+
   
 </script>
