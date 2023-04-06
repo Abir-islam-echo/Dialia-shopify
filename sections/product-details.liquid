@@ -86,7 +86,7 @@
                                                     <div class="variant-wrapper">
                                                      {% for option in product.options_with_values %}
                                                        <div class="single-variant">
-                                                         <p class="widget-title">{{ option.name }}</p>
+                                                         <p>{{ option.name }}:</p>
                                                          <select>
                                                             {% for value in option.values %}
                                                               <option value="{{ value }}">{{ value }}</option>
@@ -331,14 +331,14 @@
 }
 .single-variant{
   display: flex;
-  gap: 5px;
+  gap: 10px;
     flex: 1;
     align-items: center;
 }
 .single-variant p{
   margin: 0 ;
   padding: 0;
-  font-size: 12px;
+
 }
   .stock-status{
     padding:0 10px;
