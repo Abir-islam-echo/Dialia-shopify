@@ -79,17 +79,17 @@
                                             </div>
                                             <!--// Single Product -->
                                       {% endfor %}
+                                        <div class="tm-pagination mt-50">
+                                          <ul>
+                                              <li><a href="{{ paginate.previous }}">&lt; Prev</a></li>
+                                              <li class="is-active"><a href="{{ paginate.current_page }}">1</a></li>
+                                              <li><a href="{{ paginate.page_param }}">2</a></li>
+                                              <li><a href="{{ paginate.page_param }}">3</a></li>
+                                              <li><a href="{{ paginate.next }}">Next &gt;</a></li>
+                                          </ul>
+                                </div>
                                       {% endpaginate %}
                                     </div>
-                                </div>
-                                <div class="tm-pagination mt-50">
-                                    <ul>
-                                        <li><a href="{{ paginate.previous }}">&lt; Prev</a></li>
-                                        <li class="is-active"><a href="{{ paginate.current_page }}">1</a></li>
-                                        <li><a href="{{ paginate.page_param }}">2</a></li>
-                                        <li><a href="{{ paginate.page_param }}">3</a></li>
-                                        <li><a href="{{ paginate.next }}">Next &gt;</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
