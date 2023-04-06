@@ -206,7 +206,7 @@
 
   // observer
     const targetNode = document.querySelector(".tm-shop-header");
-    const config = { attributes: true, childList: true, subtree: true };
+    const config = { childList: true, subtree: true };
 
     const callback = (mutationList, observer) => {
       console.log(document.querySelector('.nice-select .current').textContent)
