@@ -80,10 +80,10 @@
                                             <!--// Single Product -->
                                       {% endfor %}
                                         <div class="tm-pagination mt-50">
-                                          <ul>
+                                          
                                             {%- if paginate.pages > 1 -%}
                                               <nav role="navigation">
-                                                <ol class="pagination">
+                                                <ul class="pagination">
                                                   {%- if paginate.previous-%}
                                                     <li>
                                                       <a href="{{ paginate.previous.url }}">
@@ -131,7 +131,7 @@
                                                       <span aria-hidden="true">&raquo;</span>
                                                     </li>
                                                   {%- endif -%}
-                                                </ol>
+                                                </ul>
                                               </nav>
                                             {%- endif -%}
 <!--                                               <li><a href="{{ paginate.previous }}">&lt; Prev</a></li>
@@ -139,7 +139,7 @@
                                               <li><a href="{{ paginate.page_param }}">2</a></li>
                                               <li><a href="{{ paginate.page_param }}">3</a></li>
                                               <li><a href="{{ paginate.next }}">Next &gt;</a></li> -->
-                                          </ul>
+                                          
                                         </div>
                                       {% endpaginate %}
                                     </div>
