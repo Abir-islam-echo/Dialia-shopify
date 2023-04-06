@@ -212,6 +212,7 @@
     // console.log(e.target.value)
     let params = new URLSearchParams(location.href.search);
     params.append("sort_by", e.target.value);
+    location.href=location.href+'?'+e.target.value
   }
 
 </script>
