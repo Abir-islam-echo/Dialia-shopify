@@ -214,7 +214,13 @@
     const config = { childList: true, subtree: true };
 
     const callback = (mutationList, observer) => {
-      console.log(document.querySelector('.nice-select .current').textContent)
+      // console.log(document.querySelector('.nice-select .current').textContent)
+      var sortOption = document.querySelector('.nice-select .current').textContent; 
+      var url = window.location.href; var baseUrl = url.split('?')[0]; 
+      var query = url.split('?')[1]; 
+      var params = new URLSearchParams(query); 
+      params.set('sort_by', sortOption); 
+      window.location.href = baseUrl + '?' + params.toString();
     };
     
     const observer = new MutationObserver(callback);
