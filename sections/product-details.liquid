@@ -81,7 +81,14 @@
                                            
                                             <div class="tm-prodetails-quantitycart">
                                               {% form 'product', product %}
-                                                <div class="form-wrapper">
+                                                <div class="cart-form-wrapper">
+                                                  {% if product.variant.available %}
+                                                    <div class="variant-wrapper">
+                                                    
+                                                    </div>
+                                                    {% endif %}
+                                                  
+                                                  <div class="add-to-cart-wrapper">
                                                   <div class="selector">
                                                     <div class="tm-quantitybox">
                                                       <input type="text" value="1">
@@ -89,6 +96,7 @@
                                                   </div>
                                                    
                                                   <input type="submit" class="tm-button tm-button-dark" value="Add To Cart">
+                                                </div>
                                                 </div>
                                                   
                                               {% endform %}
@@ -304,6 +312,9 @@
 {% endschema %}
 
 {% style %}
+  .add-to-cart-wrapper,.cart-form-wrapper{
+  display: flex;
+}
   .stock-status{
     padding:0 10px;
     border-radius: 5px;
