@@ -205,13 +205,9 @@
   console.log("hi Abir")
    document.querySelector('#sorting-collection').onchange = ()=>{
    // console.log( document.querySelector('#sorting-collection').options[document.querySelector('#sorting-collection').selectedIndex].value;)
-      var sortOption = document.querySelector('#sorting-collection').options[document.querySelector('#sorting-collection').selectedIndex].value;
+      var sortOption = document.querySelector('#sorting-collection').value;
      console.log(sortOption)
- //      var url = window.location.href; var baseUrl = url.split('?')[0]; 
- //      var query = url.split('?')[1]; 
- //      var params = new URLSearchParams(query); 
- //      params.set('sort_by', sortOption); 
- //      window.location.href = baseUrl + '?' + params.toString();
+
  };
   
  
