@@ -24,11 +24,14 @@
                                 <div action="#" class="tm-shop-header">
                                     <p class="tm-shop-countview">Showing {{ collection.all_products_count }} products </p>
                                     <select id='sorting-collection'>
-                                        <option value="value">Default Sorting</option>
-                                        <option value="value">Name A-Z</option>
-                                        <option value="value">Date</option>
-                                        <option value="value">Best Sellers</option>
-                                        <option value="value">Trending</option>
+                                        <option value="manual">Default Sorting</option>
+                                        <option value="title-ascending">Name A-Z</option>
+                                        <option value="title-descending">Name Z-A</option>
+                                        <option value="price-ascending">Price Low-High</option>
+                                        <option value="price-descending">Price High-Low</option>
+                                        <option value="best-seller">Best Selleing</option>
+                                        <option value="created-descending">Newest</option>
+                                        <option value="created-ascending">Oldest</option>
                                     </select>
                                 </div>
                                 <div class="tm-shop-products">
@@ -206,7 +209,7 @@
   console.log("hi Abir")
   var select=document.querySelector('#sorting-collection');
   select.onchange=(e)=>{
-    console.log(e.target.options[e.target.selectedIndex])
+    console.log(e.target.value)
   }
 
 </script>
