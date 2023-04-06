@@ -80,7 +80,7 @@
                                             <!--// Single Product -->
                                       {% endfor %}
                                         <div class="tm-pagination mt-50">
-                                          {% render 'pagination', paginate: paginate %}  
+                                          {% render 'pagination', paginate: paginate, page: page.title %}  
                                         </div>
                                       {% endpaginate %}
                                     </div>
