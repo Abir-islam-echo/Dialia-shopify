@@ -376,7 +376,8 @@
 
   // jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
   fetch('https://abirs-development-account.myshopify.com/products/{{ product.title }}.js')
-  .then((response) => {
+  .then((response) => response.json())
+  .then((data) => {
     console.log(response)
   });
   
