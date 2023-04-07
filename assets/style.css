@@ -1823,9 +1823,9 @@ button.tm-button.tm-button-dark::after {
 .tm-button.tm-button-white,
 a.tm-button.tm-button-white,
 button.tm-button.tm-button-white {
-  background: #ffffff;
+/*   background: #ffffff;
   border-color: #ffffff;
-  color: #444444;
+  color: #444444; */
 }
 
 .tm-button.tm-button-white::before,
