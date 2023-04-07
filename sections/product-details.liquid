@@ -80,7 +80,7 @@
                                             
                                            
                                             <div class="tm-prodetails-quantitycart">
-                                              {% form 'product', product %}
+                                              {% form 'product', product, data-product-id="{{ product.id }}" %}
                                                 <div class="cart-form-wrapper">
                                                   {% if product.variants %}
                                                     <div class="variant-wrapper">
