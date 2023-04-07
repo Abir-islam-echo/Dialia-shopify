@@ -94,7 +94,9 @@
                                                          </select>
                                                        </div>
                                                     {% endfor %}
-                                                                                                      <select name="id">
+                                                                                                      
+                                                    </div>
+                                                  <select name="id">
   {% for variant in product.variants %}
     <option value="{{ variant.id }}"
       {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
@@ -103,7 +105,6 @@
     </option>
   {% endfor %}
 </select>
-                                                    </div>
                                                     {% endif %}
 
                                                   <div class="add-to-cart-wrapper">
