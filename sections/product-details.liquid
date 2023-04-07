@@ -380,7 +380,7 @@
       const response = await fetch('https://abirs-development-account.myshopify.com/products/{{ product.handle }}.json'); 
       const jsonData = await response.json();
       const current_product  = jsonData.product
-      // const variants = current_product.variants
+      const variants = current_product.variants
       // console.log(variants)
       variants.forEach((variant)=>{
         console.log(variant.title)
