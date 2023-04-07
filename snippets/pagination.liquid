@@ -23,7 +23,7 @@
           </li>
         {%- else -%}
           {%- if part.title == paginate.current_page -%}
-            <li class="active" aria-current="page">
+            <li class="is-active" aria-current="page">
               <span class="visuallyhidden">page</span> {{ part.title }}
             </li>
           {%- else -%}
