@@ -98,7 +98,7 @@
                                                     </div>
                                                   
                                                     {% endif %}
-                                                <select name="id">
+<!--   <select name="id">
   {% for variant in product.variants %}
     <option value="{{ variant.id }}"
       {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
@@ -107,7 +107,7 @@
     </option>
   {% endfor %}
 </select>
-
+ -->
                                                   <div class="add-to-cart-wrapper">
                                                   <div class="selector">
                                                     <div class="tm-quantitybox">
@@ -373,7 +373,13 @@
 
                           
 <script>
-  jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
+  // jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
+  fetch(`https://abirs-development-account.myshopify.com/products/{{ product.title }}.js`)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+  });
+  
   console.log("hi")
   console.log(document.querySelector('.nice-select'))
 fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
