@@ -375,12 +375,12 @@
 <script>
 
   // jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
-  fetch('https://abirs-development-account.myshopify.com/products/{{ product.title }}.js')
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data)
-  });
-  
+    async function checkCartAndAdd(vId) { 
+      const response = await fetch('https://abirs-development-account.myshopify.com/products/{{ product.title }}.json'); 
+      const jsonData = await response.json(); 
+      console.log(jsonData)
+    } 
+  }
   console.log("hi")
 
 fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
