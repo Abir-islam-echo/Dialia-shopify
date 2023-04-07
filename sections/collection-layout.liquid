@@ -23,16 +23,21 @@
                             <div class="sticky-sidebar">
                                 <div action="#" class="tm-shop-header">
                                     <p class="tm-shop-countview">Showing {{ collection.all_products_count }} products </p>
-                                    <select id='sorting-collection'>
-                                        <option value="manual">Default Sorting</option>
-                                        <option value="title-ascending">Name A-Z</option>
-                                        <option value="title-descending">Name Z-A</option>
-                                        <option value="price-ascending">Price Low-High</option>
-                                        <option value="price-descending">Price High-Low</option>
-                                        <option value="best-selling">Best Selleing</option>
-                                        <option value="created-descending">Newest</option>
-                                        <option value="created-ascending">Oldest</option>
-                                    </select>
+                                    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+                                        <select id='sorting-collection'>
+                                        {%- for option in collection.sort_options %}
+                                          <option
+                                            value="{{ option.value }}"
+                                            {%- if option.value == sort_by %}
+                                              selected="selected"
+                                            {%- endif %}
+                                          >
+                                            {{ option.name }}
+                                          </option>
+                                        {% endfor -%}
+                                        </select>
+                                    
                                 </div>
                                 <div class="tm-shop-products">
                                     <div class="row mt-30-reverse">
