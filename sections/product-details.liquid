@@ -89,7 +89,7 @@
                                                          <p>{{ option.name }}:</p>
                                                          <select>
                                                             {% for value in option.values %}
-                                                              <option value="{{ value }}">{{ value }}</option>
+                                                              <option name="{{ option.name }}" value="{{ value }}">{{ value }}</option>
                                                               {% endfor %}
                                                          </select>
                                                        </div>
