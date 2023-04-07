@@ -51,8 +51,7 @@
                                 </div>
                                 <div class="tm-shop-products">
                                     <div class="row mt-30-reverse">
-                                      {% paginate collection.products by 12 %}
-                                        {%  for product in collections.all.products %}
+                                       {%  for product in collections.all.products %}
                                           
                                            <!-- Single Product -->
                                             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-30">
@@ -94,6 +93,8 @@
                                             </div>
                                             <!--// Single Product -->
                                       {% endfor %}
+                                      {% paginate collection.products by 12 %}
+                                       
                                         <div class="tm-pagination mt-50">
                                           {% render 'pagination', paginate: paginate, page:'collection' %}  
                                         </div>
