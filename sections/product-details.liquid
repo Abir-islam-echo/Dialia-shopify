@@ -364,6 +364,7 @@
 
                           
 <script>
+  jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
   console.log("hi")
   console.log(document.querySelector('.nice-select'))
 fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
