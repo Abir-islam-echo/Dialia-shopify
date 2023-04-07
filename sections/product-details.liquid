@@ -246,7 +246,7 @@
                             <div class="tm-similliar-products tm-padding-section-sm-top">
                                 <h3 class="small-title">Similliar Products</h3>
                                 <div class="tm-similliar-products-slider tm-slider-arrow tm-slider-arrow-hovervisible row"> 
-                                  {% include 'product-recommendation' %}                                
+                                  {% section 'product-recommendation' %}                                
                                 </div>
                             </div>
 
@@ -370,52 +370,6 @@
 
 
                           
-<script>
-  console.log("hi")
-  console.log(document.querySelector('.nice-select'))
-fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
-  .then(response => response.json())
-  .then(({ products }) => {
-    if (products.length > 0) {
-      products.forEach(sproduct=>{
-        const element=` 
-                        <div class="col-12 slick-slide slick-cloned" style="width: 270px;" tabindex="-1" data-slick-index="-2" aria-hidden="true">
-                                        <div class="tm-product">
-                                            <div class="tm-product-image">
-                                                <a class="tm-product-imagelink" href="${sproduct.url}" tabindex="-1">
-                                                    <img src="${sproduct.featured_image}" alt="product image">
-                                                </a>
-                                                <ul class="tm-product-actions">
-                                                    <li><button type="button" data-fancybox="" data-src="#tm-product-quickview" tabindex="-1"><i class="zmdi zmdi-eye"></i></button></li>
-                                                    <li><a href="cart.html" tabindex="-1"><i class="zmdi zmdi-shopping-cart"></i></a>
-                                                    </li>
-                                                    <li><a href="cart.html" tabindex="-1"><i class="zmdi zmdi-favorite"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="tm-product-content">
-                                                <h5 class="tm-product-title"><a href="product-details.html" tabindex="-1">${sproduct.title }</a></h5>
-                                                <div class="tm-product-rating">
-                                                    <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                    <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                    <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                    <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                    <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                </div>
-                                                <h6 class="tm-product-price"> ${sproduct.price}</h6>
-                                            </div>
-                                        </div>
-                                    </div>`
-      
-      document.querySelector(".tm-similliar-products-slider.tm-slider-arrow.tm-slider-arrow-hovervisible.row").insertAdjacentHTML('beforeend',element)
-      
-      })
-      
-      
-      
-    }
-  }
-);
-</script>
 
 
 
