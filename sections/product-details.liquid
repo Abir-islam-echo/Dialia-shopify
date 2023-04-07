@@ -96,15 +96,24 @@
                                                     {% endfor %}
                                                     </div>
                                                     {% endif %}
-                                                  
+                                                  <select name="id">
+  {% for variant in product.variants %}
+    <option value="{{ variant.id }}"
+      {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+    >
+      {{ variant.title }} - {{ variant.price | money }}
+    </option>
+  {% endfor %}
+</select>
                                                   <div class="add-to-cart-wrapper">
                                                   <div class="selector">
                                                     <div class="tm-quantitybox">
-                                                      <input type="text" value="1">
+                                                      <input type="text" name="quantity" min="1" value="1">
                                                     </div>
                                                   </div>
                                                    
                                                   <input type="submit" class="tm-button tm-button-dark" value="Add To Cart">
+                                                    	{{ form | payment_button }}
                                                 </div>
                                                 </div>
                                                   
