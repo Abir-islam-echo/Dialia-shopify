@@ -378,10 +378,9 @@
     const getProductJson= async()=> { 
       const response = await fetch('https://abirs-development-account.myshopify.com/products/{{ product.handle }}.json'); 
       const jsonData = await response.json(); 
-      console.log(jsonData.product)
     } 
-  getProductJson();
-  console.log("hi")
+  const current_product = getProductJson().product;
+  console.log(current_product)
 
 fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
   .then(response => response.json())
