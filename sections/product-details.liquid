@@ -87,7 +87,7 @@
                                                      {% for option in product.options_with_values %}
                                                        <div class="single-variant">
                                                          <p>{{ option.name }}:</p>
-                                                         <select>
+                                                         <select form={{ form.id }}>
                                                             {% for value in option.values %}
                                                               <option name="{{ option.name }}" value="{{ value }}">{{ value }}</option>
                                                               {% endfor %}
