@@ -375,13 +375,14 @@
 <script>
 
   // jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
+  let current_product 
     const getProductJson= async()=> { 
       const response = await fetch('https://abirs-development-account.myshopify.com/products/{{ product.handle }}.json'); 
       const jsonData = await response.json();
-      console.log(jsonData)
-      return jsonData
+      current_product = jsonData
+      
     } 
-  const current_product = getProductJson();
+   getProductJson();
   console.log(current_product)
 
 fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
