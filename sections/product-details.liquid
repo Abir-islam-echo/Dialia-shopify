@@ -57,7 +57,7 @@
                       <img
                         src="{{ image | image_url }}"
                         alt="product image"
-                      >
+                      > 
                     </div>
                   {% endfor %}
                 </div>
@@ -112,17 +112,21 @@
                           {% endfor %}
                         </div>
                       {% endif %}
-                      <!--
                         <select name="id">
                           {% for variant in product.variants %}
-                            <option value="{{ variant.id }}"
-                              {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                            <option
+                              value="{{ variant.id }}"
+                              {% if variant == product.selected_or_first_available_variant %}
+                                selected="selected"
+                              {% endif %}
                             >
                               {{ variant.title }} - {{ variant.price | money }}
                             </option>
                           {% endfor %}
                         </select>
-                      -->
+                     
+                     
+
                       <div class="add-to-cart-wrapper">
                         <div class="selector">
                           <div class="tm-quantitybox">
