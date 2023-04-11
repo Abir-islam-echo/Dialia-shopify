@@ -1,402 +1,475 @@
 {% assign current_product = product %}
 {% for filter in collection.filters %}
   <h4>hjkn,{{ filter }}</h4>
-  {% endfor %}
+{% endfor %}
 
 <!-- Breadcrumb Area -->
 
-        <div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{{ "breadcrumb-bg.jpg" | asset_url }}"
-            data-black-overlay="4">
-            <div class="container">
-                <div class="tm-breadcrumb text-center">
-                    <h2>Product Details</h2>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html">Products</a></li>
-                        <li><a href="shop.html">{{ product.title }}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--// Breadcrumb Area -->
+<div
+  class="tm-breadcrumb-area tm-padding-section"
+  data-bgimage="{{ "breadcrumb-bg.jpg" | asset_url }}"
+  data-black-overlay="4"
+>
+  <div class="container">
+    <div class="tm-breadcrumb text-center">
+      <h2>Product Details</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Products</a></li>
+        <li>
+          <a href="shop.html">{{ product.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- // Breadcrumb Area -->
 
-
-        <!-- Product Details Area -->
-            <div class="tm-section product-details-area bg-white tm-padding-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <div class="tm-prodetails">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <!-- Product Details Images -->
-                                        <div class="tm-prodetails-images">
-                                            <div class="tm-prodetails-largeimages">            
-                                              {% for image in product.images %}
-                                                <div class="tm-prodetails-largeimage">
-                                                    <a data-fancybox="tm-prodetails-imagegallery"
-                                                        href="{{ image | image_url }}"
-                                                        data-caption="Product Zoom Image 1">
-                                                        <img src="{{ image | image_url }}"
-                                                            alt="product image">
-                                                    </a>                        
-                                                </div>
-                                              {% endfor %}
-                                               
-                                            </div>
-                                            <div class="tm-prodetails-thumbnails">
-                                              {% for image in product.images %}
-                                                <div class="tm-prodetails-thumbnail">
-                                                    <img src="{{ image | image_url }}"
-                                                        alt="product image">
-                                                </div>
-                                                {% endfor %}
-                                                
-                                            </div>
-                                        </div>
-                                        <!--// Product Details Images -->
-
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="tm-prodetails-content">
-                                            <h3 class="tm-prodetails-title">{{ product.title }}</h3>
-                                            <div class="tm-rating">
-                                                <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                            </div>
-                                            <p class="tm-prodetails-availability">{% if product.available %}<span class='stock-status stocked'>In Stock</span>{% else %}<span class='stock-status stock-out'>Out of Stock</span>{% endif %}</p>
-                                            <div class="tm-prodetails-price">
-                                                <span>{% if product.compare_at_price -%}
-                                                        <del>{{ product.compare_at_price | money_without_currency }}</del>
-                                                      {%- endif %}
-                                                      {{ product.price | money_with_currency }}
-                                                      </span>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mi dolor, malesuada id metus a, mattis eleifend elit. Nullam pharetra consequat ex in dapibus. Vestibulum ante.</p>
-                                            
-                                           
-                                            <div class="tm-prodetails-quantitycart">
-                                              {% form 'product', product %}
-                                                <div class="cart-form-wrapper">
-                                                  {% if product.variants %}
-                                                    <div class="variant-wrapper">
-                                                     {% for option in product.options_with_values %}
-                                                       <div class="single-variant">
-                                                         <p>{{ option.name }}:</p>
-                                                         <select form="{{ form.id }}">
-                                                            {% for value in option.values %}
-                                                              <option name="{{ option.name }}" value="{{ value }}">{{ value }}</option>
-                                                              {% endfor %}
-                                                         </select>
-                                                       </div>
-                                                    {% endfor %}
-                                                                                                      
-                                                    </div>
-                                                  
-                                                    {% endif %}
-<!--   <select name="id">
-  {% for variant in product.variants %}
-    <option value="{{ variant.id }}"
-      {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
-    >
-      {{ variant.title }} - {{ variant.price | money }}
-    </option>
-  {% endfor %}
-</select>
- -->
-                                                  <div class="add-to-cart-wrapper">
-                                                  <div class="selector">
-                                                    <div class="tm-quantitybox">
-                                                      <input type="text" name="quantity" min="1" value="1">
-                                                    </div>
-                                                  </div>
-                                                   
-                                                  <input type="submit" class="tm-button tm-button-dark" value="Add To Cart">
-                                                </div>
-                                                </div>
-                                                  
-                                              {% endform %}
-                                            </div>
-
-                                            <div class="tm-prodetails-categories">
-                                                <h6>Categories :</h6>
-                                                <ul>
-                                                  {% for collection in product.collections %}
-                                                    <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-
-                                            <div class="tm-prodetails-tags">
-                                                <h6>Tags :</h6>
-                                                <ul>
-                                                  {% for tag in product.tags %}
-                                                    <li>{{ tag | link_to_tag : tag }}</li>
-                                                  {% endfor %}
-                                                </ul>
-                                            </div>
-
-                                            <div class="tm-prodetails-share">
-                                                <h6>Share :</h6>
-                                                <ul>
-                                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product Details Description & Review -->
-                            <div class="tm-prodetails-desreview tm-padding-section-sm-top">
-                                <ul class="nav tm-tabgroup2" id="prodetails" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="prodetails-area1-tab" data-toggle="tab"
-                                            href="#prodetails-area1" role="tab" aria-controls="prodetails-area1"
-                                            aria-selected="true">Description</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="prodetails-area2-tab" data-toggle="tab"
-                                            href="#prodetails-area2" role="tab" aria-controls="prodetails-area2"
-                                            aria-selected="false">Reviews
-                                            (1)</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="prodetails-content">
-                                    <div class="tab-pane fade show active" id="prodetails-area1" role="tabpanel"
-                                        aria-labelledby="prodetails-area1-tab">
-                                        <div class="tm-prodetails-description">
-                                            {{ product.description }}
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="prodetails-area2" role="tabpanel"
-                                        aria-labelledby="prodetails-area2-tab">
-                                        <div class="tm-prodetails-review">
-                                            <h5 class="text-uppercase">1 Review For Cosmetology Essential oil</h5>
-                                            <div class="tm-comment-wrapper mb-50">
-                                                <!-- Comment Single -->
-                                                <div class="tm-comment">
-                                                    <div class="tm-comment-thumb">
-                                                        <img src="assets/images/authors/author-image-1.jpg"
-                                                            alt="author image">
-                                                    </div>
-                                                    <div class="tm-comment-content">
-                                                        <h6 class="tm-comment-authorname"><a href="#">Kareem Todd</a>
-                                                        </h6>
-                                                        <span class="tm-comment-date">Wednesday, October 17, 2018 at
-                                                            4:00PM.</span>
-                                                        <div class="tm-rating">
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                            sed do
-                                                            eiusmod
-                                                            tempor incididunt ut labore dolore magna aliqua. Ut enim ad
-                                                            minim
-                                                            veniam.</p>
-                                                    </div>
-                                                </div>
-                                                <!--// Comment Single -->
-                                            </div>
-
-                                            <h5 class="text-uppercase">Add a review</h5>
-                                            <form action="#" class="tm-form">
-                                                <div class="tm-form-inner">
-                                                    <div class="tm-form-field">
-                                                        <div class="tm-rating tm-rating-input">
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span class="active"><i class="zmdi zmdi-star"></i></span>
-                                                            <span><i class="zmdi zmdi-star"></i></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tm-form-field tm-form-fieldhalf">
-                                                        <input type="text" placeholder="Your Name*" required="required">
-                                                    </div>
-                                                    <div class="tm-form-field tm-form-fieldhalf">
-                                                        <input type="Email" placeholder="Your Email*"
-                                                            required="required">
-                                                    </div>
-                                                    <div class="tm-form-field">
-                                                        <textarea name="product-review" cols="30" rows="5"
-                                                            placeholder="Your Review"></textarea>
-                                                    </div>
-                                                    <div class="tm-form-field">
-                                                        <button type="submit" class="tm-button">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--// Product Details Description & Review -->
-
-                            <div class="tm-similliar-products tm-padding-section-sm-top">
-                                <h3 class="small-title">Similliar Products</h3>
-                                <div class="tm-similliar-products-slider tm-slider-arrow tm-slider-arrow-hovervisible row"> 
-                                                           
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="widgets sidebar-widgets3 sticky-sidebar">
-
-                                <!-- Single Widget -->
-                                <div class="single-widget widget-categories">
-                                    <h5 class="widget-title">Categories</h5>
-                                    <ul>
-                                      {% for collection in collections %}
-                                        {% if forloop.index>=10 %}
-                                           {% break %}
-                                             {% endif %}
-                                        <li><a href="{{ collection.url }}">{{ collection.title }} <span>{{ collection.products_count }}</span></a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <!--// Single Widget -->
-
-                                <!-- Single Widget -->
-                                <div class="single-widget widget-popularproduct">
-                                    <h5 class="widget-title">Popular Product</h5>
-                                    <ul>
-                                       {% for collection in product.collections %}
-                                         {% if variable>=4 %}
-                                             {% break %}
-                                            {% endif %}
-                                         {% assign products = collection.products | sort: "best-selling" %}
-                                         {% for product in products  %}
-                                           {% capture _ %}{% increment variable %}{% endcapture %}
-                                           {% if variable>=4 %}
-                                             {% break %}
-                                            {% endif %}
-                                           <li>
-                                              <a href="{{ product.url }}" class="widget-popularproduct-image">
-                                                  <img src="{{ product.featured_image | image_url }}"
-                                                      alt="product thumbnail">
-                                              </a>
-                                              <div class="widget-popularproduct-content">
-                                                  <h6><a href="{{ product.url }}">{{ product.title }}</a></h6>
-                                                  <span> {{ product.price | money_with_currency }}
-                                                        {% if product.compare_at_price -%}
-                                                          <del>{{ product.compare_at_price | money_without_currency }}</del>
-                                                        {%- endif %}</span>
-                                              </div>
-                                          </li>
-                                           {% endfor %}    
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <!--// Single Widget -->
-                                {% for option in product.options_with_values %}
-                                    <!-- Single Widget -->
-                                    <div class="single-widget widget-size">
-                                        <h5 class="widget-title">{{ option.name }}</h5>
-                                        <ul>
-                                          {% for value in option.values %}
-                                            <li><a href="{{ value.url }}">{{ value }}</a></li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                    <!--// Single Widget -->
-                                  {% endfor %}
-                            </div>
-                        </div>
+<!-- Product Details Area -->
+<div class="tm-section product-details-area bg-white tm-padding-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="tm-prodetails">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-12">
+              <!-- Product Details Images -->
+              <div class="tm-prodetails-images">
+                <div class="tm-prodetails-largeimages">
+                  {% for image in product.images %}
+                    <div class="tm-prodetails-largeimage">
+                      <a
+                        data-fancybox="tm-prodetails-imagegallery"
+                        href="{{ image | image_url }}"
+                        data-caption="Product Zoom Image 1"
+                      >
+                        <img
+                          src="{{ image | image_url }}"
+                          alt="product image"
+                        >
+                      </a>
                     </div>
+                  {% endfor %}
                 </div>
+                <div class="tm-prodetails-thumbnails">
+                  {% for image in product.images %}
+                    <div class="tm-prodetails-thumbnail">
+                      <img
+                        src="{{ image | image_url }}"
+                        alt="product image"
+                      >
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <!-- // Product Details Images -->
             </div>
-            <!--// Product Details Area -->
 
+            <div class="col-lg-6 col-md-6 col-12">
+              <div class="tm-prodetails-content">
+                <h3 class="tm-prodetails-title">{{ product.title }}</h3>
+                <div class="tm-rating">
+                  <span class="active"><i class="zmdi zmdi-star"></i></span>
+                  <span class="active"><i class="zmdi zmdi-star"></i></span>
+                  <span class="active"><i class="zmdi zmdi-star"></i></span>
+                  <span class="active"><i class="zmdi zmdi-star"></i></span>
+                  <span class="active"><i class="zmdi zmdi-star"></i></span>
+                </div>
+                <p class="tm-prodetails-availability">
+                  {% if product.available -%}
+                    <span class="stock-status stocked">In Stock</span>
+                  {%- else -%}
+                    <span class="stock-status stock-out">Out of Stock</span>
+                  {%- endif %}
+                </p>
+                <div class="tm-prodetails-price">
+                  <span>
+                    {%- if product.compare_at_price -%}
+                      <del>{{ product.compare_at_price | money_without_currency }}</del>
+                    {%- endif %}
+                    {{ product.price | money_with_currency }}
+                  </span>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mi dolor, malesuada id metus a,
+                  mattis eleifend elit. Nullam pharetra consequat ex in dapibus. Vestibulum ante.
+                </p>
+
+                <div class="tm-prodetails-quantitycart">
+                  {% form 'product', product %}
+                    <div class="cart-form-wrapper">
+                      {% if product.variants %}
+                        <div class="variant-wrapper">
+                          {% for option in product.options_with_values %}
+                            <div class="single-variant">
+                              <p>{{ option.name }}:</p>
+                              <select id="{{ option.name }}-selector">
+                                {% for value in option.values %}
+                                  <option name="{{ option.name }}" value="{{ value }}">{{ value }}</option>
+                                {% endfor %}
+                              </select>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                      <!--
+                        <select name="id">
+                          {% for variant in product.variants %}
+                            <option value="{{ variant.id }}"
+                              {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                            >
+                              {{ variant.title }} - {{ variant.price | money }}
+                            </option>
+                          {% endfor %}
+                        </select>
+                      -->
+                      <div class="add-to-cart-wrapper">
+                        <div class="selector">
+                          <div class="tm-quantitybox">
+                            <input type="text" name="quantity" min="1" value="1">
+                          </div>
+                        </div>
+
+                        <input type="submit" class="tm-button tm-button-dark" value="Add To Cart">
+                      </div>
+                    </div>
+                  {% endform %}
+                </div>
+
+                <div class="tm-prodetails-categories">
+                  <h6>Categories :</h6>
+                  <ul>
+                    {% for collection in product.collections %}
+                      <li>
+                        <a href="{{ collection.url }}">{{ collection.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+
+                <div class="tm-prodetails-tags">
+                  <h6>Tags :</h6>
+                  <ul>
+                    {% for tag in product.tags %}
+                      <li>{{ tag | link_to_tag: tag }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+
+                <div class="tm-prodetails-share">
+                  <h6>Share :</h6>
+                  <ul>
+                    <li>
+                      <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Details Description & Review -->
+        <div class="tm-prodetails-desreview tm-padding-section-sm-top">
+          <ul class="nav tm-tabgroup2" id="prodetails" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="prodetails-area1-tab"
+                data-toggle="tab"
+                href="#prodetails-area1"
+                role="tab"
+                aria-controls="prodetails-area1"
+                aria-selected="true"
+                >Description</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="prodetails-area2-tab"
+                data-toggle="tab"
+                href="#prodetails-area2"
+                role="tab"
+                aria-controls="prodetails-area2"
+                aria-selected="false"
+                >Reviews (1)</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content" id="prodetails-content">
+            <div
+              class="tab-pane fade show active"
+              id="prodetails-area1"
+              role="tabpanel"
+              aria-labelledby="prodetails-area1-tab"
+            >
+              <div class="tm-prodetails-description">
+                {{ product.description }}
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="prodetails-area2"
+              role="tabpanel"
+              aria-labelledby="prodetails-area2-tab"
+            >
+              <div class="tm-prodetails-review">
+                <h5 class="text-uppercase">1 Review For Cosmetology Essential oil</h5>
+                <div class="tm-comment-wrapper mb-50">
+                  <!-- Comment Single -->
+                  <div class="tm-comment">
+                    <div class="tm-comment-thumb">
+                      <img
+                        src="assets/images/authors/author-image-1.jpg"
+                        alt="author image"
+                      >
+                    </div>
+                    <div class="tm-comment-content">
+                      <h6 class="tm-comment-authorname"><a href="#">Kareem Todd</a></h6>
+                      <span class="tm-comment-date">Wednesday, October 17, 2018 at 4:00PM.</span>
+                      <div class="tm-rating">
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                      </div>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                    </div>
+                  </div>
+                  <!-- // Comment Single -->
+                </div>
+
+                <h5 class="text-uppercase">Add a review</h5>
+                <form action="#" class="tm-form">
+                  <div class="tm-form-inner">
+                    <div class="tm-form-field">
+                      <div class="tm-rating tm-rating-input">
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span class="active"><i class="zmdi zmdi-star"></i></span>
+                        <span><i class="zmdi zmdi-star"></i></span>
+                      </div>
+                    </div>
+                    <div class="tm-form-field tm-form-fieldhalf">
+                      <input type="text" placeholder="Your Name*" required="required">
+                    </div>
+                    <div class="tm-form-field tm-form-fieldhalf">
+                      <input
+                        type="Email"
+                        placeholder="Your Email*"
+                        required="required"
+                      >
+                    </div>
+                    <div class="tm-form-field">
+                      <textarea
+                        name="product-review"
+                        cols="30"
+                        rows="5"
+                        placeholder="Your Review"
+                      ></textarea>
+                    </div>
+                    <div class="tm-form-field">
+                      <button type="submit" class="tm-button">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- // Product Details Description & Review -->
+
+        <div class="tm-similliar-products tm-padding-section-sm-top">
+          <h3 class="small-title">Similliar Products</h3>
+          <div class="tm-similliar-products-slider tm-slider-arrow tm-slider-arrow-hovervisible row"></div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="widgets sidebar-widgets3 sticky-sidebar">
+          <!-- Single Widget -->
+          <div class="single-widget widget-categories">
+            <h5 class="widget-title">Categories</h5>
+            <ul>
+              {% for collection in collections %}
+                {% if forloop.index >= 10 %}
+                  {% break %}
+                {% endif %}
+                <li>
+                  <a href="{{ collection.url }}">
+                    {{- collection.title }}
+                    <span>{{ collection.products_count }}</span></a
+                  >
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <!-- // Single Widget -->
+
+          <!-- Single Widget -->
+          <div class="single-widget widget-popularproduct">
+            <h5 class="widget-title">Popular Product</h5>
+            <ul>
+              {% for collection in product.collections %}
+                {% if variable >= 4 %}
+                  {% break %}
+                {% endif %}
+                {% assign products = collection.products | sort: 'best-selling' %}
+                {% for product in products %}
+                  {% capture _ %}{% increment variable %}{% endcapture %}
+                  {% if variable >= 4 %}
+                    {% break %}
+                  {% endif %}
+                  <li>
+                    <a href="{{ product.url }}" class="widget-popularproduct-image">
+                      <img
+                        src="{{ product.featured_image | image_url }}"
+                        alt="product thumbnail"
+                      >
+                    </a>
+                    <div class="widget-popularproduct-content">
+                      <h6>
+                        <a href="{{ product.url }}">{{ product.title }}</a>
+                      </h6>
+                      <span>
+                        {{ product.price | money_with_currency }}
+                        {% if product.compare_at_price -%}
+                          <del>{{ product.compare_at_price | money_without_currency }}</del>
+                        {%- endif -%}
+                      </span>
+                    </div>
+                  </li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
+          <!-- // Single Widget -->
+          {% for option in product.options_with_values %}
+            <!-- Single Widget -->
+            <div class="single-widget widget-size">
+              <h5 class="widget-title">{{ option.name }}</h5>
+              <ul>
+                {% for value in option.values %}
+                  <li>
+                    <a href="{{ value.url }}">{{ value }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <!-- // Single Widget -->
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Product Details Area -->
 
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Section name",
+  "settings": []
+}
 {% endschema %}
 
 {% style %}
-  .tm-quantitybox{
-    width:auto;
+  .tm-quantitybox {
+    width: auto;
   }
-.add-to-cart-wrapper{
-  display: flex;
-}
-  .variant-wrapper{
-  display: flex;
-  gap: 30px;
-  padding-bottom: 30px;
-}
-.single-variant{
-  display: flex;
-  gap: 10px;
+  .add-to-cart-wrapper {
+    display: flex;
+  }
+  .variant-wrapper {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+  .single-variant {
+    display: flex;
+    gap: 10px;
     flex: 1;
     align-items: center;
-}
-.single-variant p{
-  margin: 0 ;
-  padding: 0;
-
-}
-  .stock-status{
-    padding:0 10px;
+  }
+  .single-variant p {
+    margin: 0;
+    padding: 0;
+  }
+  .stock-status {
+    padding: 0 10px;
     border-radius: 5px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
-  .stocked{
+  .stocked {
     color: #1e6410 !important;
     background: #d9ebd9;
-}
+  }
 
-  .stock-out{
+  .stock-out {
     color: #df0d0d !important;
     background: #f7e3e3 !important;
   }
 {% endstyle %}
 
-
-                          
 <script>
-
   // jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
-  
-    const getProductJson= async()=> { 
-      const response = await fetch('https://abirs-development-account.myshopify.com/products/{{ product.handle }}.json'); 
-      const jsonData = await response.json();
-      const current_product  = jsonData.product
-      const variants = current_product.variants
-      // console.log(variants)
-      variants.forEach((variant)=>{
-        console.log(variant.title)
-      })
-      
-    } 
-   getProductJson();
+  const sizeSelector = document.querySelector('#Size-selector');
+  const ColorSelector = document.querySelector('#Color-selector');
+  let current_product;
+  const triggerVariant = () => {
+    const selectedVariant = sizeSelector.value + ' / ' + ColorSelector.value;
+    const matchedVariant = current_product.variants.filter((variant) => {
+      return variant.title == selectedVariant;
+    });
+    if (history.pushState) {
+      var newurl =
+        window.location.protocol +
+        '//' +
+        window.location.host +
+        window.location.pathname +
+        `?variant=${matchedVariant[0].id}`;
+      window.history.pushState({ path: newurl }, '', newurl);
+    }
+  };
 
+  const getProductJson = async () => {
+    const response = await fetch(`${location.href}/{{ product.handle }}.json`);
+    const jsonData = await response.json();
+    current_product = jsonData.product;
+    triggerVariant();
+  };
+  getProductJson();
 
+  sizeSelector.onchange = () => {
+    triggerVariant();
+  };
+  ColorSelector.onchange = () => {
+    triggerVariant();
+  };
 
-fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related")
-  .then(response => response.json())
-  .then(({ products }) => {
-    if (products.length > 0) {
-      products.forEach(sproduct=>{
-        const element=` 
+  fetch(
+    window.Shopify.routes.root + 'recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related'
+  )
+    .then((response) => response.json())
+    .then(({ products }) => {
+      if (products.length > 0) {
+        products.forEach((sproduct) => {
+          const element = ` 
                         <div class="col-12 slick-slide slick-cloned" style="width: 270px;" tabindex="-1" data-slick-index="-2" aria-hidden="true">
                                         <div class="tm-product">
                                             <div class="tm-product-image">
@@ -411,7 +484,7 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
                                                 </ul>
                                             </div>
                                             <div class="tm-product-content">
-                                                <h5 class="tm-product-title"><a href="product-details.html" tabindex="-1">${sproduct.title }</a></h5>
+                                                <h5 class="tm-product-title"><a href="product-details.html" tabindex="-1">${sproduct.title}</a></h5>
                                                 <div class="tm-product-rating">
                                                     <span class="active"><i class="zmdi zmdi-star"></i></span>
                                                     <span class="active"><i class="zmdi zmdi-star"></i></span>
@@ -422,20 +495,12 @@ fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ 
                                                 <h6 class="tm-product-price"> ${sproduct.price}</h6>
                                             </div>
                                         </div>
-                                    </div>`
-      
-      document.querySelector(".tm-similliar-products-slider.tm-slider-arrow.tm-slider-arrow-hovervisible.row").insertAdjacentHTML('beforeend',element)
-      
-      })
-      
-      
-      
-    }
-  }
-);
+                                    </div>`;
+
+          document
+            .querySelector('.tm-similliar-products-slider.tm-slider-arrow.tm-slider-arrow-hovervisible.row')
+            .insertAdjacentHTML('beforeend', element);
+        });
+      }
+    });
 </script>
-
-
-
-
-
