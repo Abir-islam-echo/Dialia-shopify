@@ -45,6 +45,14 @@
       <div class="header-icons">
         <ul>
           <li>
+            <form action="{{ routes.search_url }}">
+              <input type="text"
+                placeholder="Search"
+                name="q"
+                value="{{ search.terms | escape }}"
+             >
+              <input type="submit" value="Search">
+            </form>
             <a href="{{ location.origin }}/cart"><i class="zmdi zmdi-shopping-cart"></i></a>
           </li>
           <li>
