@@ -1,6 +1,5 @@
 {% assign current_product = product %}
 
-
 <!-- Breadcrumb Area -->
 
 <div
@@ -101,9 +100,16 @@
                           {% for option in product.options_with_values %}
                             <div class="single-variant">
                               <p>{{ option.name }}:</p>
-                              <select name="id" id="{{ option.name }}-selector">
+                              <select name="id" id="{{ option.name }}-selector" class="custom-variant-selector">
                                 {% for value in option.values %}
-                                  <option name="{{ option.name }}">{{ value }}</option>
+                                  <option
+                                    name="{{ option.name }}"
+                                    {% if variant == product.selected_or_first_available_variant %}
+                                      selected="selected"
+                                    {% endif %}
+                                  >
+                                    {{ value }}
+                                  </option>
                                 {% endfor %}
                               </select>
                             </div>
@@ -375,6 +381,51 @@
 {% endschema %}
 
 {% style %}
+  #Size-selector,
+  #Color-selector {
+    display: block !important;
+    height: 50px;
+    border-radius: 0;
+    line-height: 48px;
+    padding: 0 15px;
+    width: 100%;
+    border-color: #d2d2d5;
+
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    /* display: block; */
+    float: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    /* height: 42px; */
+    /* line-height: 40px; */
+    outline: 0;
+    /* padding-left: 18px; */
+    position: relative;
+    text-align: left !important;
+    /* -webkit-transition: all .2s ease-in-out; */
+    transition: all 0.2s ease-in-out;
+    /* -webkit-user-select: none; */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  #Size-selector option,
+  #Color-selector option {
+    padding: 0 15px;
+    min-height: auto;
+    line-height: 30px;
+  }
+  .nice-select {
+    display: none !important;
+  }
   .tm-quantitybox {
     width: auto;
   }
@@ -415,7 +466,10 @@
 {% endstyle %}
 
 <script>
-  // jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
+  
+  
+  
+
   let sizeSelector;
   let colorSelector;
   if (document.querySelector('#Size-selector')) {
@@ -426,11 +480,21 @@
   }
 
   let current_product;
+  let selectedVariant;
   const triggerVariant = () => {
-    const selectedVariant = sizeSelector.value + ' / ' + colorSelector.value;
-    const matchedVariant = current_product.variants.filter((variant) => {
+    if (sizeSelector && colorSelector) {
+      selectedVariant = sizeSelector.options[sizeSelector.selectedIndex].text + ' / ' + colorSelector.options[colorSelector.selectedIndex].text;
+    } else if (sizeSelector) {
+      selectedVariant = sizeSelector.options[sizeSelector.selectedIndex].text
+    } else if (colorSelector) {
+      selectedVariant = colorSelector.options[colorSelector.selectedIndex].text;
+    }
+    console.log(selectedVariant);
+
+    let matchedVariant = current_product.variants.filter((variant) => {
       return variant.title == selectedVariant;
     });
+
     if (history.pushState) {
       var newurl =
         window.location.protocol +
@@ -440,6 +504,12 @@
         `?variant=${matchedVariant[0].id}`;
       window.history.pushState({ path: newurl }, '', newurl);
     }
+    document.querySelectorAll('select.custom-variant-selector').forEach((variant) => {
+      Array.from(variant.options).forEach((option) => {
+        option.setAttribute('value', matchedVariant[0].id);
+        {% comment %} option.setAttribute('selected', 'selected'); {% endcomment %}
+      });
+    });
   };
 
   const getProductJson = async () => {
@@ -450,12 +520,18 @@
   };
   getProductJson();
 
-  sizeSelector.onchange = () => {
-    triggerVariant();
-  };
-  colorSelector.onchange = () => {
-    triggerVariant();
-  };
+  if (document.querySelector('#Size-selector')) {
+    sizeSelector.onchange = () => {
+      triggerVariant();
+      console.log(sizeSelector);
+    };
+  }
+  if (document.querySelector('#Color-selector')) {
+    colorSelector.onchange = () => {
+      triggerVariant();
+      console.log(colorSelector);
+    };
+  }
 
   fetch(
     window.Shopify.routes.root + 'recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related'
@@ -498,4 +574,8 @@
         });
       }
     });
+
+
+
+
 </script>
