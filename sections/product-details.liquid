@@ -1,7 +1,5 @@
 {% assign current_product = product %}
-{% for filter in collection.filters %}
-  <h4>hjkn,{{ filter }}</h4>
-{% endfor %}
+
 
 <!-- Breadcrumb Area -->
 
@@ -57,7 +55,7 @@
                       <img
                         src="{{ image | image_url }}"
                         alt="product image"
-                      > 
+                      >
                     </div>
                   {% endfor %}
                 </div>
@@ -103,29 +101,15 @@
                           {% for option in product.options_with_values %}
                             <div class="single-variant">
                               <p>{{ option.name }}:</p>
-                              <select id="{{ option.name }}-selector">
+                              <select name="id" id="{{ option.name }}-selector">
                                 {% for value in option.values %}
-                                  <option name="{{ option.name }}" value="{{ value }}">{{ value }}</option>
+                                  <option name="{{ option.name }}">{{ value }}</option>
                                 {% endfor %}
                               </select>
                             </div>
                           {% endfor %}
                         </div>
                       {% endif %}
-                        <select name="id">
-                          {% for variant in product.variants %}
-                            <option
-                              value="{{ variant.id }}"
-                              {% if variant == product.selected_or_first_available_variant %}
-                                selected="selected"
-                              {% endif %}
-                            >
-                              {{ variant.title }} - {{ variant.price | money }}
-                            </option>
-                          {% endfor %}
-                        </select>
-                     
-                     
 
                       <div class="add-to-cart-wrapper">
                         <div class="selector">
@@ -432,11 +416,18 @@
 
 <script>
   // jQuery.post(window.Shopify.routes.root + 'cart/add.js', $('form[action$="/cart/add"]').serialize());
-  const sizeSelector = document.querySelector('#Size-selector');
-  const ColorSelector = document.querySelector('#Color-selector');
+  let sizeSelector;
+  let colorSelector;
+  if (document.querySelector('#Size-selector')) {
+    sizeSelector = document.querySelector('#Size-selector');
+  }
+  if (document.querySelector('#Color-selector')) {
+    colorSelector = document.querySelector('#Color-selector');
+  }
+
   let current_product;
   const triggerVariant = () => {
-    const selectedVariant = sizeSelector.value + ' / ' + ColorSelector.value;
+    const selectedVariant = sizeSelector.value + ' / ' + colorSelector.value;
     const matchedVariant = current_product.variants.filter((variant) => {
       return variant.title == selectedVariant;
     });
@@ -462,7 +453,7 @@
   sizeSelector.onchange = () => {
     triggerVariant();
   };
-  ColorSelector.onchange = () => {
+  colorSelector.onchange = () => {
     triggerVariant();
   };
 
