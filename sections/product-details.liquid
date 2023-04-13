@@ -468,10 +468,11 @@
 <script>
   
   
-  
-
+  const current_product = {{ product | json }}
+  let selectedVariant;
   let sizeSelector;
   let colorSelector;
+
   if (document.querySelector('#Size-selector')) {
     sizeSelector = document.querySelector('#Size-selector');
   }
@@ -479,8 +480,6 @@
     colorSelector = document.querySelector('#Color-selector');
   }
 
-  let current_product;
-  let selectedVariant;
   const triggerVariant = () => {
     if (sizeSelector && colorSelector) {
       selectedVariant = sizeSelector.options[sizeSelector.selectedIndex].text + ' / ' + colorSelector.options[colorSelector.selectedIndex].text;
@@ -507,31 +506,34 @@
     document.querySelectorAll('select.custom-variant-selector').forEach((variant) => {
       Array.from(variant.options).forEach((option) => {
         option.setAttribute('value', matchedVariant[0].id);
-        {% comment %} option.setAttribute('selected', 'selected'); {% endcomment %}
       });
     });
   };
 
-  const getProductJson = async () => {
-    const response = await fetch(`${location.href}/{{ product.handle }}.json`);
-    const jsonData = await response.json();
-    current_product = jsonData.product;
-    triggerVariant();
-  };
-  getProductJson();
+  triggerVariant();
 
   if (document.querySelector('#Size-selector')) {
     sizeSelector.onchange = () => {
       triggerVariant();
-      console.log(sizeSelector);
     };
   }
   if (document.querySelector('#Color-selector')) {
     colorSelector.onchange = () => {
       triggerVariant();
-      console.log(colorSelector);
     };
   }
+
+    /* const getProductJson = async () => {
+    const response = await fetch(`${location.href}/{{ product.handle }}.json`);
+    const jsonData = await response.json();
+    current_product = jsonData.product;
+  };
+  getProductJson(); */
+
+
+
+
+
 
   fetch(
     window.Shopify.routes.root + 'recommendations/products.json?product_id={{ product.id }}&limit=10&intent=related'
@@ -574,8 +576,6 @@
         });
       }
     });
-
-
 
 
 </script>
