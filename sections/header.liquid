@@ -45,7 +45,7 @@
       <div class="header-icons">
         <ul>
           <li>
-            <form action="{{ routes.search_url }}">
+            <form clas="search-form" action="{{ routes.search_url }}">
               <input type="text"
                 placeholder="Search"
                 name="q"
@@ -82,6 +82,13 @@
   "tag": "section"
 }
 {% endschema %}
+
+<style>
+  .search-form{
+    display:flex;
+    gap:10px
+  }
+</style>
 
 <script>
   //   document.querySelectorAll('.tm-navigation-dropdown').forEach(target=>{
