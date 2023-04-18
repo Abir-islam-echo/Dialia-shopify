@@ -323,18 +323,15 @@
 
 <script>
   
-  
-  
-  
-
   const products={{ collections.all.products | json }}
   document.querySelector('.widget-pricefilter-button').addEventListener('click',()=>{
         let newProducts=[];
         let collectionHtml=``;
         products.forEach((product)=>{
+          console.log(product.url)
           if((product.price/100)>parseInt(document.querySelector('.tm-rangeslider-leftlabel').innerText) && (product.price/100)<parseInt(document.querySelector('.tm-rangeslider-rightlabel').innerText)){
             const price={{ product.price | json }}
-            console.log(price)
+           
               newProducts.push(product)
               let comparePrice=``
               let sale=``;
@@ -346,7 +343,7 @@
               <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-30 fade-in">
                 <div class="tm-product">
                   <div class="tm-product-image">
-                    <a class="tm-product-imagelink" href="${product.url}">
+                    <a class="tm-product-imagelink" href="/products/${product.handle}">
                       <img
                         src="${product.featured_image}"
                         alt="product image"
@@ -379,7 +376,7 @@
                   <div class="tm-product-content">
                     <h5 class="tm-product-title">
                       <a
-                        href="${product.url}"
+                        href="/products/${product.handle}"
                       >
                         ${product.title}
                       </a>
@@ -404,16 +401,12 @@
         })
         document.querySelector('.row.mt-30-reverse').innerHTML=``;
         document.querySelector('.row.mt-30-reverse').insertAdjacentHTML('afterbegin',collectionHtml )
-        console.log('new',newProducts)
+        // console.log('new',newProducts)
   })
 
   document.querySelector('#sorting-collection').onchange = (e) => {
     location.href = location.origin + location.pathname + '?sort_by=' + e.target.value;
   };
-
-
-
-
 
 
 </script>
