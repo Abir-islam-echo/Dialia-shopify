@@ -267,10 +267,149 @@
     display: inline;
     margin: 0 5px;
   }
+  .fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 </style>
 
 <script>
+  
+  
+
+  const products={{ collections.all.products | json }}
+  document.querySelector('.widget-pricefilter-button').addEventListener('click',()=>{
+        let newProducts=[];
+        let collectionHtml=``;
+        products.forEach((product)=>{
+          if((product.price/100)>parseInt(document.querySelector('.tm-rangeslider-leftlabel').innerText) && (product.price/100)<parseInt(document.querySelector('.tm-rangeslider-rightlabel').innerText)){
+            const price={{ product.price | json }}
+            console.log(price)
+              newProducts.push(product)
+              let comparePrice=``
+              let sale=``;
+              if(product.compare_at_price){
+                comparePrice=` <del>${parseFloat(product.compare_at_price/100).toFixed(2)} ${ window.Shopify.currency.active}</del>`
+                sale=`<span class="sale-tag"> Sale!! </span>`
+              }
+              collectionHtml+=`<!-- Single Product -->
+              <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-30 fade-in">
+                <div class="tm-product">
+                  <div class="tm-product-image">
+                    <a class="tm-product-imagelink" href="${product.url}">
+                      <img
+                        src="${product.featured_image}"
+                        alt="product image"
+                      >
+                    </a>
+                    <ul class="tm-product-actions">
+                      <li>
+                        <button
+                          type="button"
+                          data-fancybox
+                          data-src="#tm-product-quickview"
+                        >
+                          <i
+                            class="zmdi zmdi-eye"
+                          ></i>
+                        </button>
+                      </li>
+                      <li>
+                        <a href="cart.html"
+                          ><i
+                            class="zmdi zmdi-shopping-cart"
+                          ></i
+                        ></a>
+                      </li>
+                      <li>
+                        <a href="cart.html"><i class="zmdi zmdi-favorite"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="tm-product-content">
+                    <h5 class="tm-product-title">
+                      <a
+                        href="${product.url}"
+                      >
+                        ${product.title}
+                      </a>
+                    </h5>
+                    <div class="tm-product-rating">
+                      <span class="active"><i class="zmdi zmdi-star"></i></span>
+                      <span class="active"><i class="zmdi zmdi-star"></i></span>
+                      <span class="active"><i class="zmdi zmdi-star"></i></span>
+                      <span class="active"><i class="zmdi zmdi-star"></i></span>
+                      <span class="active"><i class="zmdi zmdi-star"></i></span>
+                    </div>
+                    <h6 class="tm-product-price">
+                      ${parseFloat(product.price/100).toFixed(2)}  ${ window.Shopify.currency.active}
+                      ${comparePrice}
+                    </h6>
+                    ${sale}
+                  </div>
+                </div>
+              </div>
+              <!-- // Single Product -->`
+          }
+        })
+        document.querySelector('.row.mt-30-reverse').innerHTML=``;
+        document.querySelector('.row.mt-30-reverse').insertAdjacentHTML('afterbegin',collectionHtml )
+        console.log('new',newProducts)
+  })
+
   document.querySelector('#sorting-collection').onchange = (e) => {
     location.href = location.origin + location.pathname + '?sort_by=' + e.target.value;
   };
+
+
+
+
 </script>
