@@ -1,7 +1,7 @@
 {%- if paginate.pages > 1 -%}
   <nav role="navigation" class="{{ page }}-page">
     <ul class="pagination">
-      {%- if paginate.previous-%}
+      {%- if paginate['previous-'] %}
         <li>
           <a href="{{ paginate.previous.url }}">
             <span aria-hidden="true">&laquo;</span>
@@ -17,9 +17,7 @@
       {%- for part in paginate.parts -%}
         {%- if part.is_link -%}
           <li>
-            <a href="{{ part.url }}">
-              <span class="visuallyhidden">page</span> {{ part.title }}
-            </a>
+            <a href="{{ part.url }}"> <span class="visuallyhidden">page</span> {{ part.title }} </a>
           </li>
         {%- else -%}
           {%- if part.title == paginate.current_page -%}
@@ -27,9 +25,7 @@
               <span class="visuallyhidden">page</span> <a>{{ part.title }}</a>
             </li>
           {%- else -%}
-            <li>
-              <span class="visuallyhidden">page</span> {{ part.title }}
-            </li>
+            <li><span class="visuallyhidden">page</span> {{ part.title }}</li>
           {%- endif -%}
         {%- endif -%}
       {%- endfor -%}
@@ -43,10 +39,16 @@
         </li>
       {%- else -%}
         <li class="disabled">
-          Next <span class="visuallyhidden">page</span>
+          Next <span class="visuallyhidden new-test-calss">page</span>
           <span aria-hidden="true">&raquo;</span>
         </li>
       {%- endif -%}
     </ul>
   </nav>
 {%- endif -%}
+
+<style>
+  .new-test-calss{
+    display: none;
+  }
+</style>
